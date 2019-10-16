@@ -9,5 +9,5 @@ public class MajApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MajApplication.class, args);
 	}
-	//test Commit
+	
 }
