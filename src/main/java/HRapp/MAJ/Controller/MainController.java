@@ -11,5 +11,9 @@ public class MainController {
 	public String loadLoginPage() {
 		return "loginPage";
 	}
+	@RequestMapping("/tmp")
+	public String showTemplate(){
+		return "template";
+	}
 
 }
