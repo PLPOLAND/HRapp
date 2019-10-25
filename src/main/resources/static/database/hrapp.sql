@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Czas generowania: 20 Paź 2019, 10:34
--- Wersja serwera: 5.7.27-0ubuntu0.18.04.1
--- Wersja PHP: 7.2.19-0ubuntu0.18.04.2
+-- Generation Time: Oct 25, 2019 at 07:56 PM
+-- Server version: 5.7.27-0ubuntu0.18.04.1
+-- PHP Version: 7.2.19-0ubuntu0.18.04.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `hrapp`
+-- Database: `hrapp`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Permissions`
+-- Table structure for table `Permissions`
 --
 
 DROP TABLE IF EXISTS `Permissions`;
@@ -34,23 +34,37 @@ CREATE TABLE `Permissions` (
   `admin` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `Permissions`
+--
+
+INSERT INTO `Permissions` (`ID`, `admin`) VALUES
+(1, 1);
+
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Stanowiska`
+-- Table structure for table `Stanowiska`
 --
 
 DROP TABLE IF EXISTS `Stanowiska`;
 CREATE TABLE `Stanowiska` (
   `ID_s` int(11) NOT NULL,
   `Nazwa` text NOT NULL,
-  `NazwaSkr` text NOT NULL
+  `NazwaSkr` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Stanowiska`
+--
+
+INSERT INTO `Stanowiska` (`ID_s`, `Nazwa`, `NazwaSkr`) VALUES
+(1, 'Programista', 'Prog');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `TypyUmowy`
+-- Table structure for table `TypyUmowy`
 --
 
 DROP TABLE IF EXISTS `TypyUmowy`;
@@ -58,13 +72,20 @@ CREATE TABLE `TypyUmowy` (
   `ID_T` int(11) NOT NULL,
   `nazwaSkr` text NOT NULL,
   `nazwa` text NOT NULL,
-  `podatek` int(11) NOT NULL
+  `podatek` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `TypyUmowy`
+--
+
+INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`, `nazwa`, `podatek`) VALUES
+(1, 'UoP', 'Umowa o prace', 0.15);
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Users`
+-- Table structure for table `Users`
 --
 
 DROP TABLE IF EXISTS `Users`;
@@ -76,10 +97,17 @@ CREATE TABLE `Users` (
   `oldpass` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `Users`
+--
+
+INSERT INTO `Users` (`ID`, `nickname`, `email`, `pass`, `oldpass`) VALUES
+(1, 'PLPOLAND', 'marekpaldyna@wp.pl', 'Makowiec1', '');
+
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `UsersData`
+-- Table structure for table `UsersData`
 --
 
 DROP TABLE IF EXISTS `UsersData`;
@@ -94,35 +122,42 @@ CREATE TABLE `UsersData` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indeksy dla zrzutów tabel
+-- Dumping data for table `UsersData`
+--
+
+INSERT INTO `UsersData` (`ID`, `imie`, `nazwisko`, `kontoBankowe`, `wyplataBrutto`, `id_s`, `id_t_u`) VALUES
+(1, 'Marek', 'Pałdyna', '25213129921111580206782827', 8000, 1, 1);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indeksy dla tabeli `Permissions`
+-- Indexes for table `Permissions`
 --
 ALTER TABLE `Permissions`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indeksy dla tabeli `Stanowiska`
+-- Indexes for table `Stanowiska`
 --
 ALTER TABLE `Stanowiska`
   ADD PRIMARY KEY (`ID_s`);
 
 --
--- Indeksy dla tabeli `TypyUmowy`
+-- Indexes for table `TypyUmowy`
 --
 ALTER TABLE `TypyUmowy`
   ADD PRIMARY KEY (`ID_T`);
 
 --
--- Indeksy dla tabeli `Users`
+-- Indexes for table `Users`
 --
 ALTER TABLE `Users`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indeksy dla tabeli `UsersData`
+-- Indexes for table `UsersData`
 --
 ALTER TABLE `UsersData`
   ADD PRIMARY KEY (`ID`),
@@ -134,41 +169,41 @@ ALTER TABLE `UsersData`
 --
 
 --
--- AUTO_INCREMENT dla tabeli `Permissions`
+-- AUTO_INCREMENT for table `Permissions`
 --
 ALTER TABLE `Permissions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT dla tabeli `Stanowiska`
+-- AUTO_INCREMENT for table `Stanowiska`
 --
 ALTER TABLE `Stanowiska`
-  MODIFY `ID_s` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_s` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT dla tabeli `TypyUmowy`
+-- AUTO_INCREMENT for table `TypyUmowy`
 --
 ALTER TABLE `TypyUmowy`
-  MODIFY `ID_T` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_T` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT dla tabeli `Users`
+-- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `Permissions`
+-- Constraints for table `Permissions`
 --
 ALTER TABLE `Permissions`
   ADD CONSTRAINT `Permissions_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Users` (`ID`);
 
 --
--- Ograniczenia dla tabeli `UsersData`
+-- Constraints for table `UsersData`
 --
 ALTER TABLE `UsersData`
   ADD CONSTRAINT `Stanowisko` FOREIGN KEY (`id_s`) REFERENCES `Stanowiska` (`ID_s`),
