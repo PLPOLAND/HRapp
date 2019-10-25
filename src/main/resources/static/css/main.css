@@ -16,7 +16,8 @@ body{
     padding: 0;
     top: 0px;
     left: 0px;
-    background-image: var(--background-img);
+    /* background-image: var(--background-img); */
+    background-color: var(--background-color);
     background-size: cover; 
     background-position: center;
     background-attachment: fixed;
