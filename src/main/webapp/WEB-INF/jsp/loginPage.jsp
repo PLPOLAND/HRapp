@@ -22,7 +22,7 @@
                 <h3>Logowanie do systemu</h3>
                 <form action="login" method="POST">
                     <div class="login-field">
-                        <input type="text" class="form-control" placeholder="Twój Login *" value="" name="login" />
+                        <input type="text" class="form-control" placeholder="Twój Nick *" value="" name="nick" />
                     </div>
                     <div class="login-field">
                         <input type="password" class="form-control" placeholder="Twoje Hasło *" value="" name="pass" />
