@@ -51,4 +51,7 @@ body{
     height: var(--footer-height);
     width: 100%;
     background-color: var(--footer-color);
+    color: var(--footer-text-color);
+    text-align: center;
+    line-height: calc(var(--footer-height)/2);
 }

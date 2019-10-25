@@ -11,21 +11,27 @@
 <head>
     <c:url value="/css/main.css" var="jstlCss" />
     <c:url value="/css/themes/maintheme.css" var="jstlCsstheme" />
+    <c:url value="/js/main.js" var="javaScript" />
+    <c:url value="/img/icon.png" var="icon" />
     <link href="${jstlCsstheme}" rel="stylesheet" />
     <link href="${jstlCss}" rel="stylesheet" />
+    <link href="${icon}" rel="shortcut icon" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="${javaScript}"></script>
 </head>
 
 <body>
     <div id="backgroundContainer"></div>
     <div class="container">
         <div id="banner">
-            
+            ${banner.printBanner()}
         </div>
         <div id="mainbody">
            
         </div>
         <div id="footer">
-            
+            MAJ<br>
+            Wszelkie prawa zastrzeżone
         </div>
     </div>
 </body>
