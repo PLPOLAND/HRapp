@@ -64,8 +64,8 @@ public class Security{
         }
         else{
 
-            String user = resultUsers.get(0).getImie();
-            String srUser = resultUsers.get(0).getNazwisko();
+            String user = resultUsers.get(0).getNick(); //TODO
+            String srUser = resultUsers.get(0).getEmail(); //TODO
             Integer idUser = resultUsers.get(0).getID();
             // String typUser = resultUsers.get(0).getAccount_type(); TODO 
             String typUser = "Administrator";
@@ -91,7 +91,9 @@ public class Security{
      */
     public boolean isLoged() {
         HttpSession session = request.getSession();
-
+        // System.out.println(session.getAttribute("name"));
+        // System.out.println(session.getAttribute("surName"));
+        // System.out.println(session.getAttribute("id"));
         if(session.getAttribute("name") == null || session.getAttribute("surName") == null || session.getAttribute("id") == null){
             return false;
         }
@@ -192,7 +194,7 @@ public class Security{
     //         return null;
     //     }
     // }
-    
+
     /**
      * Funkcja usuwa dane sesji = wylogowanie użytkownika
      */
