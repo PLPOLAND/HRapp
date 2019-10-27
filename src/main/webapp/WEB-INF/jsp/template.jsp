@@ -18,6 +18,7 @@
     <link href="${icon}" rel="shortcut icon" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
+    <title>HR MAJ ...</title>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
         </div>
         <div id="footer">
             MAJ<br>
-            Wszelkie prawa zastrzeżone
+            © Wszelkie prawa zastrzeżone
         </div>
     </div>
 </body>

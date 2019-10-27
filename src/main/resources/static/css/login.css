@@ -9,7 +9,8 @@
     left: 0px;
     background-image: url(../img/IMG_4851.png);
     background-size: cover; 
-    background-position: center;
+	background-position: center;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .login-container {
 	height: 300px;
@@ -18,7 +19,8 @@
 	margin: auto;
    	position: absolute;
    	top:0; bottom:0; /* wyrównanie w pionie */
-    left:0; right:0; /* wyrównanie w poziomie */
+	left:0; right:0; /* wyrównanie w poziomie */
+	
        
 }
 
@@ -27,18 +29,21 @@
     padding-top: 20px;    
     background-color: #FFFFFF;
 	border-radius: 1rem;
+	
 }
 
 .login-form h3 {
 	font-size:1.75rem;
 	text-align: center;
 	color: #333;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .login-form h6{
     font-size: 12px;
 	text-align: center;
 	color: #FF0000;
 	line-height: 12px;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 
@@ -83,4 +88,5 @@
 	background-clip: padding-box;
 	border: 1px solid #ced4da;
 	border-radius: .25rem;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
