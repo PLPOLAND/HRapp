@@ -64,6 +64,28 @@ public class MainController {
 	}
 	/**
 	 * 
+	 * Error page
+	 * W trakcie
+	 * JS
+	 * 
+	 */
+	@RequestMapping("/error")
+	public String PanelA(){
+		//Security security = new Security(request, userdao);
+		//if(security.isLoged()){
+			//Banner banner = new Banner();
+			//model.addAttribute(banner);
+			return "errorpage";
+		//}
+		//else{
+			//return "redirect:/";
+		//}
+		
+	}
+
+
+	/**
+	 * 
 	 * Służy do testowania 
 	 */
 	@RequestMapping("/test")
