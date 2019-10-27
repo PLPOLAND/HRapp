@@ -12,7 +12,7 @@
     <c:url value="/css/main.css" var="jstlCss" />
     <c:url value="/css/themes/maintheme.css" var="jstlCsstheme" />
     <c:url value="/js/main.js" var="javaScript" />
-    <c:url value="/img/icon.png" var="icon" />
+    <c:url value="/img/kot1.png" var="kot1" />
     <link href="${jstlCsstheme}" rel="stylesheet" />
     <link href="${jstlCss}" rel="stylesheet" />
     <link href="${icon}" rel="shortcut icon" >
@@ -25,9 +25,10 @@
     <div class="container">
         <div id="banner">
             ${banner.printBanner()}
+            <img width = "500", height="350", src=kot1/>
         </div>
         <div id="mainbody">
-           
+           <a href="/">Powrót do strony głównej</a>
         </div>
         <div id="footer">
             MAJ<br>

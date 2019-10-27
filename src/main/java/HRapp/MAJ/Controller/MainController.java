@@ -62,26 +62,6 @@ public class MainController {
 		}
 		
 	}
-	/**
-	 * 
-	 * Error page
-	 * W trakcie
-	 * JS
-	 * 
-	 */
-	@RequestMapping("/error")
-	public String PanelA(){
-		//Security security = new Security(request, userdao);
-		//if(security.isLoged()){
-			//Banner banner = new Banner();
-			//model.addAttribute(banner);
-			return "errorpage";
-		//}
-		//else{
-			//return "redirect:/";
-		//}
-		
-	}
 
 
 	/**
@@ -94,7 +74,15 @@ public class MainController {
 		for (User user : ls) {
 			System.out.println(user.toString());
 		}
-		return "";
+		return "errorpage";
+	}
+	/**
+	 * 
+	 * Służy do testowania 2 
+	 */
+	@RequestMapping("/test2")
+	public String test2(){		
+		return "errorpage";
 	}
 
 }
