@@ -30,8 +30,9 @@
             <h3>Nie można odnaleźć strony!</h1>   
         </div>
         <div id="mainbody">
-           <a href="/">Zabierz mnie stąd!<br/><br/><br/><img width="500", height="350", src="/img/kot1.png"/>
-            <title>Powrót do strony logowania</title></a>
+            <br/><br/><br/>
+            <a href="/">Zabierz mnie stąd!<br/><br/><br/><img width="500", height="350", src="/img/kot1.png"/>
+                <title>Powrót do strony logowania</title></a>
          
         </div>
         <div id="footer">

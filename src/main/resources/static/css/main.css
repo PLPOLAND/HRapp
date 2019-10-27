@@ -35,7 +35,7 @@ body{
     color: #ffffff;
     background-color: #181716;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    box-shadow : 0 5px 8px 0 rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
+    box-shadow : 15px 15px 15px 15px rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
     
     
 }
@@ -51,7 +51,7 @@ body{
     padding-right: 15px;
     background-color:  #585858;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    box-shadow : 0 10px 15px 0 rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
+    box-shadow : 15px 15px 15px 15px rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
 }
 #footer{
     display: block;
@@ -62,5 +62,15 @@ body{
     text-align: center;
     line-height: calc(var(--footer-height)/2);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    box-shadow : 0 5px 8px 0 rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
+    box-shadow : 15px 15px 15px 15px rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
+}
+
+a:link{
+    color: #8197d3;
+}
+a:visited{
+    color: #8197d3;
+}
+a:hover{
+    color: rgb(151, 108, 149);
 }
