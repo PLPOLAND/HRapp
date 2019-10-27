@@ -23,6 +23,7 @@
 
 <body>
     <div class="container tmp_img">
+            <img style="float: right", width="60", height="60", src="/img/logomaj.png"/>
         <div class="login-container">
             <div class="login-form">
                 <h3>Logowanie do systemu</h3>

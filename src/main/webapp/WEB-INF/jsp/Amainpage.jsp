@@ -24,11 +24,20 @@
 <body>
     <div id="backgroundContainer"></div>
     <div class="container">
+        <div id="logo">
+            <img style="float: right", width="60", height="60", src="/img/logomaj.png"/>
+        </div>
         <div id="banner">
-            ${banner.printBanner()}
+            ${banner.printBanner()} menu glowne admin<br>
+            Dodaj pracownika Wyciągi Autorzy(przyciski)
         </div>
         <div id="mainbody">
-           
+            <div id="pracownicy">
+                <br><br><br> osoba 1 <br> osoba 2 <br> osoba 3(po lewo)
+            </div>    
+            <div id="person">
+                    Moje konto, zdjecie(po prawo)
+            </div>      
         </div>
         <div id="footer">
             MAJ<br>

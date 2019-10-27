@@ -10,7 +10,7 @@
     background-image: url(../img/IMG_4851.png);
     background-size: cover; 
 	background-position: center;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .login-container {
 	height: 300px;
@@ -22,6 +22,13 @@
 	left:0; right:0; /* wyrównanie w poziomie */
 	
        
+}
+
+#logo{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
 }
 
 .login-form {
@@ -36,14 +43,14 @@
 	font-size:1.75rem;
 	text-align: center;
 	color: #333;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .login-form h6{
     font-size: 12px;
 	text-align: center;
 	color: #FF0000;
 	line-height: 12px;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -88,5 +95,5 @@
 	background-clip: padding-box;
 	border: 1px solid #ced4da;
 	border-radius: .25rem;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

@@ -26,18 +26,34 @@ body{
     margin: 0;
     padding: 0;
 }
+
+#logo{
+    position: absolute;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+}
 #banner{
     display: block;
     position: fixed;
     top: 0px;
     width: 100%;
-    height: var(--banner-height);
+    height: 90px;
     color: #ffffff;
     background-color: #181716;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     box-shadow : 15px 15px 15px 15px rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
+    font-size: 30px;
     
     
+}
+
+#person{
+    
+}
+#pracownicy{
+
 }
 #mainbody{
     display: block;
@@ -50,19 +66,22 @@ body{
     padding-left: 15px;
     padding-right: 15px;
     background-color:  #585858;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     box-shadow : 15px 15px 15px 15px rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
+    text-align: center;
+    shape-image-threshold: initial;
 }
 #footer{
     display: block;
     height: var(--footer-height);
     width: 100%;
     background-color:  #181716;
-    color:  #ffffff;
+    color:  #c7c7c7;
     text-align: center;
     line-height: calc(var(--footer-height)/2);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     box-shadow : 15px 15px 15px 15px rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
+    clear:both;
 }
 
 a:link{

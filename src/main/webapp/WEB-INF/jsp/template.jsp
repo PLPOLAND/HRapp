@@ -24,6 +24,9 @@
 <body>
     <div id="backgroundContainer"></div>
     <div class="container">
+        <div id="logo">
+            <img style="float: right", width="60", height="60", src="/img/logomaj.png"/>
+        </div>
         <div id="banner">
             ${banner.printBanner()}
         </div>

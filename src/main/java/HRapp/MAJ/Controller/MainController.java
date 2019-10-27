@@ -82,7 +82,7 @@ public class MainController {
 	 */
 	@RequestMapping("/test2")
 	public String test2(){		
-		return "errorpage";
+		return "Amainpage";
 	}
 
 }

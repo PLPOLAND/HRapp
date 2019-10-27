@@ -25,14 +25,21 @@
 <body>
     <div id="backgroundContainer"></div>
     <div class="container">
+        <div id="logo">
+            <img style="float: right", width="60", height="60", src="/img/logomaj.png"/>
+        </div>
         <div id="banner">
             ${banner.printBanner()}    
-            <h3>Nie można odnaleźć strony!</h1>   
+            <h3>Błąd! Nie można odnaleźć strony</h1>  
         </div>
         <div id="mainbody">
+            <br/><br/><br/><br/><br/><br/>
+            Kliknij obrazek aby powrócić do ekranu logowania
             <br/><br/><br/>
-            <a href="/">Zabierz mnie stąd!<br/><br/><br/><img width="500", height="350", src="/img/kot1.png"/>
-                <title>Powrót do strony logowania</title></a>
+            <a href="/">
+                <img width="500", height="350", src="/img/house.png"/>
+            </a>
+            <title>Powrót do strony logowania</title>
          
         </div>
         <div id="footer">
