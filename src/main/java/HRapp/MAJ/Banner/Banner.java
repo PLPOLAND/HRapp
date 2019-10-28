@@ -8,12 +8,19 @@ import HRapp.MAJ.Banner.Menu;
  */
 public class Banner {
 
+    Menu menu;
+
+    public Banner(Menu menu){
+        this.menu = menu;
+    }
+    
     /**
      * Printuje Banner.
+     * 
      * @return String
      */
     public String printBanner(){
-        Menu menu = new Menu();
+        
         return menu.printMenu();
     };
     
