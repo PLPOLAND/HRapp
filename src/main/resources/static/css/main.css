@@ -17,7 +17,7 @@ body{
     top: 0px;
     left: 0px;
     /* background-image: var(--background-img); */
-    background-color:  #8197d3;
+    background-color: var(--background-color);
     background-size: cover; 
     background-position: center;
     background-attachment: fixed;
@@ -72,12 +72,6 @@ body{
     letter-spacing: 1px;
 }
 
-#person{
-    
-}
-#pracownicy{
-
-}
 #mainbody{
     display: block;
     min-height: calc(100vh - var(--banner-height) - var(--footer-height));
@@ -88,31 +82,23 @@ body{
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-    background-color:  #585858;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    box-shadow : 15px 15px 15px 15px rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
-    text-align: center;
-    shape-image-threshold: initial;
+    background-color:  var(--mainbody-color);
 }
 #footer{
     display: block;
-    height: var(--footer-height);
     width: 100%;
-    background-color:  #181716;
+    height: var(--footer-height);
+    background-color: var(--footer-color);
+    line-height: calc(var(--footer-height)/2);
     color:  #c7c7c7;
     text-align: center;
-    line-height: calc(var(--footer-height)/2);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    box-shadow : 15px 15px 15px 15px rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
-    clear:both;
+    
 }
 
-a:link{
-    color: #8197d3;
+a,a:link, a:visited{
+    color: var(--a-link-color);
 }
-a:visited{
-    color: #8197d3;
-}
+
 a:hover{
-    color: rgb(151, 108, 149);
+    color: var(--a-hover-color);
 }
