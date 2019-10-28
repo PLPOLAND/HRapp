@@ -28,8 +28,14 @@
             <img style="float: right", width="60", height="60", src="/img/logomaj.png"/>
         </div>
         <div id="banner">
-            ${banner.printBanner()} menu glowne admin<br>
-            Dodaj pracownika Wyciągi Autorzy(przyciski)
+            ${banner.printBanner()} Menu główne admin <br>
+            
+        </div>
+        <div id="menu">
+            <div class="option">Dodaj pracownika</div>
+            <div class="option">Wyciągi</div>
+            <div class="option">Autorzy</div>
+            <div style="clear:both;"></div>
         </div>
         <div id="mainbody">
             <div id="pracownicy">
