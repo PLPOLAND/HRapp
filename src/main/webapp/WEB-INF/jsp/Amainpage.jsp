@@ -28,18 +28,45 @@
             ${banner.printBanner()} Menu główne admin <br>
             
         </div>
-        <div id="menu">
-            <div class="option">Dodaj pracownika</div>
-            <div class="option">Wyciągi</div>
-            <div class="option">Autorzy</div>
-            <div style="clear:both;"></div>
-        </div>
         <div id="mainbody">
+            <div id="praco_logo">
+                Pracownicy<br><br>
+            </div>
             <div id="pracownicy">
-                <br><br><br> osoba 1 <br> osoba 2 <br> osoba 3(po lewo)
+                <div class="osoba"> Arek Abacki
+                        <div class="button">Edit</div>
+                        <div class="button">Kosz</div>
+                        <div class="button">Szczegoly</div>
+                        <div class="button">wyplaty</div>
+                        <div style="clear:both"></div>
+                </div>
+                <div class="osoba"> Krzysiek Bebacki
+                        <div class="button">Edit</div>
+                        <div class="button">Kosz</div>
+                        <div class="button">Szczegoly</div>
+                        <div class="button">wyplaty</div>
+                        <div style="clear:both"></div>
+                </div>
+                
+                <div class="osoba"> Klaudia Cabecka
+                        <div class="button">Edit</div>
+                        <div class="button">Kosz</div>
+                        <div class="button">Szczegoly</div>
+                        <div class="button">wyplaty</div>
+                        <div style="clear:both"></div>
+                </div>
+                <div class="osoba"> Darek Debacki
+                        <div class="button">Edit</div>
+                        <div class="button">Kosz</div>
+                        <div class="button">Szczegoly</div>
+                        <div class="button">wyplaty</div>
+                        <div style="clear:both"></div>
+                </div>
             </div>    
             <div id="person">
-                    Moje konto, zdjecie(po prawo)
+                    <div class="konto">Moje konto</div>
+                    <img width="50", height="50", src="/img/Ricardo_Milos.png"/>
+                    
             </div>      
         </div>
         <div id="footer">
