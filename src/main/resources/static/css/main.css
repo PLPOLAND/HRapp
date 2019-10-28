@@ -16,10 +16,11 @@ body{
     padding: 0;
     top: 0px;
     left: 0px;
-    /* background-image: var(--background-img); */
+    background-image: var(--background-img);
     background-color: var(--background-color);
-    background-size: cover; 
-    background-position: center;
+    /* background-size: cover;  */
+    /* background-position: center; */
+    
     background-attachment: fixed;
 }
 .container{
@@ -40,7 +41,7 @@ body{
     top: 0px;
     width: 100%;
     height: var(--banner-height);
-    background-color: var(--main-color);
+    background-color: var(--banner-color);
     padding-left: calc(10% - 15px);
     padding-right: calc(10% - 15px);
 }
