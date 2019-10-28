@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import HRapp.MAJ.Banner.Banner;
 import HRapp.MAJ.Banner.Menu;
@@ -104,19 +105,25 @@ public class MainController {
 	}
 	/**
 	 * 
-	 *strona admina
+	 *strona admina (lista pracownikow)
 	 */
 	@RequestMapping("/adminhome")
-	public String adminhome(Model model){	
+	public String adminhome(Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage"; 
 
 		Menu menu = new Menu();
-		//List<User> userList = userdao.getAllUsers();
+		List<User> userList = userdao.getAllUsers();
 		menu.Add("logowanie", "/");
 		menu.Add("strona admina", "/adminhome");
 		menu.Add("test", "/test");
 		menu.Add("templatka", "/tmp");
 		Banner banner = new Banner(menu);
-		//model.addAttribute("userList", userList);
+		model.addAttribute("userList", userList);
 		model.addAttribute(banner);	
 
 
@@ -140,6 +147,31 @@ public class MainController {
 		return "test";
 	}
 
+/**
+	 * 
+	 * szczegolowy widok pracownika
+	 */
+	@RequestMapping("/user_profile_page")
+	public String user_profile_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
 
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage";
+
+		Menu menu = new Menu();
+		User user1 = userdao.find_user_by_id(id);
+		menu.Add("logowanie", "/");
+		menu.Add("strona admina", "/adminhome");
+		menu.Add("test", "/test");
+		menu.Add("templatka", "/tmp");
+		Banner banner = new Banner(menu);
+		model.addAttribute("user", user1);
+		model.addAttribute(banner);	
+
+
+		return "UserProfilePage";
+	}
 
 }

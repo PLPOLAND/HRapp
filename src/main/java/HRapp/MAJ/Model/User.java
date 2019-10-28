@@ -15,6 +15,10 @@ public class User{
     Float wyplataBrutto;
     String imie;
     String nazwisko;
+    String typKonta;
+    String stanowisko;
+    String typUmowy;
+    int procentPodatku;
     
 
     /**
@@ -142,6 +146,42 @@ public class User{
 
     public void setNazwisko(String Nazwisko){
         nazwisko = Nazwisko;
+    }
+
+    public String getTypKonta(){
+        return typKonta;
+    }
+
+    public void setTypKonta(int TypKonta){
+        if(TypKonta == 1)
+        typKonta = "Administrator";
+        else
+        typKonta = "Użytkownik";
+        //@TODO dodać pozostałe typy kont jeśli będą
+    }
+
+    public String getStanowisko(){
+        return stanowisko;
+    }
+
+    public void setStanowisko(String Stanowisko){
+        stanowisko = Stanowisko;
+    }
+
+    public String getTypUmowy(){
+        return typUmowy;
+    }
+
+    public void setTypUmowy(String TypUmowy){
+        typUmowy = TypUmowy;
+    }
+
+    public int getProcentPodatku(){
+        return procentPodatku;
+    }
+
+    public void setProcentPodatku(int ProcentPodatku){
+        procentPodatku = ProcentPodatku;
     }
 
     /**
