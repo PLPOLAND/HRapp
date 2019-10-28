@@ -40,11 +40,22 @@ public class MainController {
 		Security security = new Security(request, userdao);
 
 		if (security.login()) {
-			return "redirect:/tmp";
+			if(security.isUserAdmin()) {
+				return "redirect:/adminhome";
+			}
+			return "redirect:/tmp"; // zmienić na przekierowanie do uhome jak będzie
 		} else {
 			return "redirect:/bad_login";
 		}
 	}
+	
+	@RequestMapping("/bad_login")
+	public String bad_login() {
+		return "errorpage";
+		//	return "badLoginPage"; // zmienić na badLoginPage
+	}
+	
+
 	/**
 	 * 
 	 * Templatka. Jako podastawa. Kopiujemy to, zmieniamy adres strony (w "" po requestmapping), nazwę funkcji i odpowiedni return.
@@ -56,7 +67,7 @@ public class MainController {
 		if(security.isLoged()){
 			Menu menu = new Menu();
 			menu.Add("logowanie", "/");
-			menu.Add("test2", "/test2");
+			menu.Add("strona admina", "/adminhome");
 			menu.Add("test", "/test");
 			menu.Add("templatka", "/tmp");
 			Banner banner = new Banner(menu);
@@ -79,7 +90,7 @@ public class MainController {
 
 		Menu menu = new Menu();
 		menu.Add("logowanie", "/");
-		menu.Add("test2", "/test2");
+		menu.Add("strona admina", "/adminhome");
 		menu.Add("test", "/test");
 		menu.Add("templatka", "/tmp");
 		Banner banner = new Banner(menu);
@@ -93,17 +104,19 @@ public class MainController {
 	}
 	/**
 	 * 
-	 * Służy do testowania 2 
+	 *strona admina
 	 */
-	@RequestMapping("/test2")
-	public String test2(Model model){	
+	@RequestMapping("/adminhome")
+	public String adminhome(Model model){	
 
 		Menu menu = new Menu();
+		//List<User> userList = userdao.getAllUsers();
 		menu.Add("logowanie", "/");
-		menu.Add("test2", "/test2");
+		menu.Add("strona admina", "/adminhome");
 		menu.Add("test", "/test");
 		menu.Add("templatka", "/tmp");
 		Banner banner = new Banner(menu);
+		//model.addAttribute("userList", userList);
 		model.addAttribute(banner);	
 
 
@@ -118,7 +131,7 @@ public class MainController {
 		
 		Menu menu = new Menu();
 		menu.Add("logowanie", "/");
-		menu.Add("test2","/test2");
+		menu.Add("strona admina", "/adminhome");
 		menu.Add("test","/test");
 		menu.Add("templatka","/tmp");
 		Banner banner = new Banner(menu);
@@ -126,5 +139,7 @@ public class MainController {
 
 		return "test";
 	}
+
+
 
 }
