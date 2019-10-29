@@ -37,19 +37,21 @@
                 <c:forEach var="vart" items="${userList}">
                     <div class="osoba"> 
                             ${vart.getImie()} ${vart.getNazwisko()}
-                            <div class="button1">Edit</div>
-                            <div class="button1">Kosz</div>
-                            <div type="button" class="button1" onclick="location.href='/AuserProfilPage'"">Szczegoly</div>
-                            <div class="button1">wyplaty</div>
+                            <div class="button1">Edit</div><!--Tu ma byc przycisk do AeditUserPage -->
+                            <div class="button1">Kosz</div><!--Tu ma byc przycisk do usunięcia? --> 
+                            <div type="button" class="button1" onclick="location.href='/AuserProfilPage'">Szczegoly</div><!--Tu ma byc przycisk doAuserProfilPage -->
+                            <div class="button1">wyplaty</div><!--Tu ma byc przycisk do ... -->
                             <div style="clear:both"></div>
                             <br>
                     </div>               
                 </c:forEach>
             </div>    
             <div id="person">
-                    <div class="konto">Moje konto 
+                    
+                    <button class="konto" style="vertical-align:middle"><span>Moje konto 
                         <img width="50", height="50", src="/img/Ricardo_Milos.png"/>
-                    </div>      
+                    </span></button> <!--Tu ma byc przycisk do AeditUserPage albo AdminProfile --> 
+                    <!--Zalezy czy admin ma miec specjalną stronę dla swojego konta czy nie -->   
                     <div class ="ikona"></div>
             </div>      
         </div>

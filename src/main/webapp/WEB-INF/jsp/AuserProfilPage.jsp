@@ -19,7 +19,7 @@
     <link href='http://fonts.googleapis.com/css?family=Barlow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
-    <title>HR MAJ ...</title>
+    <title>HR MAJ Profil <!--tu można dać imie jeśli się da--></title>
 </head>
 
 <body>
@@ -29,7 +29,10 @@
             ${banner.printBanner()}
         </div>
         <div id="mainbody">
-           
+            <div id="praco_logo">
+                Imię Nazwisko<br><br><!--Imie i nazwisko osoby ktorej konto wybraliśmy wczejściej przyciskiem SZCZEGÓŁY-->
+            </div>
+
         </div>
         <div id="footer">
             MAJ<br>
