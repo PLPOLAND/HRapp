@@ -19,6 +19,7 @@
     <link href='http://fonts.googleapis.com/css?family=Barlow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     
     <title>HR MAJ Admin Page</title>
 </head>
@@ -37,18 +38,17 @@
                 <c:forEach var="vart" items="${userList}">
                     <div class="osoba"> 
                             ${vart.getImie()} ${vart.getNazwisko()}
-                            <div class="button1">Edit</div><!--Tu ma byc przycisk do AeditUserPage -->
-                            <div class="button1">Kosz</div><!--Tu ma byc przycisk do usunięcia? --> 
-                            <div type="button" class="button1" onclick="location.href='/AuserProfilPage'">Szczegoly</div><!--Tu ma byc przycisk doAuserProfilPage -->
-                            <div class="button1">wyplaty</div><!--Tu ma byc przycisk do ... -->
+                            <div class="button1"><i class='far fa-edit'></i></div><!--Tu ma byc przycisk do AeditUserPage -->
+                            <div class="button1"><i class='far fa-trash-alt'></i></div><!--Tu ma byc przycisk do usunięcia? --> 
+                            <div type="button" class="button1" onclick="location.href='/AuserProfilPage'"><i class='far fa-address-card'></i></div><!--Tu ma byc przycisk doAuserProfilPage -->
+                            <div class="button1"><i class='far fa-money-bill-alt'></i></div><!--Tu ma byc przycisk do ... -->
                             <div style="clear:both"></div>
                             <br>
                     </div>               
                 </c:forEach>
             </div>    
-            <div id="person">
-                    
-                    <button class="konto" style="vertical-align:middle"><span>Moje konto 
+            <div id="person">  
+                    <button class="konto" style="vertical-align:middle"><span><i class="fa fa-male"></i>  Moje konto 
                         <img width="50", height="50", src="/img/Ricardo_Milos.png"/>
                     </span></button> <!--Tu ma byc przycisk do AeditUserPage albo AdminProfile --> 
                     <!--Zalezy czy admin ma miec specjalną stronę dla swojego konta czy nie -->   

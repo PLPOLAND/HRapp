@@ -71,6 +71,7 @@ body{
     font-weight: bold;
     text-decoration: underline;
     color: white;
+    text-shadow: 2px 2px black;
     
     
 }
@@ -144,6 +145,30 @@ body{
   .konto:hover span:after {
     opacity: 1;
     right: 0;
+  }
+
+
+
+  #osoba_detail{
+    list-style-type: circle;
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    float: left;
+    background: var(--banner-color);
+    padding: 20px;
+  }
+  #osoba_detail li{
+    background: var(--a-link-color);
+    margin: 5px;
+  }
+  
+  
+  #logo_tlo{
+      margin-right: 5%;
+      float: right;
+      -webkit-filter: opacity(30%);
+      filter: opacity(30%);
   }
 /*koniec rewiru Julka*/
 
