@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import HRapp.MAJ.Banner.Banner;
 import HRapp.MAJ.Banner.Menu;
@@ -40,11 +41,22 @@ public class MainController {
 		Security security = new Security(request, userdao);
 
 		if (security.login()) {
-			return "redirect:/tmp";
+			if(security.isUserAdmin()) {
+				return "redirect:/adminhome";
+			}
+			return "redirect:/tmp"; // zmienić na przekierowanie do uhome jak będzie
 		} else {
 			return "redirect:/bad_login";
 		}
 	}
+	
+	@RequestMapping("/bad_login")
+	public String bad_login() {
+		return "errorpage";
+		//	return "badLoginPage"; // zmienić na badLoginPage
+	}
+	
+
 	/**
 	 * 
 	 * Templatka. Jako podastawa. Kopiujemy to, zmieniamy adres strony (w "" po requestmapping), nazwę funkcji i odpowiedni return.
@@ -56,7 +68,7 @@ public class MainController {
 		if(security.isLoged()){
 			Menu menu = new Menu();
 			menu.Add("logowanie", "/");
-			menu.Add("test2", "/test2");
+			menu.Add("strona admina", "/adminhome");
 			menu.Add("test", "/test");
 			menu.Add("templatka", "/tmp");
 			Banner banner = new Banner(menu);
@@ -79,7 +91,7 @@ public class MainController {
 
 		Menu menu = new Menu();
 		menu.Add("logowanie", "/");
-		menu.Add("test2", "/test2");
+		menu.Add("strona admina", "/adminhome");
 		menu.Add("test", "/test");
 		menu.Add("templatka", "/tmp");
 		Banner banner = new Banner(menu);
@@ -93,17 +105,25 @@ public class MainController {
 	}
 	/**
 	 * 
-	 * Służy do testowania 2 
+	 *strona admina (lista pracownikow)
 	 */
-	@RequestMapping("/test2")
-	public String test2(Model model){	
+	@RequestMapping("/adminhome")
+	public String adminhome(Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage"; 
 
 		Menu menu = new Menu();
+		List<User> userList = userdao.getAllUsers();
 		menu.Add("logowanie", "/");
-		menu.Add("test2", "/test2");
+		menu.Add("strona admina", "/adminhome");
 		menu.Add("test", "/test");
 		menu.Add("templatka", "/tmp");
 		Banner banner = new Banner(menu);
+		model.addAttribute("userList", userList);
 		model.addAttribute(banner);	
 
 
@@ -118,13 +138,67 @@ public class MainController {
 		
 		Menu menu = new Menu();
 		menu.Add("logowanie", "/");
-		menu.Add("test2","/test2");
+		menu.Add("strona admina", "/adminhome");
 		menu.Add("test","/test");
 		menu.Add("templatka","/tmp");
 		Banner banner = new Banner(menu);
 		model.addAttribute(banner);
 
 		return "test";
+	}
+
+/**
+	 * 
+	 * szczegolowy widok pracownika
+	 */
+	@RequestMapping("/user_profile_page")
+	public String user_profile_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage";
+
+		Menu menu = new Menu();
+		User user1 = userdao.find_user_by_id(id);
+		menu.Add("logowanie", "/");
+		menu.Add("strona admina", "/adminhome");
+		menu.Add("test", "/test");
+		menu.Add("templatka", "/tmp");
+		Banner banner = new Banner(menu);
+		model.addAttribute("user1", user1);
+		model.addAttribute(banner);	
+
+
+		return "AuserProfilPage";
+	}
+
+	/**
+	 * 
+	 * edycja pracownika
+	 */
+	@RequestMapping("/edit_user_page")
+	public String edit_user_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage";
+
+		Menu menu = new Menu();
+		User user1 = userdao.find_user_by_id(id);
+		menu.Add("logowanie", "/");
+		menu.Add("strona admina", "/adminhome");
+		menu.Add("test", "/test");
+		menu.Add("templatka", "/tmp");
+		Banner banner = new Banner(menu);
+		model.addAttribute("user1", user1);
+		model.addAttribute(banner);	
+
+
+		return "AeditUserPage";
 	}
 
 }

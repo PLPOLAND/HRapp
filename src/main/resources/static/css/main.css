@@ -46,6 +46,7 @@ body{
     padding-right: calc(10% - 15px);
 }
 
+/* rewir Julka*/
 #mainbody{
     display: block;
     min-height: calc(100vh - var(--banner-height) - var(--footer-height));
@@ -58,6 +59,61 @@ body{
     padding-right: 15px;
     background-color:  var(--mainbody-color);
 }
+#pracownicy{
+    float: left;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+#praco_logo{
+    font-size: 25px;
+    padding: 10px;
+    
+    
+}
+.osoba{
+    background-color: var(--link-color);
+    padding: 5px;
+    
+}
+.button1{
+    float: left;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: var(--menu-position-border-right-color);
+    
+}
+.button1:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+}
+
+
+#person{
+    float: right;
+}
+.ikona{
+    float: right;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    
+}
+.konto{
+    background-color: var(--menu-position-border-right-color);
+    border-block: 2px dotted var(--background-color);
+    border-left: 2px dotted var(--background-color);
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    
+}
+.konto:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+}
+/*koniec rewiru Julka*/
+
+
 #footer{
     display: block;
     width: 100%;
@@ -78,6 +134,7 @@ a:hover{
 }
 
 /* Julka do usunięcia */
+/*
 #menu{
     color: #ffffff;
     background-color: #464442;
@@ -98,6 +155,7 @@ a:hover{
     padding-right: 20px;
     letter-spacing: 1px;
 }
+*/
 /* Julka do usunięcia */
 
 .menu{

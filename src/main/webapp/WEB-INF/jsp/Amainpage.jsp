@@ -18,7 +18,7 @@
     <link href="${icon}" rel="shortcut icon" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
-    <title>HR MAJ ...</title>
+    <title>HR MAJ Admin Page</title>
 </head>
 
 <body>
@@ -28,18 +28,28 @@
             ${banner.printBanner()} Menu główne admin <br>
             
         </div>
-        <div id="menu">
-            <div class="option">Dodaj pracownika</div>
-            <div class="option">Wyciągi</div>
-            <div class="option">Autorzy</div>
-            <div style="clear:both;"></div>
-        </div>
         <div id="mainbody">
+            <div id="praco_logo">
+                Pracownicy<br><br>
+            </div>
             <div id="pracownicy">
-                <br><br><br> osoba 1 <br> osoba 2 <br> osoba 3(po lewo)
+                <c:forEach var="vart" items="${userList}">
+                    <div class="osoba"> 
+                            ${vart.getImie()} ${vart.getNazwisko()}
+                            <div class="button1">Edit</div>
+                            <div class="button1">Kosz</div>
+                            <div type="button" class="button1" oneclic="location.href= '/AuserProfilPage'">Szczegoly</div>
+                            <div class="button1">wyplaty</div>
+                            <div style="clear:both"></div>
+                            <br>
+                    </div>               
+                </c:forEach>
             </div>    
             <div id="person">
-                    Moje konto, zdjecie(po prawo)
+                    <div class="konto">Moje konto 
+                        <img width="50", height="50", src="/img/Ricardo_Milos.png"/>
+                    </div>      
+                    <div class ="ikona"></div>
             </div>      
         </div>
         <div id="footer">
