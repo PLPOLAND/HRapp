@@ -10,7 +10,7 @@
     background-image: url(../img/IMG_4851.png);
     background-size: cover; 
 	background-position: center;
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	/* font-family: 'Barlow','Franklin Gothic Medium', 'Arial Narrow', 'Arial', sans-serif; */
 }
 .login-container {
 	height: 300px;

@@ -1,17 +1,18 @@
 :root{
-    --main-color: #004299;    
+    --main-color: #FF9100;    
     --mainbody-color: #ffffff6f;
     --background-color: #ffffff;
     --footer-color: #1f1f1f;
     --footer-text-color: #FFFFFF;
-    --link-color: #0059ff;
+    --link-color: #ff9900;
     --background-img: url(../img/ep_naturalblack.png);
+    /* --background-img: url(../img/triangle-mosaic.png); */
     --a-link-color: #8197d3;
     --a-hover-color: #976c95;
-    --banner-color: #004299;
+    --banner-color: #E68200;
     --menu-background-collor: --banner-color;
-    --menu-position-border-right-color: #001735;
-    --menu-position-hover-background-color: #001735;
+    --menu-position-border-right-color: #804800;
+    --menu-position-hover-background-color: #804800;
 
     font-family: 'Barlow','Franklin Gothic Medium', 'Arial Narrow', 'Arial', sans-serif;
     
