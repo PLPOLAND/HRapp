@@ -36,10 +36,10 @@
                 <c:forEach var="vart" items="${userList}">
                     <div class="osoba"> 
                             ${vart.getImie()} ${vart.getNazwisko()}
-                            <div class="button">Edit</div>
-                            <div class="button">Kosz</div>
-                            <div class="button">Szczegoly</div>
-                            <div class="button">wyplaty</div>
+                            <div class="button1">Edit</div>
+                            <div class="button1">Kosz</div>
+                            <div type="button" class="button1" oneclic="location.href= '/AuserProfilPage'">Szczegoly</div>
+                            <div class="button1">wyplaty</div>
                             <div style="clear:both"></div>
                             <br>
                     </div>               

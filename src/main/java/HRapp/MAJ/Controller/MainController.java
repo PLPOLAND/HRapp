@@ -171,7 +171,7 @@ public class MainController {
 		model.addAttribute(banner);	
 
 
-		return "UserProfilePage";
+		return "AuserProfilPage";
 	}
 
 }
