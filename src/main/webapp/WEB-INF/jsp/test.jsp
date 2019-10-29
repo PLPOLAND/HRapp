@@ -26,7 +26,20 @@
     <div id="backgroundContainer"></div>
     <div class="container">
         <div id="banner">
-            ${banner.printBanner()}
+            <!-- ${banner.printBanner()} -->
+            <div class="menu">
+                <ol>
+                    <li><a href="/">logowanie</a></li>
+                    <li><a href="/adminhome">strona admina</a>
+                        <ul>
+                            <li><a href="#">Poz1</a></li>
+                            <li><a>Poz2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/test">test</a></li>
+                    <li><a href="/tmp">templatka</a></li>
+                </ol>
+            </div>
         </div>
         <div id="mainbody">
 

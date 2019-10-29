@@ -88,6 +88,7 @@ body{
     border: 1px solid rgb(0, 0, 0);
     /*border-radius: 4px; */
     padding: 5px;
+    background-color: var(--menu-background-collor);
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     
@@ -109,7 +110,7 @@ body{
     
 }
 .konto{
-    background-color: var(--menu-position-border-right-color);
+    background-color: var(--menu-background-collor);
     border-block: 2px dotted var(--background-color);
     border-left: 2px dotted var(--background-color);
     font-size: 16px;
@@ -192,31 +193,6 @@ a:hover{
     color: var(--a-hover-color);
 }
 
-/* Julka do usunięcia */
-/*
-#menu{
-    color: #ffffff;
-    background-color: #464442;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    display: block;
-    position: fixed;
-    padding: 10px;
-    margin-left: 9%;
-    margin-top: 0.85%;
-
-}
-.option{
-    float: left;
-    min-width: 50px;
-    min-height: 15px;
-    font-size: 16px;
-    padding: 5px;
-    padding-right: 20px;
-    letter-spacing: 1px;
-}
-*/
-/* Julka do usunięcia */
-
 .menu{
 	display: block;
 	float: left;
@@ -245,7 +221,7 @@ a:hover{
 	text-decoration: none;
 }
 
-.menu ol > a > li
+.menu ol > li 
 {
 	float: left;
 	min-width: 150px;
@@ -257,7 +233,27 @@ a:hover{
 	padding-right: 1em;
 }
 
-.menu ol > a > li:hover
+.menu ol > li:hover
 {
 	background-color: var(--menu-position-hover-background-color);
+}
+
+.menu ol > li > ul {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.menu ol > li:hover > ul {
+    display: block;
+}
+.menu ol > li > ul > li {
+    position: flex;
+    background-color: var(--menu-background-collor);
+    border-top:1px solid var(--menu-position-border-right-color);
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.menu ol > li > ul > li:hover {
+    background-color:var(--menu-position-hover-background-color);
 }
