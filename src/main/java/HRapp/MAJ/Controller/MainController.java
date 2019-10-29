@@ -167,11 +167,38 @@ public class MainController {
 		menu.Add("test", "/test");
 		menu.Add("templatka", "/tmp");
 		Banner banner = new Banner(menu);
-		model.addAttribute("user", user1);
+		model.addAttribute("user1", user1);
 		model.addAttribute(banner);	
 
 
 		return "AuserProfilPage";
+	}
+
+	/**
+	 * 
+	 * edycja pracownika
+	 */
+	@RequestMapping("/edit_user_page")
+	public String edit_user_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage";
+
+		Menu menu = new Menu();
+		User user1 = userdao.find_user_by_id(id);
+		menu.Add("logowanie", "/");
+		menu.Add("strona admina", "/adminhome");
+		menu.Add("test", "/test");
+		menu.Add("templatka", "/tmp");
+		Banner banner = new Banner(menu);
+		model.addAttribute("user1", user1);
+		model.addAttribute(banner);	
+
+
+		return "AeditUserPage";
 	}
 
 }
