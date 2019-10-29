@@ -201,4 +201,14 @@ public class MainController {
 		return "AeditUserPage";
 	}
 
+	/**
+	 * 
+	 * julek cos testuje sobie
+	 * 
+	 */
+	@RequestMapping("/xxx")
+	public String Stonoga(){
+		return "AuserProfilPage";
+	}
+
 }

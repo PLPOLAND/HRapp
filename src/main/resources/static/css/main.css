@@ -61,30 +61,40 @@ body{
 }
 #pracownicy{
     float: left;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 4px;
 }
 #praco_logo{
-    font-size: 25px;
+    top: 20px;
+    font-size: 32px;
     padding: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: white;
     
     
 }
 .osoba{
     background-color: var(--link-color);
     padding: 5px;
+    font-size: 18px;
+    color: white;
+    text-align: right;
     
 }
 .button1{
     float: left;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid rgb(0, 0, 0);
+    /*border-radius: 4px; */
     padding: 5px;
     background-color: var(--menu-background-collor);
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
     
 }
 .button1:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: rgb(131, 199, 255);
+    color: rgb(0, 0, 0);
     cursor: pointer;
 }
 
@@ -94,7 +104,7 @@ body{
 }
 .ikona{
     float: right;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 4px;
     
 }
@@ -103,14 +113,39 @@ body{
     border-block: 2px dotted var(--background-color);
     border-left: 2px dotted var(--background-color);
     font-size: 16px;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 4px;
-    
-}
-.konto:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+
+    display: inline-block;
+    text-align: center;
     cursor: pointer;
 }
+.konto span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+.konto span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  .konto:hover span {
+    padding-right: 25px;
+  }
+  
+  .konto:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
 /*koniec rewiru Julka*/
 
 
