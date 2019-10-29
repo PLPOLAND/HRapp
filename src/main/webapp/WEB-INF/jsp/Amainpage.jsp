@@ -16,8 +16,10 @@
     <link href="${jstlCsstheme}" rel="stylesheet" />
     <link href="${jstlCss}" rel="stylesheet" />
     <link href="${icon}" rel="shortcut icon" >
+    <link href='http://fonts.googleapis.com/css?family=Barlow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
+    
     <title>HR MAJ Admin Page</title>
 </head>
 
@@ -25,8 +27,7 @@
     <div id="backgroundContainer"></div>
     <div class="container">
         <div id="banner">
-            ${banner.printBanner()} Menu główne admin <br>
-            
+            ${banner.printBanner()}            
         </div>
         <div id="mainbody">
             <div id="praco_logo">
@@ -38,7 +39,7 @@
                             ${vart.getImie()} ${vart.getNazwisko()}
                             <div class="button1">Edit</div>
                             <div class="button1">Kosz</div>
-                            <div type="button" class="button1" oneclic="location.href= '/AuserProfilPage'">Szczegoly</div>
+                            <div type="button" class="button1" onclick="location.href='/AuserProfilPage'"">Szczegoly</div>
                             <div class="button1">wyplaty</div>
                             <div style="clear:both"></div>
                             <br>
