@@ -16,7 +16,7 @@ public class PozycjaMenu {
     }
 
     public String print() {
-        String pozycja = "<a href=\""+adres+"\"> <li>"+opis+"</li> </a>";
+        String pozycja = "<li><a href=\""+adres+"\"> "+opis+" </a></li>";
         return pozycja;
     }
 

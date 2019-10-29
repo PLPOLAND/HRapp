@@ -9,7 +9,7 @@
     --a-link-color: #8197d3;
     --a-hover-color: #976c95;
     --banner-color: #004299;
-    --menu-background-collor: --banner-color;
+    --menu-background-collor: var(--banner-color);
     --menu-position-border-right-color: #001735;
     --menu-position-hover-background-color: #001735;
 

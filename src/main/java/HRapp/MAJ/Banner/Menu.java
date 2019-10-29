@@ -29,7 +29,7 @@ public class Menu {
         }
 
 
-        menu += "\n<ol> </div>";
+        menu += "\n</ol> </div>";
         return menu;
     }
 
