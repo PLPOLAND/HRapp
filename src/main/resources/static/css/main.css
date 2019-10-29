@@ -60,26 +60,30 @@ body{
 }
 #pracownicy{
     float: left;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 #praco_logo{
     font-size: 25px;
     padding: 10px;
     
+    
 }
 .osoba{
     background-color: var(--link-color);
     padding: 5px;
+    
 }
 .button{
     float: left;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     padding: 5px;
     background-color: var(--menu-position-border-right-color);
-    border-block: 2px dotted var(--background-color);
-    border-left: 2px dotted var(--background-color);
-    border-right: 2px dotted var(--background-color);
+    
 }
 .button:hover{
-    background-color: var(--link-color);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     cursor: pointer;
 }
 
@@ -87,15 +91,23 @@ body{
 #person{
     float: right;
 }
+.ikona{
+    float: right;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    
+}
 .konto{
-    padding: 5px;
     background-color: var(--menu-position-border-right-color);
     border-block: 2px dotted var(--background-color);
     border-left: 2px dotted var(--background-color);
-    border-right: 2px dotted var(--background-color);
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    
 }
 .konto:hover{
-    background-color: var(--link-color);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     cursor: pointer;
 }
 /*koniec rewiru Julka*/

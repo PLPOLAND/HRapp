@@ -18,39 +18,17 @@
     <link href="${icon}" rel="shortcut icon" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
-    <title>HR MAJ Admin Page</title>
+    <title>HR MAJ ...</title>
 </head>
 
 <body>
     <div id="backgroundContainer"></div>
     <div class="container">
         <div id="banner">
-            ${banner.printBanner()} Menu główne admin <br>
-            
+            ${banner.printBanner()}
         </div>
         <div id="mainbody">
-            <div id="praco_logo">
-                Pracownicy<br><br>
-            </div>
-            <div id="pracownicy">
-                <c:forEach var="vart" items="${userList}">
-                    <div class="osoba"> 
-                            ${vart.getImie()} ${vart.getNazwisko()}
-                            <div class="button">Edit</div>
-                            <div class="button">Kosz</div>
-                            <div class="button">Szczegoly</div>
-                            <div class="button">wyplaty</div>
-                            <div style="clear:both"></div>
-                            <br>
-                    </div>               
-                </c:forEach>
-            </div>    
-            <div id="person">
-                    <div class="konto">Moje konto 
-                        <img width="50", height="50", src="/img/Ricardo_Milos.png"/>
-                    </div>      
-                    <div class ="ikona"></div>
-            </div>      
+           
         </div>
         <div id="footer">
             MAJ<br>
