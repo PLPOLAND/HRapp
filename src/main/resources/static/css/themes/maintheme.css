@@ -8,10 +8,11 @@
     --background-img: url(../img/ep_naturalblack.png);
     --a-link-color: #8197d3;
     --a-hover-color: #976c95;
-    --banner-color: #004299;
-    --menu-background-collor: var(--banner-color);
-    --menu-position-border-right-color: #001735;
-    --menu-position-hover-background-color: #001735;
+    --banner-color: #000000;
+    --menu-link-color: #ffffff;
+    --menu-background-color: var(--banner-color);
+    --menu-position-border-right-color: #1d68ca;
+    --menu-position-hover-background-color: #1d68ca;
 
     font-family: 'Barlow','Franklin Gothic Medium', 'Arial Narrow', 'Arial', sans-serif;
     

@@ -28,17 +28,21 @@
         <div id="banner">
             <!-- ${banner.printBanner()} -->
             <div class="menu">
-                <ol>
+                <ul>
                     <li><a href="/">logowanie</a></li>
                     <li><a href="/adminhome">strona admina</a>
-                        <ul>
+                        <ul class="drop-down">
                             <li><a href="#">Poz1</a></li>
-                            <li><a>Poz2</a></li>
+                            <li><a href="#">Poz1</a></li>
+                            <li><a href="#">Poz2</a></li>
+                            <li><a href="#">Poz3</a></li>
+                            <li><a href="#">Poz4</a></li>
+                            <li><a><img src="${grav}"></a></li>
                         </ul>
                     </li>
                     <li><a href="/test">test</a></li>
                     <li><a href="/tmp">templatka</a></li>
-                </ol>
+                </ul>
             </div>
         </div>
         <div id="mainbody">

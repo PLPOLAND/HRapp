@@ -5,6 +5,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #000000;
 }
 #backgroundContainer{
     position: fixed;
@@ -16,11 +17,8 @@ body{
     padding: 0;
     top: 0px;
     left: 0px;
-    background-image: var(--background-img);
+    background-image: linear-gradient(#00000060, #00000060 ), var(--background-img);
     background-color: var(--background-color);
-    /* background-size: cover;  */
-    /* background-position: center; */
-    
     background-attachment: fixed;
 }
 .container{
@@ -194,66 +192,44 @@ a:hover{
 }
 
 .menu{
-	display: block;
-	float: left;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	max-width: 80%;
-	background-color: var(--menu-background-collor);
-	text-align: center;
-	padding: 0;
-	height: var(--banner-height);
+    width: calc(80% + 30px);
 }
-.menu ol
-{
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-	font-size: 20px;
-	line-height: var(--banner-height);
-	display: inline-block;
-	text-align: center;
-}
-
-.menu ol a
-{
-	color: var(--menu-a-collor);
-	text-decoration: none;
-}
-
-.menu ol > li 
-{
-	float: left;
-	min-width: 150px;
-	height: var(--banner-height);
-	border-right: 1px solid var(--menu-position-border-right-color);
-	cursor: pointer;
-	color: white;
-	padding-left: 1em;
-	padding-right: 1em;
-}
-
-.menu ol > li:hover
-{
-	background-color: var(--menu-position-hover-background-color);
-}
-
-.menu ol > li > ul {
-    display: none;
+.menu ul{
     list-style-type: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
-.menu ol > li:hover > ul {
+.menu ul li {
+    width: auto;
+    flex: 1;
+}
+.menu ul li > ul {
+    display: none;
+    flex-direction: column;
+}
+.menu ul li > ul li{
+    width: 100%;
+}
+.menu ul li:hover  > ul{
+    display: flex;
+    flex-direction: column;
+}
+.menu a{
+    text-transform: uppercase;
+    text-decoration: none;
     display: block;
+    padding: 15px;
+    line-height: calc(var(--banner-height) - 30px);
+    color:#ffffff;
+    text-align: center;
 }
-.menu ol > li > ul > li {
-    position: flex;
-    background-color: var(--menu-background-collor);
-    border-top:1px solid var(--menu-position-border-right-color);
-	padding-left: 1em;
-	padding-right: 1em;
+.menu a:hover{
+    background-color: var(--menu-position-hover-background-color);
 }
-.menu ol > li > ul > li:hover {
-    background-color:var(--menu-position-hover-background-color);
+.menu .drop-down li > a{
+    background-color: var(--menu-background-color);
+}.menu .drop-down li > a:hover{
+    background-color: var(--menu-position-hover-background-color);
 }

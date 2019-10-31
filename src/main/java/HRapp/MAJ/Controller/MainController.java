@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import HRapp.Gravatar.Gravatar;
 import HRapp.MAJ.Banner.Banner;
 import HRapp.MAJ.Banner.Menu;
 import HRapp.MAJ.DAO.UsersDAO;
@@ -142,8 +143,13 @@ public class MainController {
 		menu.Add("test","/test");
 		menu.Add("templatka","/tmp");
 		Banner banner = new Banner(menu);
+		
+		
+		String gravatarUrl = Gravatar.getUrl("marekpaldyna@wp.pl");
+		System.out.println(gravatarUrl);
+		model.addAttribute("grav",gravatarUrl);
 		model.addAttribute(banner);
-
+		
 		return "test";
 	}
 
