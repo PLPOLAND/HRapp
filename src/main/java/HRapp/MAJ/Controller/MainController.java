@@ -70,8 +70,12 @@ public class MainController {
 			Menu menu = new Menu();
 			menu.Add("logowanie", "/");
 			menu.Add("strona admina", "/adminhome");
-			menu.Add("test", "/test");
+			menu.Add("test", "/test", true);
 			menu.Add("templatka", "/tmp");
+			menu.AddToDropDawnPos("test", "pos1", "#");
+			menu.AddToDropDawnPos("test", "pos2", "#");
+			menu.AddToDropDawnPos("test", "pos3", "#");
+			menu.AddToDropDawnPos("test", "pos4", "#");
 			Banner banner = new Banner(menu);
 			model.addAttribute(banner);
 			return "template";
@@ -93,8 +97,12 @@ public class MainController {
 		Menu menu = new Menu();
 		menu.Add("logowanie", "/");
 		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test");
+		menu.Add("test", "/test", true);
 		menu.Add("templatka", "/tmp");
+		menu.AddToDropDawnPos("test", "pos1", "#");
+		menu.AddToDropDawnPos("test", "pos2", "#");
+		menu.AddToDropDawnPos("test", "pos3", "#");
+		menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
 		model.addAttribute(banner);
 
@@ -121,8 +129,12 @@ public class MainController {
 		List<User> userList = userdao.getAllUsers();
 		menu.Add("logowanie", "/");
 		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test");
+		menu.Add("test", "/test", true);
 		menu.Add("templatka", "/tmp");
+		menu.AddToDropDawnPos("test", "pos1", "#");
+		menu.AddToDropDawnPos("test", "pos2", "#");
+		menu.AddToDropDawnPos("test", "pos3", "#");
+		menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
 		model.addAttribute("userList", userList);
 		model.addAttribute(banner);	
@@ -140,8 +152,12 @@ public class MainController {
 		Menu menu = new Menu();
 		menu.Add("logowanie", "/");
 		menu.Add("strona admina", "/adminhome");
-		menu.Add("test","/test");
-		menu.Add("templatka","/tmp");
+		menu.Add("test", "/test", true);
+		menu.Add("templatka", "/tmp");
+		menu.AddToDropDawnPos("test", "pos1", "#");
+		menu.AddToDropDawnPos("test", "pos2", "#");
+		menu.AddToDropDawnPos("test", "pos3", "#");
+		menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
 		
 		
@@ -170,8 +186,12 @@ public class MainController {
 		User user1 = userdao.find_user_by_id(id);
 		menu.Add("logowanie", "/");
 		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test");
+		menu.Add("test", "/test", true);
 		menu.Add("templatka", "/tmp");
+		menu.AddToDropDawnPos("test", "pos1", "#");
+		menu.AddToDropDawnPos("test", "pos2", "#");
+		menu.AddToDropDawnPos("test", "pos3", "#");
+		menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
 		model.addAttribute("user1", user1);
 		model.addAttribute(banner);	
@@ -197,8 +217,12 @@ public class MainController {
 		User user1 = userdao.find_user_by_id(id);
 		menu.Add("logowanie", "/");
 		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test");
+		menu.Add("test", "/test", true);
 		menu.Add("templatka", "/tmp");
+		menu.AddToDropDawnPos("test", "pos1", "#");
+		menu.AddToDropDawnPos("test", "pos2", "#");
+		menu.AddToDropDawnPos("test", "pos3", "#");
+		menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
 		model.addAttribute("user1", user1);
 		model.addAttribute(banner);	
