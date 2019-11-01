@@ -15,6 +15,7 @@ import HRapp.MAJ.Banner.Banner;
 import HRapp.MAJ.Banner.Menu;
 import HRapp.MAJ.DAO.UsersDAO;
 import HRapp.MAJ.Model.User;
+import HRapp.MAJ.Security.Hash;
 import HRapp.MAJ.Security.Security;
 
 
@@ -159,12 +160,12 @@ public class MainController {
 		menu.AddToDropDawnPos("test", "pos3", "#");
 		menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
-		
-		
 		String gravatarUrl = Gravatar.getUrl("marekpaldyna@wp.pl");
 		System.out.println(gravatarUrl);
 		model.addAttribute("grav",gravatarUrl);
 		model.addAttribute(banner);
+
+		System.out.println(Hash.hash("Kowadlo"));
 		
 		return "test";
 	}
