@@ -19,7 +19,7 @@
     <link href='http://fonts.googleapis.com/css?family=Barlow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
-    <title>HR MAJ ...</title>
+    <title>HR MAJ Edytuj Imie Nazwisko</title>
 </head>
 
 <body>
@@ -29,7 +29,29 @@
             ${banner.printBanner()}
         </div>
         <div id="mainbody">
-           
+                <div id="praco_logo">
+                
+                        Imię Nazwisko<!--Imie i nazwisko osoby ktorej konto wybraliśmy wcześniej przyciskiem SZCZEGÓŁY-->
+                        <br>
+                    </div>
+                    <div id="osoba_detail">
+                            <!--To z bazy danych vvvv + zapisywanie do bazy danych TO EDYCJA JAKO ADMIN-->
+                            <li>Aktualny nickname: adwadawd</li> 
+                            Zmień nickname:<input type="text" name="x1" background>
+                            <input type="submit" value="Zaktualizuj">
+                            <li>Aktualny email: adawdawd@awdawd.pl</li>
+                            Zmień email:<input type="text" name="x2">
+                            <input type="submit" value="Zaktualizuj">
+                            <li>Aktualny numer konta bankowego: 455635345345345</li> 
+                            Zmień numer konta:<input type="text" name="x3">
+                            <input type="submit" value="Zaktualizuj">
+                            <li>Typ umowy: niewolnik</li>
+                            Zmień typ umowy:<input type="text" name="x4">
+                            <input type="submit" value="Zaktualizuj">
+                            <li>Stanowisko: uzupełnianie tabelek w excelu</li> 
+                            Zmień stanowisko:<input type="text" name="x5">
+                            <input type="submit" value="Zaktualizuj">
+                    </div>
         </div>
         <div id="footer">
             MAJ<br>

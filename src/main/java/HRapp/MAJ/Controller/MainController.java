@@ -238,7 +238,7 @@ public class MainController {
 	 */
 	@RequestMapping("/xxx")
 	public String Stonoga(){
-		return "AuserProfilPage";
+		return "AeditUserPage";
 	}
 
 }
