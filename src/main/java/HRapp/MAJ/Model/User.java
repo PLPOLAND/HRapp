@@ -1,5 +1,7 @@
 package HRapp.MAJ.Model;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 /**
  * Odpowiada za przetrzymywanie danych o Urzytkowniku.
  * TODO reszta danych
@@ -15,7 +17,7 @@ public class User{
     Float wyplataBrutto;
     String imie;
     String nazwisko;
-    String typKonta;
+    Uprawnienia uprawnienia;
     String stanowisko;
     String typUmowy;
     int procentPodatku;
@@ -148,16 +150,13 @@ public class User{
         nazwisko = Nazwisko;
     }
 
-    public String getTypKonta(){
-        return typKonta;
+    public Uprawnienia getUprawnienia(){
+        return uprawnienia;
     }
 
-    public void setTypKonta(int TypKonta){
-        if(TypKonta == 1)
-        typKonta = "Administrator";
-        else
-        typKonta = "Użytkownik";
-        //@TODO dodać pozostałe typy kont jeśli będą
+    public void setUprawnienia(int Upr, JdbcTemplate baza){
+        uprawnienia = new Uprawnienia();
+        uprawnienia.setAll(Upr,baza);      
     }
 
     public String getStanowisko(){
