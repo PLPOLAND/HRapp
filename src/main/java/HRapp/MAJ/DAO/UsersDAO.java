@@ -19,7 +19,8 @@ public class UsersDAO{
    // final String GET_ALL_WHOLE_USERS_DATA ="SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
     final String FIND_USER_LOGIN = "SELECT * FROM Users WHERE nickname = ? AND pass = ? ";
     final String GET_USER_DATA = "SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
-    
+    final String EDIT_NICK = "UPDATE users SET nickname = ? WHERE ID = ?";
+
     /**
      * Pobieranie wszystkich danych usera z bazy danych
      * @return List<User>
@@ -34,7 +35,10 @@ public class UsersDAO{
 
     public User find_user_by_id(Integer id) {
 		return baza.query(GET_ALL_WHOLE_USERS_DATA + " WHERE u.ID = \"" + id + "\"", getMap()).get(0);
-	}
+    }
+    public void editNick(int id, String nick){
+        baza.update(EDIT_NICK, nick, id);
+    }
 
 
     private RowMapper<User> getLoginMap(){
