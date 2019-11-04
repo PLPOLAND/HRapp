@@ -38,9 +38,9 @@
                 <c:forEach var="vart" items="${userList}">
                     <div class="osoba"> 
                             ${vart.getImie()} ${vart.getNazwisko()}
-                            <div class="button1"><i class='far fa-edit'></i></div><!--Tu ma byc przycisk do AeditUserPage -->
+                            <div class="button1" class="button1" onclick="location.href='/edit_user_page?id=${vart.getID()}'"><i class='far fa-edit'></i></div><!--Tu ma byc przycisk do AeditUserPage -->
                             <div class="button1"><i class='far fa-trash-alt'></i></div><!--Tu ma byc przycisk do usunięcia? --> 
-                            <div type="button" class="button1" onclick="location.href='/AuserProfilPage'"><i class='far fa-address-card'></i></div><!--Tu ma byc przycisk doAuserProfilPage -->
+                            <div type="button" class="button1" onclick="location.href='/user_profile_page?id=${vart.getID()}'"><i class='far fa-address-card'></i></div><!--Tu ma byc przycisk doAuserProfilPage -->
                             <div class="button1"><i class='far fa-money-bill-alt'></i></div><!--Tu ma byc przycisk do ... -->
                             <div style="clear:both"></div>
                             <br>
