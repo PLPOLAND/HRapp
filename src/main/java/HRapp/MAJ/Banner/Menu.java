@@ -20,6 +20,15 @@ public class Menu {
     /** Konstruktor */
     public Menu() {
         pozycjemenu = new ArrayList<>();
+        //tymczasowe pozycje
+        this.Add("logowanie", "/");
+        this.Add("strona admina", "/adminhome");
+        this.Add("test", "/test", true);
+        this.Add("templatka", "/tmp");
+        this.AddToDropDawnPos("test", "pos1", "#");
+        this.AddToDropDawnPos("test", "pos2", "#");
+        // this.AddToDropDawnPos("test", "pos3", "#");
+        // this.AddToDropDawnPos("test", "pos4", "#");
     }
 
     /**

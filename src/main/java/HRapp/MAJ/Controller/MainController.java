@@ -83,14 +83,7 @@ public class MainController {
 
 		Menu menu = new Menu();
 		List<User> userList = userdao.getAllUsers();
-		menu.Add("logowanie", "/");
-		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test", true);
-		menu.Add("templatka", "/tmp");
-		menu.AddToDropDawnPos("test", "pos1", "#");
-		menu.AddToDropDawnPos("test", "pos2", "#");
-		menu.AddToDropDawnPos("test", "pos3", "#");
-		menu.AddToDropDawnPos("test", "pos4", "#");
+		
 		Banner banner = new Banner(menu);
 		model.addAttribute("userList", userList);
 		model.addAttribute(banner);	
@@ -115,14 +108,14 @@ public class MainController {
 
 		Menu menu = new Menu();
 		User user1 = userdao.find_user_by_id(id);
-		menu.Add("logowanie", "/");
-		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test", true);
-		menu.Add("templatka", "/tmp");
-		menu.AddToDropDawnPos("test", "pos1", "#");
-		menu.AddToDropDawnPos("test", "pos2", "#");
-		menu.AddToDropDawnPos("test", "pos3", "#");
-		menu.AddToDropDawnPos("test", "pos4", "#");
+		// menu.Add("logowanie", "/");
+		// menu.Add("strona admina", "/adminhome");
+		// menu.Add("test", "/test", true);
+		// menu.Add("templatka", "/tmp");
+		// menu.AddToDropDawnPos("test", "pos1", "#");
+		// menu.AddToDropDawnPos("test", "pos2", "#");
+		// menu.AddToDropDawnPos("test", "pos3", "#");
+		// menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
 		model.addAttribute("user1", user1);
 		model.addAttribute(banner);	
@@ -150,14 +143,14 @@ public class MainController {
 		List<TypyUmowy> um = typyumowydao.getAllTypyUmowy();
 
 
-		menu.Add("logowanie", "/");
-		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test", true);
-		menu.Add("templatka", "/tmp");
-		menu.AddToDropDawnPos("test", "pos1", "#");
-		menu.AddToDropDawnPos("test", "pos2", "#");
-		menu.AddToDropDawnPos("test", "pos3", "#");
-		menu.AddToDropDawnPos("test", "pos4", "#");
+		// menu.Add("logowanie", "/");
+		// menu.Add("strona admina", "/adminhome");
+		// menu.Add("test", "/test", true);
+		// menu.Add("templatka", "/tmp");
+		// menu.AddToDropDawnPos("test", "pos1", "#");
+		// menu.AddToDropDawnPos("test", "pos2", "#");
+		// menu.AddToDropDawnPos("test", "pos3", "#");
+		// menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
 		model.addAttribute("user1", user1);
 		model.addAttribute("stanowiska", st);
@@ -207,14 +200,14 @@ public class MainController {
 		Security security = new Security(request, userdao);
 		if(security.isLoged()){
 			Menu menu = new Menu();
-			menu.Add("logowanie", "/");
-			menu.Add("strona admina", "/adminhome");
-			menu.Add("test", "/test", true);
-			menu.Add("templatka", "/tmp");
-			menu.AddToDropDawnPos("test", "pos1", "#");
-			menu.AddToDropDawnPos("test", "pos2", "#");
-			menu.AddToDropDawnPos("test", "pos3", "#");
-			menu.AddToDropDawnPos("test", "pos4", "#");
+			// menu.Add("logowanie", "/");
+			// menu.Add("strona admina", "/adminhome");
+			// menu.Add("test", "/test", true);
+			// menu.Add("templatka", "/tmp");
+			// menu.AddToDropDawnPos("test", "pos1", "#");
+			// menu.AddToDropDawnPos("test", "pos2", "#");
+			// menu.AddToDropDawnPos("test", "pos3", "#");
+			// menu.AddToDropDawnPos("test", "pos4", "#");
 			Banner banner = new Banner(menu);
 			model.addAttribute(banner);
 			return "template";
@@ -234,14 +227,14 @@ public class MainController {
 	public String test(Model model){
 
 		Menu menu = new Menu();
-		menu.Add("logowanie", "/");
-		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test", true);
-		menu.Add("templatka", "/tmp");
-		menu.AddToDropDawnPos("test", "pos1", "#");
-		menu.AddToDropDawnPos("test", "pos2", "#");
-		menu.AddToDropDawnPos("test", "pos3", "#");
-		menu.AddToDropDawnPos("test", "pos4", "#");
+		// menu.Add("logowanie", "/");
+		// menu.Add("strona admina", "/adminhome");
+		// menu.Add("test", "/test", true);
+		// menu.Add("templatka", "/tmp");
+		// menu.AddToDropDawnPos("test", "pos1", "#");
+		// menu.AddToDropDawnPos("test", "pos2", "#");
+		// menu.AddToDropDawnPos("test", "pos3", "#");
+		// menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
 		model.addAttribute(banner);
 
@@ -260,14 +253,14 @@ public class MainController {
 	public String test3(Model model){
 		
 		Menu menu = new Menu();
-		menu.Add("logowanie", "/");
-		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test", true);
-		menu.Add("templatka", "/tmp");
-		menu.AddToDropDawnPos("test", "pos1", "#");
-		menu.AddToDropDawnPos("test", "pos2", "#");
-		menu.AddToDropDawnPos("test", "pos3", "#");
-		menu.AddToDropDawnPos("test", "pos4", "#");
+		// menu.Add("logowanie", "/");
+		// menu.Add("strona admina", "/adminhome");
+		// menu.Add("test", "/test", true);
+		// menu.Add("templatka", "/tmp");
+		// menu.AddToDropDawnPos("test", "pos1", "#");
+		// menu.AddToDropDawnPos("test", "pos2", "#");
+		// menu.AddToDropDawnPos("test", "pos3", "#");
+		// menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
 		
 		
