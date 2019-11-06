@@ -35,25 +35,67 @@
                 Pracownicy<br><br>
             </div>
             <div id="pracownicy">
-                <c:forEach var="vart" items="${userList}">
+                <!-- <c:forEach var="vart" items="${userList}">
                     <div class="osoba"> 
                             ${vart.getImie()} ${vart.getNazwisko()}
-                            <div class="button1" class="button1" onclick="location.href='/edit_user_page?id=${vart.getID()}'"><i class='far fa-edit'></i></div><!--Tu ma byc przycisk do AeditUserPage -->
-                            <div class="button1"><i class='far fa-trash-alt'></i></div><!--Tu ma byc przycisk do usunięcia? --> 
-                            <div type="button" class="button1" onclick="location.href='/user_profile_page?id=${vart.getID()}'"><i class='far fa-address-card'></i></div><!--Tu ma byc przycisk doAuserProfilPage -->
-                            <div class="button1"><i class='far fa-money-bill-alt'></i></div><!--Tu ma byc przycisk do ... -->
+                            <div class="button1" class="button1" onclick="location.href='/edit_user_page?id=${vart.getID()}'"><i class='far fa-edit'></i></div>
+                            <div class="button1"><i class='far fa-trash-alt'></i></div>
+                            <div type="button" class="button1" onclick="location.href='/user_profile_page?id=${vart.getID()}'"><i class='far fa-address-card'></i></div>
+                            <div class="button1"><i class='far fa-money-bill-alt'></i></div>
                             <div style="clear:both"></div>
                             <br>
                     </div>               
-                </c:forEach>
+                </c:forEach> -->
+
+                <table>
+                    <tr>
+                        <td>Imie</td>
+                        <td>Nazwisko</td>
+                        <td>Email</td>
+                        <td>Nr Konta Bankowego</td>
+                        <td>Wypłata NETTO</td>
+                        <td>Wypłata BRUTTO</td>
+                        <td>Stanowisko</td>
+                        <td>Typ Umowy</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <c:forEach var="userval" items="${userList}">
+                        <tr>
+                            <td>${userval.getImie()}</td>
+                            <td>${userval.getNazwisko()}</td>
+                            <td>${userval.getEmail()}</td>
+                            <td>${userval.getKontoBankowe()}</td>
+                            <!-- <td>${userval.getWyplataBrutto()} zł</td> -->
+                            <td>pińćsetZłoty(TODO ;-P )</td>
+                            <td>${userval.getWyplataBrutto()} zł</td>
+                            <td>${userval.getStanowisko()}</td>
+                            <td>${userval.getTypUmowy()}</td>
+                            <td class="przycisk" onclick="location.href='/edit_user_page?id=${userval.getID()}'" >
+                                <i class='far fa-edit'></i>
+                                <!-- <input type="button" class="" value="Edytuj" onclick="location.href='/edit?id=${userval.getID()}'" /> -->
+                            </td>
+                            <td class="przycisk" >
+                                <i class='far fa-trash-alt'></i>
+                                <!--<input type="button" class="" value="Usuń"
+                                    onclick="confirmation(<c:out value='${userval.getID()}' />);" /> -->
+                            </td>
+                            <td class="przycisk" onclick="location.href='/user_profile_page?id=${userval.getID()}'"> <i class='far fa-address-card'></i> </td>
+                            <td class="przycisk" > <i class='far fa-money-bill-alt'></i> </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+
             </div>    
-            <div id="person">  
+            <!-- <div id="person">  
                     <button class="konto" style="vertical-align:middle"><span><i class="fa fa-male"></i>  Moje konto 
                         <img width="50", height="50", src="/img/Ricardo_Milos.png"/>
-                    </span></button> <!--Tu ma byc przycisk do AeditUserPage albo AdminProfile --> 
+                    </span></button> Tu ma byc przycisk do AeditUserPage albo AdminProfile --> 
                     <!--Zalezy czy admin ma miec specjalną stronę dla swojego konta czy nie -->   
-                    <div class ="ikona"></div>
-            </div>      
+                    <!-- <div class ="ikona"></div>
+            </div>       -->
         </div>
         <div id="footer">
             MAJ<br>
