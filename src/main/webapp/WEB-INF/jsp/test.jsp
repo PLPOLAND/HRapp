@@ -26,8 +26,11 @@
     <div id="backgroundContainer"></div>
     <div class="container">
         <div id="banner">
-            ${banner.printBanner()}
-            <!-- <div class="menu">
+            <div id="BannerDataSpace">
+                <div class="left"><a href="/"><img class="pagelogo" src="${icon}"></a></div> <div class="right"><div class="userdata">Marek Pałdyna <img class="userlogo" src="${grav}"></div></div> 
+            </div>
+            <!-- ${banner.printBanner()} -->
+            <div class="menu">
                 <ul>
                     <li><a href="/">logowanie</a></li>
                     <li><a href="/adminhome">strona admina</a>
@@ -43,7 +46,7 @@
                     <li><a href="/test">test</a></li>
                     <li><a href="/tmp">templatka</a></li>
                 </ul>
-            </div> -->
+            </div>
         </div>
         <div id="mainbody">
 
