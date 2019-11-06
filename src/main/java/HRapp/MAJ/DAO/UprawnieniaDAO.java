@@ -15,7 +15,7 @@ public class UprawnieniaDAO{
     @Autowired
     private JdbcTemplate baza1;
 
-    final String GET_ALL_USERS_PERMISSION_DATA = "SELECT ID, admin FROM permissions";
+    final String GET_ALL_USERS_PERMISSION_DATA = "SELECT ID, admin FROM Permissions";
 
 
     public List<Uprawnienia> getAllPermissionsData(){

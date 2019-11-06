@@ -15,7 +15,7 @@ public class TypyUmowyDAO{
     @Autowired
     private JdbcTemplate baza;
 
-    final String GET_ALL_TYPY_UMOWY_DATA = "SELECT ID_T, nazwa, nazwaSkr, podatek FROM typyumowy";
+    final String GET_ALL_TYPY_UMOWY_DATA = "SELECT ID_T, nazwa, nazwaSkr, podatek FROM TypyUmowy";
 
     public List<TypyUmowy> getAllTypyUmowy(){
         return baza.query(GET_ALL_TYPY_UMOWY_DATA, getMap());

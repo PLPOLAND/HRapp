@@ -15,7 +15,7 @@ public class StanowiskaDAO{
     @Autowired
     private JdbcTemplate baza;
 
-    final String GET_ALL_STANOWISKA_DATA = "SELECT ID_s, Nazwa, NazwaSkr FROM stanowiska";
+    final String GET_ALL_STANOWISKA_DATA = "SELECT ID_s, Nazwa, NazwaSkr FROM Stanowiska";
 
     public List<Stanowiska> getAllStanowiska(){
         return baza.query(GET_ALL_STANOWISKA_DATA, getMap());
