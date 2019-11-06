@@ -3,6 +3,7 @@ package HRapp.MAJ.Controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,10 @@ import HRapp.MAJ.Banner.Banner;
 import HRapp.MAJ.Banner.Menu;
 import HRapp.MAJ.DAO.UsersDAO;
 import HRapp.MAJ.Model.User;
-import HRapp.MAJ.Security.Hash;
+import HRapp.MAJ.DAO.StanowiskaDAO;
+import HRapp.MAJ.Model.Stanowiska;
+import HRapp.MAJ.DAO.TypyUmowyDAO;
+import HRapp.MAJ.Model.TypyUmowy;
 import HRapp.MAJ.Security.Security;
 
 
@@ -27,6 +31,11 @@ public class MainController {
 	 */
 	@Autowired
 	UsersDAO userdao;
+	@Autowired
+	StanowiskaDAO stanowiskadao;
+	@Autowired
+	TypyUmowyDAO typyumowydao;
+
 
 	/**
 	 * Strona logowania
@@ -60,6 +69,135 @@ public class MainController {
 	
 
 	/**
+	 * 
+	 *strona admina (lista pracownikow)
+	 */
+	@RequestMapping("/adminhome")
+	public String adminhome(Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage"; 
+
+		Menu menu = new Menu();
+		List<User> userList = userdao.getAllUsers();
+		menu.Add("logowanie", "/");
+		menu.Add("strona admina", "/adminhome");
+		menu.Add("test", "/test", true);
+		menu.Add("templatka", "/tmp");
+		menu.AddToDropDawnPos("test", "pos1", "#");
+		menu.AddToDropDawnPos("test", "pos2", "#");
+		menu.AddToDropDawnPos("test", "pos3", "#");
+		menu.AddToDropDawnPos("test", "pos4", "#");
+		Banner banner = new Banner(menu);
+		model.addAttribute("userList", userList);
+		model.addAttribute(banner);	
+
+
+		return "Amainpage";
+	}
+	
+
+	/**
+	 * 
+	 * szczegolowy widok pracownika
+	 */
+	@RequestMapping("/user_profile_page")
+	public String user_profile_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage";
+
+		Menu menu = new Menu();
+		User user1 = userdao.find_user_by_id(id);
+		menu.Add("logowanie", "/");
+		menu.Add("strona admina", "/adminhome");
+		menu.Add("test", "/test", true);
+		menu.Add("templatka", "/tmp");
+		menu.AddToDropDawnPos("test", "pos1", "#");
+		menu.AddToDropDawnPos("test", "pos2", "#");
+		menu.AddToDropDawnPos("test", "pos3", "#");
+		menu.AddToDropDawnPos("test", "pos4", "#");
+		Banner banner = new Banner(menu);
+		model.addAttribute("user1", user1);
+		model.addAttribute(banner);	
+
+
+		return "AuserProfilPage";
+	}
+
+	/**
+	 * 
+	 * edycja pracownika
+	 */
+	@RequestMapping("/edit_user_page")
+	public String edit_user_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage";
+
+		Menu menu = new Menu();
+		User user1 = userdao.find_user_by_id(id);
+		List<Stanowiska> st= stanowiskadao.getAllStanowiska();
+		List<TypyUmowy> um = typyumowydao.getAllTypyUmowy();
+
+
+		menu.Add("logowanie", "/");
+		menu.Add("strona admina", "/adminhome");
+		menu.Add("test", "/test", true);
+		menu.Add("templatka", "/tmp");
+		menu.AddToDropDawnPos("test", "pos1", "#");
+		menu.AddToDropDawnPos("test", "pos2", "#");
+		menu.AddToDropDawnPos("test", "pos3", "#");
+		menu.AddToDropDawnPos("test", "pos4", "#");
+		Banner banner = new Banner(menu);
+		model.addAttribute("user1", user1);
+		model.addAttribute("stanowiska", st);
+		model.addAttribute("typyUmowy", um);
+		model.addAttribute(banner);	
+
+
+		return "AeditUserPage";
+	}
+
+	@RequestMapping("/edit_nick")
+	public String editUser(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage";
+
+		String nick = request.getParameter("x1");
+		
+		userdao.editNick(id, nick);
+		
+		return "redirect:/edit_user_page?id=" + id;
+	
+	}
+
+	/**
+	 * 
+	 * wylogowywanie
+	 */
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		Security sec = new Security(request, userdao);
+		sec.logout();
+		return "redirect:/";
+	}
+
+	
+
+	 /**
 	 * 
 	 * Templatka. Jako podastawa. Kopiujemy to, zmieniamy adres strony (w "" po requestmapping), nazwę funkcji i odpowiedni return.
 	 * 
@@ -113,36 +251,7 @@ public class MainController {
 		}
 		return "errorpage";
 	}
-	/**
-	 * 
-	 *strona admina (lista pracownikow)
-	 */
-	@RequestMapping("/adminhome")
-	public String adminhome(Model model,HttpServletRequest request){	
 
-		Security security = new Security(request, userdao);
-		if(!security.isLoged())
-		return "redirect:/";
-		if(!security.isUserAdmin())
-		return "errorpage"; 
-
-		Menu menu = new Menu();
-		List<User> userList = userdao.getAllUsers();
-		menu.Add("logowanie", "/");
-		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test", true);
-		menu.Add("templatka", "/tmp");
-		menu.AddToDropDawnPos("test", "pos1", "#");
-		menu.AddToDropDawnPos("test", "pos2", "#");
-		menu.AddToDropDawnPos("test", "pos3", "#");
-		menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu);
-		model.addAttribute("userList", userList);
-		model.addAttribute(banner);	
-
-
-		return "Amainpage";
-	}
 	/**
 	 * 
 	 * Służy do testowania 3 
@@ -160,76 +269,14 @@ public class MainController {
 		menu.AddToDropDawnPos("test", "pos3", "#");
 		menu.AddToDropDawnPos("test", "pos4", "#");
 		Banner banner = new Banner(menu);
+		
+		
 		String gravatarUrl = Gravatar.getUrl("marekpaldyna@wp.pl");
 		System.out.println(gravatarUrl);
 		model.addAttribute("grav",gravatarUrl);
 		model.addAttribute(banner);
-
-		System.out.println(Hash.hash("Kowadlo"));
 		
 		return "test";
-	}
-
-/**
-	 * 
-	 * szczegolowy widok pracownika
-	 */
-	@RequestMapping("/user_profile_page")
-	public String user_profile_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
-
-		Security security = new Security(request, userdao);
-		if(!security.isLoged())
-		return "redirect:/";
-		if(!security.isUserAdmin())
-		return "errorpage";
-
-		Menu menu = new Menu();
-		User user1 = userdao.find_user_by_id(id);
-		menu.Add("logowanie", "/");
-		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test", true);
-		menu.Add("templatka", "/tmp");
-		menu.AddToDropDawnPos("test", "pos1", "#");
-		menu.AddToDropDawnPos("test", "pos2", "#");
-		menu.AddToDropDawnPos("test", "pos3", "#");
-		menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu);
-		model.addAttribute("user1", user1);
-		model.addAttribute(banner);	
-
-
-		return "AuserProfilPage";
-	}
-
-	/**
-	 * 
-	 * edycja pracownika
-	 */
-	@RequestMapping("/edit_user_page")
-	public String edit_user_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
-
-		Security security = new Security(request, userdao);
-		if(!security.isLoged())
-		return "redirect:/";
-		if(!security.isUserAdmin())
-		return "errorpage";
-
-		Menu menu = new Menu();
-		User user1 = userdao.find_user_by_id(id);
-		menu.Add("logowanie", "/");
-		menu.Add("strona admina", "/adminhome");
-		menu.Add("test", "/test", true);
-		menu.Add("templatka", "/tmp");
-		menu.AddToDropDawnPos("test", "pos1", "#");
-		menu.AddToDropDawnPos("test", "pos2", "#");
-		menu.AddToDropDawnPos("test", "pos3", "#");
-		menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu);
-		model.addAttribute("user1", user1);
-		model.addAttribute(banner);	
-
-
-		return "AeditUserPage";
 	}
 
 	/**
@@ -239,7 +286,7 @@ public class MainController {
 	 */
 	@RequestMapping("/xxx")
 	public String Stonoga(){
-		return "AuserProfilPage";
+		return "AeditUserPage";
 	}
 
 }

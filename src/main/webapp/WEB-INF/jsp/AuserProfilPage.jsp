@@ -43,11 +43,7 @@
                     <li>email: adawdawd@awdawd.pl</li>
                     <li>Numer konta bankowego: 455635345345345</li>
                     <li>Typ umowy: niewolnik</li>
-                    <li>Stanowisko: uzupełnianie tabelek w excelu</li>
-                    <li>Hasło: <input type="password" value="FakePSW" id="myInput"></li><!--CHYBA zakrywa hasło, ale nie wiem-->
-                    <input type="checkbox" onclick="myFunction()">Pokaż hasło <!--To domyślnie jest INPUT, nie wiem jak zadziała jako OUTPUT-->
-                    <!--https://www.w3schools.com/howto/howto_js_toggle_password.asp    w tym jest JavaScrip jaki dodać-->
-                
+                    <li>Stanowisko: uzupełnianie tabelek w excelu</li>  
             </div>
             <br><br><br><br><br><br><br><br><br><br><br><br>
             <button class="konto" style="vertical-align:middle"><i class='far fa-edit'></i><span>Edytuj dane</span></button><!--przenosi do strony AeditUserPage-->         

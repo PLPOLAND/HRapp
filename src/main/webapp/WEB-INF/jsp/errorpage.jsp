@@ -28,10 +28,12 @@
     <div class="container">
         <div id="banner">
             ${banner.printBanner()}    
-            <h3>Błąd! Nie można odnaleźć strony</h1>  
+             
         </div>
         <div id="mainbody">
-            <br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/>
+            <h3>Błąd! Nie można odnaleźć strony</h1> 
+            <br/><br/><br/>
             Kliknij obrazek aby powrócić do ekranu logowania
             <br/><br/><br/>
             <a href="/">

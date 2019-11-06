@@ -15,11 +15,12 @@ public class UsersDAO{
     @Autowired
     private JdbcTemplate baza;
     //zmieniłam bo ID usera i ID permissions (typKonta) wyświetlało się jako jedno (?) + wypisuje podatek
-    final String GET_ALL_WHOLE_USERS_DATA = "SELECT u.ID, u.nickname, u.email, u.pass, u.oldpass, ud.imie, ud.nazwisko, ud.kontoBankowe, ud.wyplataBrutto, p.ID as typKonta, s.Nazwa as Stanowisko, t.nazwa as typUmowy, t.podatek FROM Users u NATURAL JOIN UsersData ud LEFT JOIN Stanowiska s ON ud.id_s=s.ID_s LEFT JOIN TypyUmowy t ON ud.id_t_u=t.ID_T NATURAL JOIN Permissions p;";
+    final String GET_ALL_WHOLE_USERS_DATA = "SELECT u.ID, u.nickname, u.email, u.pass, u.oldpass, ud.imie, ud.nazwisko, ud.kontoBankowe, ud.wyplataBrutto, p.ID as Uprawnienia, s.Nazwa as Stanowisko, t.nazwa as typUmowy, t.podatek FROM Users u NATURAL JOIN UsersData ud LEFT JOIN Stanowiska s ON ud.id_s=s.ID_s LEFT JOIN TypyUmowy t ON ud.id_t_u=t.ID_T NATURAL JOIN Permissions p";
    // final String GET_ALL_WHOLE_USERS_DATA ="SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
     final String FIND_USER_LOGIN = "SELECT * FROM Users WHERE nickname = ? AND pass = ? ";
     final String GET_USER_DATA = "SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
-    
+    final String EDIT_NICK = "UPDATE users SET nickname = ? WHERE ID = ?";
+
     /**
      * Pobieranie wszystkich danych usera z bazy danych
      * @return List<User>
@@ -33,8 +34,11 @@ public class UsersDAO{
     }
 
     public User find_user_by_id(Integer id) {
-		return (User)baza.query(GET_ALL_WHOLE_USERS_DATA + " WHERE u.ID = \"" + id + "\"", getMap());
-	}
+		return baza.query(GET_ALL_WHOLE_USERS_DATA + " WHERE u.ID = \"" + id + "\"", getMap()).get(0);
+    }
+    public void editNick(int id, String nick){
+        baza.update(EDIT_NICK, nick, id);
+    }
 
 
     private RowMapper<User> getLoginMap(){
@@ -65,7 +69,7 @@ public class UsersDAO{
             user.setNazwisko(rs.getString("nazwisko"));
             user.setKontoBankowe(rs.getString("kontoBankowe"));
             user.setWyplataBrutto(rs.getFloat("wyplataBrutto"));
-            user.setTypKonta(rs.getInt("typKonta"));
+            user.setUprawnienia(rs.getInt("Uprawnienia"), baza);
             user.setStanowisko(rs.getString("Stanowisko"));
             user.setTypUmowy(rs.getString("typUmowy"));
             user.setProcentPodatku(rs.getInt("podatek"));

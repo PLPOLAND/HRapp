@@ -149,17 +149,24 @@ body{
 
 
   #osoba_detail{
-    list-style-type: circle;
-    color: white;
+    
+    /*
     border: 1px solid rgb(0, 0, 0);
-    border-radius: 4px;
-    float: left;
+    list-style-type: circle;
     background: var(--banner-color);
+    border-radius: 4px;
+    */
+    color: white;
+    float: left;
     padding: 20px;
   }
   #osoba_detail li{
-    background: var(--a-link-color);
+    /*background: var(--a-link-color);*/
     margin: 5px;
+  }
+  input[type=text] {
+    background-color: var(--mainbody-color);
+    color: white;
   }
   
   
