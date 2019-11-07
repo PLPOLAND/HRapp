@@ -84,7 +84,7 @@ public class MainController {
 		Menu menu = new Menu();
 		List<User> userList = userdao.getAllUsers();
 		
-		Banner banner = new Banner(menu,Gravatar.getUrl("marekpaldyna@wp.pl"));
+		Banner banner = new Banner(menu, security.getFullUserData());
 		model.addAttribute("userList", userList);
 		model.addAttribute(banner);	
 
@@ -108,15 +108,7 @@ public class MainController {
 
 		Menu menu = new Menu();
 		User user1 = userdao.find_user_by_id(id);
-		// menu.Add("logowanie", "/");
-		// menu.Add("strona admina", "/adminhome");
-		// menu.Add("test", "/test", true);
-		// menu.Add("templatka", "/tmp");
-		// menu.AddToDropDawnPos("test", "pos1", "#");
-		// menu.AddToDropDawnPos("test", "pos2", "#");
-		// menu.AddToDropDawnPos("test", "pos3", "#");
-		// menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu, Gravatar.getUrl("marekpaldyna@wp.pl"));
+		Banner banner = new Banner(menu, security.getFullUserData());
 		model.addAttribute("user1", user1);
 		model.addAttribute(banner);	
 
@@ -142,16 +134,7 @@ public class MainController {
 		List<Stanowiska> st= stanowiskadao.getAllStanowiska();
 		List<TypyUmowy> um = typyumowydao.getAllTypyUmowy();
 
-
-		// menu.Add("logowanie", "/");
-		// menu.Add("strona admina", "/adminhome");
-		// menu.Add("test", "/test", true);
-		// menu.Add("templatka", "/tmp");
-		// menu.AddToDropDawnPos("test", "pos1", "#");
-		// menu.AddToDropDawnPos("test", "pos2", "#");
-		// menu.AddToDropDawnPos("test", "pos3", "#");
-		// menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu, Gravatar.getUrl("marekpaldyna@wp.pl"));
+		Banner banner = new Banner(menu, security.getFullUserData());
 		model.addAttribute("user1", user1);
 		model.addAttribute("stanowiska", st);
 		model.addAttribute("typyUmowy", um);
@@ -200,15 +183,7 @@ public class MainController {
 		Security security = new Security(request, userdao);
 		if(security.isLoged()){
 			Menu menu = new Menu();
-			// menu.Add("logowanie", "/");
-			// menu.Add("strona admina", "/adminhome");
-			// menu.Add("test", "/test", true);
-			// menu.Add("templatka", "/tmp");
-			// menu.AddToDropDawnPos("test", "pos1", "#");
-			// menu.AddToDropDawnPos("test", "pos2", "#");
-			// menu.AddToDropDawnPos("test", "pos3", "#");
-			// menu.AddToDropDawnPos("test", "pos4", "#");
-			Banner banner = new Banner(menu, Gravatar.getUrl("marekpaldyna@wp.pl"));
+			Banner banner = new Banner(menu, security.getFullUserData());
 			model.addAttribute(banner);
 			return "template";
 		}
@@ -224,44 +199,31 @@ public class MainController {
 	 * Służy do testowania 
 	 */
 	@RequestMapping("/test")
-	public String test(Model model){
+	public String test(Model model, HttpServletRequest request){
 
 		Menu menu = new Menu();
-		// menu.Add("logowanie", "/");
-		// menu.Add("strona admina", "/adminhome");
-		// menu.Add("test", "/test", true);
-		// menu.Add("templatka", "/tmp");
-		// menu.AddToDropDawnPos("test", "pos1", "#");
-		// menu.AddToDropDawnPos("test", "pos2", "#");
-		// menu.AddToDropDawnPos("test", "pos3", "#");
-		// menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu, Gravatar.getUrl("marekpaldyna@wp.pl"));
-		model.addAttribute(banner);
 
+		Security security = new Security(request, userdao);
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute(banner);
+		
 		List<User> ls = userdao.getUserLoginData("PLPOLAND", "Makowiec1");
 		for (User user : ls) {
 			System.out.println(user.toString());
 		}
 		return "errorpage";
 	}
-
+	
 	/**
 	 * 
 	 * Służy do testowania 3 
 	 */
 	@RequestMapping("/menu")
-	public String test3(Model model){
+	public String test3(Model model, HttpServletRequest request){
 		
+		Security security = new Security(request, userdao);
 		Menu menu = new Menu();
-		// menu.Add("logowanie", "/");
-		// menu.Add("strona admina", "/adminhome");
-		// menu.Add("test", "/test", true);
-		// menu.Add("templatka", "/tmp");
-		// menu.AddToDropDawnPos("test", "pos1", "#");
-		// menu.AddToDropDawnPos("test", "pos2", "#");
-		// menu.AddToDropDawnPos("test", "pos3", "#");
-		// menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu, Gravatar.getUrl("marekpaldyna@wp.pl"));
+		Banner banner = new Banner(menu, security.getFullUserData());
 		
 		
 		String gravatarUrl = Gravatar.getUrl("marekpaldyna@wp.pl");

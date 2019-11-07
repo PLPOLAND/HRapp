@@ -62,16 +62,15 @@ public class Security {
         if (resultUsers.isEmpty()) {
             return false;
         } else {
-
-            String user = resultUsers.get(0).getNick(); // TODO
-            String srUser = resultUsers.get(0).getEmail(); // TODO
-            Integer idUser = resultUsers.get(0).getID();
+            String name = resultUsers.get(0).getNick(); // TODO
+            String nazwisko = resultUsers.get(0).getEmail(); // TODO
+            Integer idU = resultUsers.get(0).getID();
             // String typUser = resultUsers.get(0).getAccount_type(); TODO
             String typUser = "Administrator";
             HttpSession session = request.getSession();
-            session.setAttribute("name", user); // dodawanie pola do sesji
-            session.setAttribute("surName", srUser);
-            session.setAttribute("id", idUser);
+            session.setAttribute("imie", name); // dodawanie pola do sesji
+            session.setAttribute("nazwisko", nazwisko);
+            session.setAttribute("id", idU);
             session.setAttribute("typKonta", typUser);
             session.setMaxInactiveInterval(60 * 60); // usuniecie pol sesji po 60 minutach
 
@@ -93,8 +92,7 @@ public class Security {
         // System.out.println(session.getAttribute("name"));
         // System.out.println(session.getAttribute("surName"));
         // System.out.println(session.getAttribute("id"));
-        if (session.getAttribute("name") == null || session.getAttribute("surName") == null
-                || session.getAttribute("id") == null) {
+        if (session.getAttribute("imie") == null || session.getAttribute("nazwisko") == null || session.getAttribute("id") == null) {
             return false;
         } else {
             return true;
@@ -110,7 +108,7 @@ public class Security {
     public String getUserName() {
         if (isLoged()) {
             HttpSession session = request.getSession();
-            return session.getAttribute("name").toString();
+            return session.getAttribute("imie").toString();
         } else
             return null;
     }
@@ -139,7 +137,7 @@ public class Security {
     public String getUserSurName() {
         if (isLoged()) {
             HttpSession session = request.getSession();
-            return session.getAttribute("surName").toString();
+            return session.getAttribute("Nazwisko").toString();
         } else {
             return null;
         }
@@ -178,27 +176,26 @@ public class Security {
         }
     }
 
-    // /**
-    // * Funkcja pobierająca dane użytkonika z bazy danych na podstawie ID
-    // (pobranego z danych sesji)
-    // * @version 1.0
-    // * @return Dane zalogowanego użytkownika
-    // */
-    // public User getFullUserData(){
-    // if (isLoged()){
-    // HttpSession session = request.getSession();
-    // List<User> result =
-    // database.find_user_by_id((Integer)session.getAttribute("id"));
-    // if (result.isEmpty()) {
-    // return null;
-    // } else {
-    // return result.get(0);
-    // }
-    // }
-    // else{
-    // return null;
-    // }
-    // }
+    /**
+    * Funkcja pobierająca dane użytkonika z bazy danych na podstawie ID
+    (pobranego z danych sesji)
+    * @version 1.0
+    * @return Dane zalogowanego użytkownika
+    */
+    public User getFullUserData(){
+        if (isLoged()){
+            HttpSession session = request.getSession();
+            User result = database.find_user_by_id((Integer)session.getAttribute("id"));
+            if (result == null) {
+                return null;
+            } else {
+                return result;
+            }
+        }
+        else{
+            return null;
+        }
+    }
 
     /**
      * Funkcja usuwa dane sesji = wylogowanie użytkownika
@@ -207,8 +204,8 @@ public class Security {
         if (isLoged()) {
             HttpSession session = request.getSession();
 
-            session.removeAttribute("name"); // usuwanie pola do sesji
-            session.removeAttribute("surName");
+            session.removeAttribute("imie"); // usuwanie pola do sesji
+            session.removeAttribute("nazwisko");
             session.removeAttribute("id");
             session.removeAttribute("typKonta");
         } else
