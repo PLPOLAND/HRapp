@@ -208,10 +208,7 @@ img.pagelogo{
     float: left;
     padding: 20px;
   }
-  #osoba_detail li{
-    /*background: var(--a-link-color);*/
-    margin: 5px;
-  }
+  
   input[type=text] {
     background-color: var(--mainbody-color);
     color: white;
@@ -224,6 +221,16 @@ img.pagelogo{
       -webkit-filter: opacity(30%);
       filter: opacity(30%);
   }
+
+
+form.form-example {
+    display: table;
+}
+
+div.form-example {
+    display: table-row;
+}
+
 /*koniec rewiru Julka*/
 
 

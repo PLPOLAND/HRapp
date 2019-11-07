@@ -34,23 +34,49 @@
                         Imię Nazwisko<!--Imie i nazwisko osoby ktorej konto wybraliśmy wcześniej przyciskiem SZCZEGÓŁY-->
                         <br>
                     </div>
-                    <div id="osoba_detail">
-                            <!--To z bazy danych vvvv + zapisywanie do bazy danych TO EDYCJA JAKO ADMIN-->
-                            <li>Aktualny nickname: adwadawd</li> 
-                            Zmień nickname:<input type="text" name="x1" background>
-                            <input type="submit" value="Zaktualizuj">
-                            <li>Aktualny email: adawdawd@awdawd.pl</li>
-                            Zmień email:<input type="text" name="x2">
-                            <input type="submit" value="Zaktualizuj">
-                            <li>Aktualny numer konta bankowego: 455635345345345</li> 
-                            Zmień numer konta:<input type="text" name="x3">
-                            <input type="submit" value="Zaktualizuj">
-                            <li>Typ umowy: niewolnik</li>
-                            Zmień typ umowy:<input type="text" name="x4">
-                            <input type="submit" value="Zaktualizuj">
-                            <li>Stanowisko: uzupełnianie tabelek w excelu</li> 
-                            Zmień stanowisko:<input type="text" name="x5">
-                            <input type="submit" value="Zaktualizuj">
+                    <div id="osoba_detail">                   
+                        <!--To z bazy danych vvvv + zapisywanie do bazy danych TO EDYCJA JAKO ADMIN-->
+                            <form action="przeniesie danych">
+                                <table>
+                                    <tr>
+                                        <th><h3>Dane pracownika:</h3></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Imię:</th><th><input type="text" name="x1" size="40" value="John"></th> 
+                                    </tr>
+                                    <tr>
+                                        <th>Nazwisko:</th><th><input type="text" name="x1" size="40" value="John"></th> 
+                                    </tr>
+                                    <tr>
+                                        <th>Nickname:</th><th><input type="text" name="x1" size="40" value="John"></th> 
+                                    </tr>
+                                    <tr>
+                                        <th>Email:</th><th><input type="text" name="x2" size="40" value="John@john.john"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Numer konta:</th><th><input type="text" name="x3" size="40" value="12341234123412341234"></th> 
+                                    </tr>
+                                    <tr>
+                                        <th>Typ umowy:</th><th><input type="text" name="x4" size="40" value="Umowa"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Stanowisko:</th><th><input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">
+                                        <!--<select id="Stanowisko"  > 
+                                                <option value="Stan1" >Stan1</option>
+                                                <option value="Stan2" >Stan2</option>
+                                                <option value="Stan3" >Stan3</option>
+                                                <option value="Stan4" >Stan3</option>                                            
+                                        </select> 
+                                        </th>-->
+                                    </tr>
+                                    <tr>
+                                        <th>Wypłata brutto:</th><th><input type="text" name="x1" size="40" value="John"></th> 
+                                    </tr>
+                                </table>
+                                    <br><br>
+                                    <input type="submit" class="konto" value="Zaktualizuj" style="vertical-align:middle">
+                            </form>
+                        
                     </div>
         </div>
         <div id="footer">
