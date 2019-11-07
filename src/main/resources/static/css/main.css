@@ -1,6 +1,7 @@
 :root{
     --banner-data-space: 50px;
-    --banner-height: 50px + var(--banner-data-space);
+    --banner-data-space-margin: 5px;
+    --banner-height: calc(50px + var(--banner-data-space) + ( 2 * var(--banner-data-space-margin)));
     --banner-menu-line-height: 50px;
     --footer-height: 50px;
 }
@@ -47,10 +48,10 @@ body{
 }
 #BannerDataSpace{
     display: block;
-    height: var(--banner-data-space);
+    height: calc(var(--banner-data-space));
     width: calc(100% - ( calc(10% - 15px) * 2) - 10px );
     line-height: var(--banner-data-space);
-    padding: 5px;
+    padding: var(--banner-data-space-margin);
     color: #ffffff;
 }
 img.userlogo {
@@ -72,6 +73,10 @@ img.pagelogo{
 }
 .userdata:hover{
     background-color: var(--hover-color);
+}
+#banner .menu{
+    display: block;
+    height: var(--banner-menu-line-height);
 }
 #banner .menu a{
     line-height: calc( var(--banner-menu-line-height) - 30px )!important;

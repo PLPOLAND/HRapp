@@ -84,7 +84,7 @@ public class MainController {
 		Menu menu = new Menu();
 		List<User> userList = userdao.getAllUsers();
 		
-		Banner banner = new Banner(menu);
+		Banner banner = new Banner(menu,Gravatar.getUrl("marekpaldyna@wp.pl"));
 		model.addAttribute("userList", userList);
 		model.addAttribute(banner);	
 
@@ -116,7 +116,7 @@ public class MainController {
 		// menu.AddToDropDawnPos("test", "pos2", "#");
 		// menu.AddToDropDawnPos("test", "pos3", "#");
 		// menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu);
+		Banner banner = new Banner(menu, Gravatar.getUrl("marekpaldyna@wp.pl"));
 		model.addAttribute("user1", user1);
 		model.addAttribute(banner);	
 
@@ -151,7 +151,7 @@ public class MainController {
 		// menu.AddToDropDawnPos("test", "pos2", "#");
 		// menu.AddToDropDawnPos("test", "pos3", "#");
 		// menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu);
+		Banner banner = new Banner(menu, Gravatar.getUrl("marekpaldyna@wp.pl"));
 		model.addAttribute("user1", user1);
 		model.addAttribute("stanowiska", st);
 		model.addAttribute("typyUmowy", um);
@@ -208,7 +208,7 @@ public class MainController {
 			// menu.AddToDropDawnPos("test", "pos2", "#");
 			// menu.AddToDropDawnPos("test", "pos3", "#");
 			// menu.AddToDropDawnPos("test", "pos4", "#");
-			Banner banner = new Banner(menu);
+			Banner banner = new Banner(menu, Gravatar.getUrl("marekpaldyna@wp.pl"));
 			model.addAttribute(banner);
 			return "template";
 		}
@@ -235,7 +235,7 @@ public class MainController {
 		// menu.AddToDropDawnPos("test", "pos2", "#");
 		// menu.AddToDropDawnPos("test", "pos3", "#");
 		// menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu);
+		Banner banner = new Banner(menu, Gravatar.getUrl("marekpaldyna@wp.pl"));
 		model.addAttribute(banner);
 
 		List<User> ls = userdao.getUserLoginData("PLPOLAND", "Makowiec1");
@@ -261,7 +261,7 @@ public class MainController {
 		// menu.AddToDropDawnPos("test", "pos2", "#");
 		// menu.AddToDropDawnPos("test", "pos3", "#");
 		// menu.AddToDropDawnPos("test", "pos4", "#");
-		Banner banner = new Banner(menu);
+		Banner banner = new Banner(menu, Gravatar.getUrl("marekpaldyna@wp.pl"));
 		
 		
 		String gravatarUrl = Gravatar.getUrl("marekpaldyna@wp.pl");
