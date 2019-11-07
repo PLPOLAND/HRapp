@@ -65,7 +65,7 @@
                             <td>${userval.getEmail()}</td>
                             <td>${userval.getStanowisko()}</td>
                             <td class="przycisk" onclick="location.href='/edit_user_page?id=${userval.getID()}'" >
-                                <i class='far fa-edit'></i>
+                                <i class="icon-edit:before"></i>
                                 <!-- <input type="button" class="" value="Edytuj" onclick="location.href='/edit?id=${userval.getID()}'" /> -->
                             </td>
                             <td class="przycisk" >
