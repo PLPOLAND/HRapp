@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 25, 2019 at 07:56 PM
+-- Generation Time: Nov 07, 2019 at 07:16 PM
 -- Server version: 5.7.27-0ubuntu0.18.04.1
--- PHP Version: 7.2.19-0ubuntu0.18.04.2
+-- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,7 +39,8 @@ CREATE TABLE `Permissions` (
 --
 
 INSERT INTO `Permissions` (`ID`, `admin`) VALUES
-(1, 1);
+(1, 1),
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,8 @@ CREATE TABLE `Users` (
 --
 
 INSERT INTO `Users` (`ID`, `nickname`, `email`, `pass`, `oldpass`) VALUES
-(1, 'PLPOLAND', 'marekpaldyna@wp.pl', 'Makowiec1', '');
+(1, 'PLPOLAND', 'marekpaldyna@wp.pl', 'Makowiec1', ''),
+(2, 'Kozak', 'kozak@gmail.com', 'Kozak1', 'Kozak1');
 
 -- --------------------------------------------------------
 
@@ -126,7 +128,8 @@ CREATE TABLE `UsersData` (
 --
 
 INSERT INTO `UsersData` (`ID`, `imie`, `nazwisko`, `kontoBankowe`, `wyplataBrutto`, `id_s`, `id_t_u`) VALUES
-(1, 'Marek', 'Pałdyna', '25213129921111580206782827', 8000, 1, 1);
+(1, 'Marek', 'Pałdyna', '25213129921111580206782827', 8000, 1, 1),
+(2, 'Adam', 'Mickiewicz', '22345642126845567534542247', 4000, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -172,7 +175,7 @@ ALTER TABLE `UsersData`
 -- AUTO_INCREMENT for table `Permissions`
 --
 ALTER TABLE `Permissions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `Stanowiska`
@@ -190,7 +193,7 @@ ALTER TABLE `TypyUmowy`
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

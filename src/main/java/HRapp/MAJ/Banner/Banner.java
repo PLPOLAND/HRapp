@@ -1,6 +1,8 @@
 package HRapp.MAJ.Banner;
 
+import HRapp.Gravatar.Gravatar;
 import HRapp.MAJ.Banner.Menu;
+import HRapp.MAJ.Model.User;
 
 /**
  * Banner
@@ -9,15 +11,14 @@ import HRapp.MAJ.Banner.Menu;
 public class Banner {
 
     Menu menu;
-    String srcimg;
-    public Banner(Menu menu, String userlogosrc){
+    User userdata;
+    public Banner(Menu menu, User userlogosrc){
         this.menu = menu;
-        this.srcimg = userlogosrc;
+        this.userdata = userlogosrc;
     }
     
     public String printDataSpace(){
-        System.out.println(srcimg);
-        return "<div id=\"BannerDataSpace\"> \n <div class=\"left\"><a href=\"/\"><img class=\"pagelogo\" src=\"/img/icon.png\"></a></div> <div class=\"right\"><div class=\"userdata\">Marek Pałdyna <img class=\"userlogo\" src=\""+srcimg+"\"></div></div>\n </div>";
+        return "<div id=\"BannerDataSpace\"> \n <div class=\"left\"><a href=\"/\"><img class=\"pagelogo\" src=\"/img/icon.png\"></a></div> <div class=\"right\"><div class=\"userdata\">" + userdata.getImie() + " " + userdata.getNazwisko() + "<img class=\"userlogo\" src=\""+Gravatar.getUrl(userdata.getEmail())+"\"></div></div>\n </div>";
     }
 
     /**

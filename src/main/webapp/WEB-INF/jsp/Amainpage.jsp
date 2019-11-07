@@ -52,11 +52,7 @@
                         <td>Imie</td>
                         <td>Nazwisko</td>
                         <td>Email</td>
-                        <td>Nr Konta Bankowego</td>
-                        <td>Wypłata NETTO</td>
-                        <td>Wypłata BRUTTO</td>
                         <td>Stanowisko</td>
-                        <td>Typ Umowy</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -67,12 +63,7 @@
                             <td>${userval.getImie()}</td>
                             <td>${userval.getNazwisko()}</td>
                             <td>${userval.getEmail()}</td>
-                            <td>${userval.getKontoBankowe()}</td>
-                            <!-- <td>${userval.getWyplataBrutto()} zł</td> -->
-                            <td>pińćsetZłoty(TODO ;-P )</td>
-                            <td>${userval.getWyplataBrutto()} zł</td>
                             <td>${userval.getStanowisko()}</td>
-                            <td>${userval.getTypUmowy()}</td>
                             <td class="przycisk" onclick="location.href='/edit_user_page?id=${userval.getID()}'" >
                                 <i class='far fa-edit'></i>
                                 <!-- <input type="button" class="" value="Edytuj" onclick="location.href='/edit?id=${userval.getID()}'" /> -->
