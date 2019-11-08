@@ -295,12 +295,12 @@ public class MainController {
 
 	/**
 	 * 
-	 * julek cos testuje sobie
+	 * julek cos testuje 
 	 * 
 	 */
 	@RequestMapping("/xxx")
 	public String Stonoga(){
-		return "AeditUserPage";
+		return "AddUserPage";
 	}
 
 }

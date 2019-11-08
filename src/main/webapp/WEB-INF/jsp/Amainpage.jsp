@@ -80,7 +80,9 @@
                         </tr>
                     </c:forEach>
                 </table>
-
+                <br><br>
+                <button class="konto" style="vertical-align:middle"><span></i>  Dodaj nowego pracownika </span></button>
+                <!-- przekierowanie do strony z dodwaniem nowego pracownika-->
             </div>    
             <!-- <div id="person">  
                     <button class="konto" style="vertical-align:middle"><span><i class="fa fa-male"></i>  Moje konto 
