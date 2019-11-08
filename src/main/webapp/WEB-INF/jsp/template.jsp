@@ -13,9 +13,11 @@
     <c:url value="/css/themes/maintheme.css" var="jstlCsstheme" />
     <c:url value="/js/main.js" var="javaScript" />
     <c:url value="/img/icon.png" var="icon" />
+    <c:url value="/css/fontello.css" var="fontello" />
     <link href="${jstlCsstheme}" rel="stylesheet" />
     <link href="${jstlCss}" rel="stylesheet" />
     <link href="${icon}" rel="shortcut icon" >
+    <link href="${fontello}" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Barlow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>

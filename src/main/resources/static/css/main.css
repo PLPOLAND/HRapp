@@ -50,29 +50,77 @@ body{
     display: block;
     height: calc(var(--banner-data-space));
     width: calc(100% - ( calc(10% - 15px) * 2) - 10px );
-    line-height: var(--banner-data-space);
+    line-height: calc(var(--banner-data-space) - 10px );
     padding: var(--banner-data-space-margin);
     color: #ffffff;
-}
-img.userlogo {
-    display: block;
-    height: var(--banner-data-space);
-    width: var(--banner-data-space);
-    border-radius: 2em;
-    float: right;
-    margin-left: 10px;
 }
 img.pagelogo{
     display: block;
     height: var(--banner-data-space);
     width: var(--banner-data-space);
+    cursor: pointer;
 }
-.userdata{
-    padding-left: 5px;
-    padding-right: 5px;
+.userlogo{
+    position: relative;
+    float: left;
 }
-.userdata:hover{
+.userlogo:hover .cover{
+    /* top: 0; */
+    opacity: 1;
+    height: calc(var(--banner-data-space) - 10px );
+    width: calc(var(--banner-data-space) - 10px );
+    transform: scale(1);
+}
+.cover{
+    position: absolute;
+    opacity: 0;
+    top: 0px;
+    left: 0;
+    right: 0;
+    height: calc(var(--banner-data-space) - 10px );
+    width: calc(var(--banner-data-space) - 10px );
     background-color: var(--hover-color);
+    overflow: hidden;
+    border-radius: 2em;
+    text-align: center;
+    transform: scale(0);
+    transform-origin: center center;
+    transition: .2s;
+    cursor: pointer;
+}
+img.userlogoimg {
+    display: block;
+    height: calc(var(--banner-data-space) - 10px );
+    width: calc(var(--banner-data-space) - 10px );
+    border-radius: 2em;
+    float: left;
+    cursor: pointer;
+}
+/* img.userlogoimg:hover {
+    -webkit-filter: saturate(2);
+    filter: saturate(2);
+} */
+.userdata{
+    padding: 5px;
+    width: auto;
+    height: calc(var(--banner-data-space) - 10px );
+}
+.userdata > .banner-icons-etc{
+    display: none;
+    height: 100%;
+    font-size: 30px;
+    float: right;
+    margin-left: 5px;
+    cursor: default;
+
+}
+.banner-icons-etc span{
+    font-size: 20px;
+}
+.icon:hover{
+    cursor: pointer;
+    color: var(--hover-color);
+    transition: 0.2s;
 }
 #banner .menu{
     display: block;
@@ -263,20 +311,33 @@ a:hover{
     display: flex;
     flex-wrap: wrap;
 }
-.menu ul li {
+.menu ul > li {
     width: auto;
     flex: 1;
 }
-.menu ul li > ul {
-    display: none;
-    flex-direction: column;
-}
-.menu ul li > ul li{
-    width: 100%;
-}
-.menu ul li:hover  > ul{
+.menu ul > li > ul {
+    visibility: hidden;
+    position:absolute;
     display: flex;
     flex-direction: column;
+    transform: scaleY(0);
+    transition-duration: 0ms;
+    transform-origin: 50% 0;
+}
+.menu ul > li > ul li{
+    width: 100%;
+}
+.menu ul > li:hover > ul{
+    display: flex;
+    flex-direction: column;
+    
+    visibility: visible;
+    position: relative;
+    transition-delay: 100ms;
+    transition-duration: 250ms;
+    transform: scaleY(1);
+
+
 }
 .menu a{
     text-transform: uppercase;
@@ -296,6 +357,9 @@ a:hover{
 .menu .drop-down li > a:hover{
     background-color: var(--menu-position-hover-background-color);
 }
+
+
+
 
 #pracownicy {
     width: 100%;

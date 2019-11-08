@@ -222,6 +222,9 @@ public class MainController {
 	public String test3(Model model, HttpServletRequest request){
 		
 		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+			return "redirect:/";
+		
 		Menu menu = new Menu();
 		Banner banner = new Banner(menu, security.getFullUserData());
 		

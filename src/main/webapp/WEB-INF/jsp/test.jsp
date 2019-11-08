@@ -13,6 +13,8 @@
     <c:url value="/css/themes/maintheme.css" var="jstlCsstheme" />
     <c:url value="/js/main.js" var="javaScript" />
     <c:url value="/img/icon.png" var="icon" />
+    <c:url value="/css/fontello.css" var="fontello" />
+    <link href="${fontello}" rel="stylesheet" />
     <link href="${jstlCsstheme}" rel="stylesheet" />
     <link href="${jstlCss}" rel="stylesheet" />
     <link href="${icon}" rel="shortcut icon">
@@ -27,7 +29,26 @@
     <div class="container">
         <div id="banner">
             <div id="BannerDataSpace">
-                <div class="left"><a href="/"><img class="pagelogo" src="${icon}"></a></div> <div class="right"><div class="userdata">Marek Pałdyna <img class="userlogo" src="${grav}"></div></div> 
+                <div class="left">
+                    <a href="/">
+                        <img class="pagelogo" src="${icon}">
+                    </a>
+                </div> 
+                <div class="right">
+                    <div class="userdata"> 
+                        <div class="userlogo">
+                            <img class="userlogoimg" src="${grav}">
+                            <div class="cover">
+                                <i class="icon-conf"></i>
+                            </div>
+                        </div>
+                        <div class="banner-icons-etc">
+                            <span>Marek</span>
+                            <i class="icon icon-conf"></i>
+                            <i class="icon icon-logout"></i>
+                        </div>
+                    </div>
+                </div> 
             </div>
             <!-- ${banner.printBanner()} -->
             <div class="menu">
