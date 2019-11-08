@@ -26,6 +26,8 @@ public class UsersDAO{
     final String GET_USER_DATA = "SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
     final String EDIT_USER = "UPDATE Users SET nickname = ?, email = ? WHERE ID = ?";
     final String EDIT_USER_DATA = "UPDATE UsersData SET imie = ?, nazwisko = ?, kontoBankowe = ?, wyplataBrutto = ?, id_s = ?, id_t_u = ? WHERE ID = ?";
+    final String ADD_USER = "INSERT INTO Users (nickname, email, pass, oldpass) VALUES (?,?,?, '')";
+    final String ADD_USER_DATA = "INSERT INTO UsersData (imie, nazwisko, kontoBankowe, wyplataBrutto, id_s, id_t_u) VALUES (?,?,?,?,?,?)";
 
     /**
      * Pobieranie wszystkich danych usera z bazy danych
@@ -42,9 +44,16 @@ public class UsersDAO{
     public User find_user_by_id(Integer id) {
 		return baza.query(GET_ALL_WHOLE_USERS_DATA + " WHERE u.ID = \"" + id + "\"", getMap()).get(0);
     }
+
     public void editUser(int id, String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, float wyplatabrutto){
         baza.update(EDIT_USER, nickname, email, id);
         baza.update(EDIT_USER_DATA, imie, nazwisko, nrkonta, wyplatabrutto, stanowisko, typumowy, id);
+    }
+
+    public void addUser(String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, float wyplatabrutto, String haslo){
+        baza.update(ADD_USER, nickname, email, haslo);
+        //znaleźć id użytkownika ?
+        baza.update(ADD_USER_DATA, imie, nazwisko, nrkonta, wyplatabrutto, stanowisko, typumowy);
     }
 
 
@@ -57,7 +66,7 @@ public class UsersDAO{
             user.setPassword(rs.getString("pass"));
             user.setOldPassword(rs.getString("oldpass"));
             user.setImie(rs.getString("imie"));
-            user.setImie(rs.getString("nazwisko"));
+            user.setNazwisko(rs.getString("nazwisko"));
             return user;
         };
         return Map;

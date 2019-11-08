@@ -37,5 +37,6 @@ public class UprawnieniaDAO{
 		};
         return Map;
     }
-      //TODO dopisać reszte uprawnień jak będą
+      //TODO dopisać reszte uprawnień jak będą 
+      //TODO dodawanie/edytowanie uprawnień
 }

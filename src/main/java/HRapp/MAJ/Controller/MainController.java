@@ -19,6 +19,7 @@ import HRapp.MAJ.Model.User;
 import HRapp.MAJ.DAO.StanowiskaDAO;
 import HRapp.MAJ.Model.Stanowiska;
 import HRapp.MAJ.DAO.TypyUmowyDAO;
+import HRapp.MAJ.DAO.UprawnieniaDAO;
 import HRapp.MAJ.Model.TypyUmowy;
 import HRapp.MAJ.Security.Security;
 
@@ -35,6 +36,8 @@ public class MainController {
 	StanowiskaDAO stanowiskadao;
 	@Autowired
 	TypyUmowyDAO typyumowydao;
+	@Autowired 
+	UprawnieniaDAO uprawnieniadao;
 
 
 	/**
@@ -168,6 +171,54 @@ public class MainController {
 	
 	}
 
+	@RequestMapping("/add_user_page")
+	public String loadAddUserPage(HttpServletRequest request, Model model) {
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage";
+
+		Menu menu = new Menu();
+		List<Stanowiska> st= stanowiskadao.getAllStanowiska();
+		List<TypyUmowy> um = typyumowydao.getAllTypyUmowy();
+		
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("stanowiska", st);
+		model.addAttribute("typyUmowy", um);
+		model.addAttribute(banner);	
+
+		
+
+		return "AddUserPage";		
+		
+	}
+
+	@RequestMapping("/add_user")
+	public String addUser(HttpServletRequest request) {
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage";
+
+		String imie = request.getParameter("Imie");
+		String nazwisko = request.getParameter("nazwisko");
+		String nickname = request.getParameter("nickname");
+		String email = request.getParameter("email");
+		String nrkonta = request.getParameter("nrkonta");
+		int typumowy = Integer.parseInt(request.getParameter("umowy"));
+		int stanowisko=Integer.parseInt(request.getParameter("stanowiska"));
+		float wyplatabrutto=Float.parseFloat(request.getParameter("wyplatabruttto"));
+		String haslo = request.getParameter("haslo");
+		int uprawnienia = Integer.parseInt(request.getParameter("uprawnienia"));
+
+		userdao.addUser(imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto, haslo);
+		//uprawnieniadao.addPermission(uprawnienia);
+
+		return "redirect:/Amainpage";
+
+	}
 	/**
 	 * 
 	 * wylogowywanie
