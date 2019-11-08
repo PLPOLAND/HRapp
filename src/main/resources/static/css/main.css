@@ -193,17 +193,12 @@ img.pagelogo{
     opacity: 1;
     right: 0;
   }
-
-
+tr{
+    text-align: left;
+    width: 50px;
+}
 
   #osoba_detail{
-    
-    /*
-    border: 1px solid rgb(0, 0, 0);
-    list-style-type: circle;
-    background: var(--banner-color);
-    border-radius: 4px;
-    */
     color: white;
     float: left;
     padding: 20px;
@@ -213,20 +208,10 @@ img.pagelogo{
     background-color: var(--mainbody-color);
     color: white;
   }
-  
-  
-  #logo_tlo{
-      margin-right: 5%;
-      float: right;
-      -webkit-filter: opacity(30%);
-      filter: opacity(30%);
-  }
-
 
 form.form-example {
     display: table;
 }
-
 div.form-example {
     display: table-row;
 }
