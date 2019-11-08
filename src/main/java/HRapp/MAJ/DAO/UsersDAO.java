@@ -24,7 +24,8 @@ public class UsersDAO{
    // final String GET_ALL_WHOLE_USERS_DATA ="SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
     final String FIND_USER_LOGIN = "SELECT Users.*, UsersData.imie, UsersData.nazwisko FROM Users NATURAL JOIN UsersData  WHERE nickname = ? AND pass = ?";
     final String GET_USER_DATA = "SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
-    final String EDIT_NICK = "UPDATE users SET nickname = ? WHERE ID = ?";
+    final String EDIT_USER = "UPDATE Users SET nickname = ?, email = ? WHERE ID = ?";
+    final String EDIT_USER_DATA = "UPDATE UsersData SET imie = ?, nazwisko = ?, kontoBankowe = ?, wyplataBrutto = ?, id_s = ?, id_t_u = ? WHERE ID = ?";
 
     /**
      * Pobieranie wszystkich danych usera z bazy danych
@@ -41,8 +42,9 @@ public class UsersDAO{
     public User find_user_by_id(Integer id) {
 		return baza.query(GET_ALL_WHOLE_USERS_DATA + " WHERE u.ID = \"" + id + "\"", getMap()).get(0);
     }
-    public void editNick(int id, String nick){
-        baza.update(EDIT_NICK, nick, id);
+    public void editUser(int id, String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, float wyplatabrutto){
+        baza.update(EDIT_USER, nickname, email, id);
+        baza.update(EDIT_USER_DATA, imie, nazwisko, nrkonta, wyplatabrutto, stanowisko, typumowy, id);
     }
 
 

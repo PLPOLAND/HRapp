@@ -70,7 +70,7 @@
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th>Wypłata brutto:</th><th><input type="text" name="x1" size="40" value="John"></th> 
+                                        <th>Wypłata brutto:</th><th><input type="text" name="wyplatabrutto" size="40" value="John"></th> 
                                     </tr>
                                 </table>
                                     <br><br>

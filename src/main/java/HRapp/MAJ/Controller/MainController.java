@@ -144,19 +144,27 @@ public class MainController {
 		return "AeditUserPage";
 	}
 
-	@RequestMapping("/edit_nick")
-	public String editUser(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping("/edit_user")
+	public String editUser(HttpServletRequest request, HttpServletResponse response) {
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
 		return "redirect:/";
 		if(!security.isUserAdmin())
 		return "errorpage";
 
-		String nick = request.getParameter("x1");
+		int id = Integer.parseInt(request.getParameter("x1"));
+		String imie = request.getParameter("Imie");
+		String nazwisko = request.getParameter("nazwisko");
+		String nickname = request.getParameter("nickname");
+		String email = request.getParameter("email");
+		String nrkonta = request.getParameter("nrkonta");
+		int typumowy = Integer.parseInt(request.getParameter("umowy"));
+		int stanowisko=Integer.parseInt(request.getParameter("stanowiska"));
+		float wyplatabrutto=Float.parseFloat(request.getParameter("wyplatabruttto"));
 		
-		userdao.editNick(id, nick);
-		
-		return "redirect:/edit_user_page?id=" + id;
+		userdao.editUser(id, imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto);
+
+		return "redirect:/user_profile_page?id=" + id;
 	
 	}
 
