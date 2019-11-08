@@ -24,9 +24,12 @@ public class Menu {
         this.Add("logowanie", "/");
         this.Add("strona admina", "/adminhome");
         this.Add("test", "/test", true);
+        this.Add("Użytkownicy", "#", true);
+        this.AddToDropDawnPos("Użytkownicy", "Lista", "/adminhome");
+        this.AddToDropDawnPos("Użytkownicy", "Dodawanie", "/add_user");
         this.Add("templatka", "/tmp");
         this.AddToDropDawnPos("test", "menu", "/menu");
-        this.AddToDropDawnPos("test", "pos2", "#");
+        this.AddToDropDawnPos("test", "Testy Julka", "/xxx");
         // this.AddToDropDawnPos("test", "pos3", "#");
         // this.AddToDropDawnPos("test", "pos4", "#");
     }
