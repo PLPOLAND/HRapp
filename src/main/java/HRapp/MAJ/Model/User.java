@@ -3,7 +3,7 @@ package HRapp.MAJ.Model;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
- * Odpowiada za przetrzymywanie danych o Urzytkowniku.
+ * Odpowiada za przetrzymywanie danych o Użytkowniku.
  * TODO reszta danych
  * @author Marek
 */
@@ -14,7 +14,7 @@ public class User{
     String oldPassword;
     String email;
     String kontoBankowe;
-    Float wyplataBrutto;
+    float wyplataBrutto;
     String imie;
     String nazwisko;
     Uprawnienia uprawnienia;
@@ -132,6 +132,10 @@ public class User{
      */
     public void setWyplataBrutto(Float kwota){
         wyplataBrutto = kwota;
+    }
+
+    public float getWyplataNetto(){
+        return (wyplataBrutto - ((wyplataBrutto * (float) procentPodatku)/100));
     }
 
     public String getImie(){

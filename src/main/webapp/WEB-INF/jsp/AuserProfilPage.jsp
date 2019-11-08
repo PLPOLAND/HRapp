@@ -28,9 +28,6 @@
         <div id="banner">
             ${banner.printBanner()}
         </div>
-        <div id="logo_tlo">
-                <img width="600", height="450", src="/img/logo3.png"/>
-        </div>
         <div id="mainbody">
             <div id="praco_logo">
                 
@@ -39,14 +36,40 @@
             </div>
             <div id="osoba_detail">
                     <!--To z bazy danych vvvv-->
-                    <li>Nickname: adwadawd</li>
-                    <li>email: adawdawd@awdawd.pl</li>
-                    <li>Numer konta bankowego: 455635345345345</li>
-                    <li>Typ umowy: niewolnik</li>
-                    <li>Stanowisko: uzupełnianie tabelek w excelu</li>  
-            </div>
-            <br><br><br><br><br><br><br><br><br><br><br><br>
-            <button class="konto" style="vertical-align:middle"><i class='far fa-edit'></i><span>Edytuj dane</span></button><!--przenosi do strony AeditUserPage-->         
+                    <table>
+                        <tr>
+                            <th><h3>Dane pracownika:</h3></th>
+                        </tr>
+                        <tr>
+                            <th>Imię:</th><th>Ricardo</th> 
+                        </tr>
+                        <tr>
+                            <th>Nazwisko:</th><th>Milos</th> 
+                        </tr>
+                        <tr>
+                            <th>Nickname:</th><th>RMike</th> 
+                        </tr>
+                        <tr>
+                            <th>Email:</th><th>RMike@uksw.edu.pl</th>
+                        </tr>
+                        <tr>
+                            <th>Numer konta:</th><th>345345353534634562456</th> 
+                        </tr>
+                        <tr>
+                            <th>Typ umowy:</th><th>Umowa</th>
+                        </tr>
+                        <tr>
+                            <th>Stanowisko:</th><th>Tancerz </th>
+                        </tr>
+                        <tr>
+                            <th>Wypłata brutto:</th><th>6900zł</th> 
+                        </tr>
+                    </table> 
+                    <br><br>
+                    <button class="konto" style="vertical-align:middle"><i class='far fa-edit'></i><span>Edytuj dane</span></button>
+                    <!--przenosi do strony AeditUserPage-->  
+            </div>           
+                   
         </div>
         <div id="footer">
             MAJ<br>

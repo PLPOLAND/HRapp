@@ -59,7 +59,14 @@
                                         <th>Numer konta:</th><th><input type="text" name="nrkonta" size="40" value="12341234123412341234"></th> 
                                     </tr>
                                     <tr>
-                                        <th>Typ umowy:</th><th><input type="text" name="umowy" size="40" value="Umowa"></th>
+                                        <th>Typ umowy:</th><th><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
+                                        <select id="TypUmowy" name="typumowy" style="width: 100%;"> 
+                                            <option value="Typ1" >Typ1</option>
+                                            <option value="Typ2" >Typ2</option>
+                                            <option value="Typ3" >Typ3</option>
+                                            <option value="Typ4" selected>Typ4</option>   
+                                        </th>                                          
+                                    </select>
                                     </tr>
                                     <tr>
                                         <th>Stanowisko:</th><th><!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
@@ -72,7 +79,7 @@
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th>Wypłata brutto:</th><th><input type="text" name="x1" size="40" value="John"></th> 
+                                        <th>Wypłata brutto:</th><th><input type="text" name="wyplatabrutto" size="40" value="John"></th> 
                                     </tr>
                                 </table>
                                     <br><br>

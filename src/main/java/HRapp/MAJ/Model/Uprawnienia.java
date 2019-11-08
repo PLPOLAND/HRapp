@@ -64,5 +64,11 @@ public class Uprawnienia{
         admin = UPR2.get(0).admin;
     }
 
+    public String getTypKonta(){
+        if(admin == true)
+            return "Administrator";
+        else
+             return "Uzytkownik";
+    }
      //@TODO dodać pozostałe uprawnienia jeśli będą
 }
