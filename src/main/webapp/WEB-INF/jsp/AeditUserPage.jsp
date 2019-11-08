@@ -42,32 +42,32 @@
                                         <th><h3>Dane pracownika:</h3></th>
                                     </tr>
                                     <tr>
-                                        <th>Imię:</th><th><input type="text" name="x1" size="40" value="John"></th> 
+                                        <th>Imię:</th><th><input type="text" name="Imie" size="40" value="John"></th> 
                                     </tr>
                                     <tr>
-                                        <th>Nazwisko:</th><th><input type="text" name="x1" size="40" value="John"></th> 
+                                        <th>Nazwisko:</th><th><input type="text" name="nazwisko" size="40" value="John"></th> 
                                     </tr>
                                     <tr>
-                                        <th>Nickname:</th><th><input type="text" name="x1" size="40" value="John"></th> 
+                                        <th>Nickname:</th><th><input type="text" name="nickname" size="40" value="John"></th> 
                                     </tr>
                                     <tr>
-                                        <th>Email:</th><th><input type="text" name="x2" size="40" value="John@john.john"></th>
+                                        <th>Email:</th><th><input type="text" name="email" size="40" value="John@john.john"></th>
                                     </tr>
                                     <tr>
-                                        <th>Numer konta:</th><th><input type="text" name="x3" size="40" value="12341234123412341234"></th> 
+                                        <th>Numer konta:</th><th><input type="text" name="nrkonta" size="40" value="12341234123412341234"></th> 
                                     </tr>
                                     <tr>
-                                        <th>Typ umowy:</th><th><input type="text" name="x4" size="40" value="Umowa"></th>
+                                        <th>Typ umowy:</th><th><input type="text" name="umowy" size="40" value="Umowa"></th>
                                     </tr>
                                     <tr>
-                                        <th>Stanowisko:</th><th><input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">
-                                        <!--<select id="Stanowisko"  > 
+                                        <th>Stanowisko:</th><th><!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
+                                        <select id="Stanowisko" name="stanowiska" style="width: 100%;"> 
                                                 <option value="Stan1" >Stan1</option>
                                                 <option value="Stan2" >Stan2</option>
                                                 <option value="Stan3" >Stan3</option>
-                                                <option value="Stan4" >Stan3</option>                                            
+                                                <option value="Stan4" selected>Stan3</option>                                            
                                         </select> 
-                                        </th>-->
+                                        </th>
                                     </tr>
                                     <tr>
                                         <th>Wypłata brutto:</th><th><input type="text" name="x1" size="40" value="John"></th> 

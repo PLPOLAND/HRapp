@@ -13,8 +13,10 @@
     <c:url value="/css/themes/maintheme.css" var="jstlCsstheme" />
     <c:url value="/js/main.js" var="javaScript" />
     <c:url value="/img/icon.png" var="icon" />
+    <c:url value="/css/fontello.css" var="fontello" />
     <link href="${jstlCsstheme}" rel="stylesheet" />
     <link href="${jstlCss}" rel="stylesheet" />
+    <link href="${fontello}" rel="stylesheet" />
     <link href="${icon}" rel="shortcut icon" >
     <link href='http://fonts.googleapis.com/css?family=Barlow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -65,16 +67,16 @@
                             <td>${userval.getEmail()}</td>
                             <td>${userval.getStanowisko()}</td>
                             <td class="przycisk" onclick="location.href='/edit_user_page?id=${userval.getID()}'" >
-                                <i class="icon-edit:before"></i>
+                                <i class="icon-edit"></i>
                                 <!-- <input type="button" class="" value="Edytuj" onclick="location.href='/edit?id=${userval.getID()}'" /> -->
                             </td>
                             <td class="przycisk" >
-                                <i class='far fa-trash-alt'></i>
+                                <i class='icon-trash'></i>
                                 <!--<input type="button" class="" value="Usuń"
                                     onclick="confirmation(<c:out value='${userval.getID()}' />);" /> -->
                             </td>
-                            <td class="przycisk" onclick="location.href='/user_profile_page?id=${userval.getID()}'"> <i class='far fa-address-card'></i> </td>
-                            <td class="przycisk" > <i class='far fa-money-bill-alt'></i> </td>
+                            <td class="przycisk" onclick="location.href='/user_profile_page?id=${userval.getID()}'"> <i class='icon-list'></i> </td>
+                            <td class="przycisk" > <i class='icon-credit-card'></i> </td>
                         </tr>
                     </c:forEach>
                 </table>

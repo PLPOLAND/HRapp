@@ -292,72 +292,11 @@ a:hover{
 }
 .menu .drop-down li > a{
     background-color: var(--menu-background-color);
-}.menu .drop-down li > a:hover{
+}
+.menu .drop-down li > a:hover{
     background-color: var(--menu-position-hover-background-color);
 }
-/* #pracownicy > table{
-	background-color: #0062cc;
-	color: #FFFFFF;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
 
-	border-color: #000000;
-	border-width: 1px;
-	border-style: solid;
-	cursor: default;
-	border-spacing: 0px;
-	border-collapse: collapse;
-}
-#pracownicy > table tr{
-	height: 40px;
-	min-width: 80%;
-	
-	margin: 0;
-
-	border-color: #000000;
-	border-width: 1px;
-	border-style: solid
-}
-#pracownicy > table tr:first-child{
-	text-align: center;
-	background-color: #00000050;
-}
-#pracownicy > table tr:first-child:hover{
-	text-align: center;
-	background-color: #00000080;
-}
-#pracownicy > table tr:hover{
-	background-color: #00000020;
-}
-#pracownicy > table td{
-	padding-left: 5px;
-	padding-right: 5px;
-
-	border-color: #000000;
-	border-width: 1px;
-	border-style: solid;
-
-}
-#pracownicy > table td input{
-	height: 40px;
-	width: calc(100% - 1px);
-	background-color: inherit;
-	color: inherit;
-	line-height: 40px;
-	margin:0px;
-	border: 0px;
-	cursor: pointer;
-}
-#pracownicy > table td select{
-	height: 40px;
-	width: calc(100% - 1px);
-	background-color: inherit;
-	color: inherit;
-	line-height: 40px;
-	margin:0px;
-	border: 0px;
-} */
 #pracownicy {
     width: 100%;
     border: 0px;
