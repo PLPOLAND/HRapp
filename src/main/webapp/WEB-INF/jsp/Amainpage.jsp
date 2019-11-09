@@ -7,7 +7,6 @@
     request.setCharacterEncoding("UTF-8");
 %>
 <html lang="pl">
-
 <head>
     <c:url value="/css/main.css" var="jstlCss" />
     <c:url value="/css/themes/maintheme.css" var="jstlCsstheme" />
@@ -34,7 +33,8 @@
         </div>
         <div id="mainbody">
             <div id="praco_logo">
-                Pracownicy<br><br>
+                    Pracownicy
+                    <br><br>
             </div>
             <div id="pracownicy">
                 <!-- <c:forEach var="vart" items="${userList}">
@@ -75,7 +75,7 @@
                                 <!--<input type="button" class="" value="Usuń"
                                     onclick="confirmation(<c:out value='${userval.getID()}' />);" /> -->
                             </td>
-                            <td class="przycisk" onclick="location.href='/user_profile_page?id=${userval.getID()}'"> <i class='icon-list'></i> </td>
+                           <td class="przycisk" onclick="location.href='/user_profile_page?id=${userval.getID()}'"><i class='icon-list'></i> </td>
                             <td class="przycisk" > <i class='icon-credit-card'></i> </td>
                         </tr>
                     </c:forEach>

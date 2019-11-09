@@ -166,9 +166,9 @@ img.userlogoimg {
     text-decoration: underline;
     color: white;
     text-shadow: 2px 2px black;
-    
-    
+
 }
+
 .osoba{
     background-color: var(--link-color);
     padding: 5px;
@@ -321,8 +321,6 @@ a:hover{
     transition-delay: 100ms;
     transition-duration: 250ms;
     transform: scaleY(1);
-
-
 }
 .menu a{
     text-transform: uppercase;
