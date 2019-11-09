@@ -303,7 +303,7 @@ public class MainController {
 	 */
 	@RequestMapping("/xxx")
 	public String Stonoga(){
-		return "AddUserPage";
+		return "AuserAccStatement";
 	}
 
 }
