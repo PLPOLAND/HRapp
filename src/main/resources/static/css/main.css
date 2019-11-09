@@ -10,6 +10,11 @@ body{
     padding: 0;
     background-color: #000000;
 }
+
+.nohover:hover{
+    background-color: #00000000 !important;
+}
+
 #backgroundContainer{
     position: fixed;
     display: block;
@@ -120,6 +125,10 @@ img.userlogoimg {
 .icon:hover{
     cursor: pointer;
     color: var(--hover-color);
+    transition: 0.2s;
+}
+.icon.logout:hover{
+    color: #FF1111;
     transition: 0.2s;
 }
 #banner .menu{
@@ -375,12 +384,26 @@ a:hover{
     border: 0px;
     margin: 0px;
     cursor: default;
+    transition: 0.5s;
+
 }
 #pracownicy > table td:hover{
     background-color: #00000060;
     height: 40px;
+    transition: 0.5s;
+
 }
 #pracownicy > table td.przycisk{
     cursor: pointer;
-
+    
+}
+#pracownicy > table td.przycisk:hover{
+    cursor: pointer;
+    color: var(--hover-color);
+    transition: 0.5s;
+}
+#pracownicy > table td.przycisk.delete:hover{
+    cursor: pointer;
+    color: #FF1111;
+    transition: 0.5s;
 }

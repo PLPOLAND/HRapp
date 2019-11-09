@@ -55,10 +55,10 @@
                         <td>Nazwisko</td>
                         <td>Email</td>
                         <td>Stanowisko</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="nohover"></td>
+                        <td class="nohover"></td>
+                        <td class="nohover"></td>
+                        <td class="nohover"></td>
                     </tr>
                     <c:forEach var="userval" items="${userList}">
                         <tr>
@@ -70,7 +70,7 @@
                                 <i class="icon-edit"></i>
                                 <!-- <input type="button" class="" value="Edytuj" onclick="location.href='/edit?id=${userval.getID()}'" /> -->
                             </td>
-                            <td class="przycisk" >
+                            <td class="przycisk delete" >
                                 <i class='icon-trash'></i>
                                 <!--<input type="button" class="" value="Usuń"
                                     onclick="confirmation(<c:out value='${userval.getID()}' />);" /> -->

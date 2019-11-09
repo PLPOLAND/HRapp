@@ -36,7 +36,7 @@ public class Banner {
                             "<div class=\"banner-icons-etc\">"+
                                 "<span>" + userdata.getImie() + " " + userdata.getNazwisko() + "</span>"+
                                 "<i class=\"icon icon-conf\" onclick=\"location.href='/edit_user_page?id="+userdata.getID()+"'\"></i>"+
-                                "<i class=\"icon icon-logout\" onclick=\"location.href='/logout'\"></i>"+
+                                "<i class=\"icon logout icon-logout\" onclick=\"location.href='/logout'\"></i>"+
                             "</div>"+
                         "</div>"+
                     "</div>" +
