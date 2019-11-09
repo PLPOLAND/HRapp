@@ -10,7 +10,7 @@
 
 <head>
     <c:url value="/css/login.css" var="jstlCss" />
-    <c:url value="/js/main.js" var="javaScript" />
+    <c:url value="/js/login.js" var="javaScript" />
     <c:url value="/img/icon.png" var="icon" />
     <link href="${jstlCss}" rel="stylesheet" />
     <link href="${icon}" rel="shortcut icon" >
@@ -25,15 +25,16 @@
             <div class="login-container">
             <div class="login-form">
                 <h3>Logowanie do systemu</h3>
-                <form action="login" method="POST">
+                <form action="none">
+                    <div id="err-msg">Podano błędny login lub hasło</div>
                     <div class="login-field">
-                        <input type="text" class="form-control" placeholder="Twój Nick *" value="" name="nick" />
+                        <input type="text" class="form-control" placeholder="Twój Nick *" value="" name="nick" id="nick"/>
                     </div>
                     <div class="login-field">
-                        <input type="password" class="form-control" placeholder="Twoje Hasło *" value="" name="pass" />
+                        <input type="password" class="form-control" placeholder="Twoje Hasło *" value="" name="pass" id="pass"/>
                     </div>
-                    <div class="login-field btn-field">
-                        <input type="submit" class="btnSubmit" value="Zaloguj" />
+                    <div id="subbutton" class="login-field btn-field">
+                        <input type="button" class="btnSubmit" value="Zaloguj" />
                     </div>
                 </form>
             </div>

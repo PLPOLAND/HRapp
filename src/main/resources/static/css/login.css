@@ -95,3 +95,11 @@
 	border-radius: .25rem;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+#err-msg{
+	display: none;
+	text-align: center;
+	width: 100%;
+	padding: 5px;
+	color: #FF0000;
+}

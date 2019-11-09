@@ -64,12 +64,6 @@ public class MainController {
 		}
 	}
 	
-	@RequestMapping("/bad_login")
-	public String bad_login() {
-		return "errorpage";
-		//	return "badLoginPage"; // zmienić na badLoginPage
-	}
-	
 
 	/**
 	 * 
