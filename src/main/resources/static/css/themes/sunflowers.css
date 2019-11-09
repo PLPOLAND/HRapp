@@ -1,0 +1,32 @@
+:root{
+    --main-color: #F29F05; 
+    --hover-color: #D96704;
+    --mainbody-color: #ffffff00;
+    --background-color: #ffffff;
+    --background-gradient-color:#000000C0;
+    --footer-color: #111111;
+    --footer-text-color: #FFFFFF;
+    --link-color: #591202;
+    --background-img: url(../img/sunflowers.png);
+    --a-link-color: #591202;
+    --a-hover-color: #F2CB05;
+    --banner-color: #1f150463;
+    --menu-link-color: #ffffff;
+    --menu-background-color: var(--banner-color);
+    --menu-position-border-right-color: #D96704;
+    --menu-position-hover-background-color: #D96704;
+
+    font-family: 'Barlow','Franklin Gothic Medium', 'Arial Narrow', 'Arial', sans-serif;
+    
+}
+
+#backgroundContainer{
+    background-color: var(--background-color);
+    background-attachment: fixed;
+    background-size: cover;
+    filter: blur(10px);
+}
+
+#mainbody{
+    color: #FFFFFF;
+}

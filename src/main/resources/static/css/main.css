@@ -25,9 +25,7 @@ body{
     padding: 0;
     top: 0px;
     left: 0px;
-    background-image: linear-gradient(#00000060, #00000060 ), var(--background-img);
-    background-color: var(--background-color);
-    background-attachment: fixed;
+    background-image: linear-gradient(var(--background-gradient-color), var(--background-gradient-color) ), var(--background-img);
 }
 .container{
     margin: 0;
