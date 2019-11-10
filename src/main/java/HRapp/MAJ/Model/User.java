@@ -20,7 +20,7 @@ public class User{
     Uprawnienia uprawnienia;
     String stanowisko;
     String typUmowy;
-    int procentPodatku;
+    float procentPodatku;
     
 
     /**
@@ -154,8 +154,8 @@ public class User{
         nazwisko = Nazwisko;
     }
 
-    public Uprawnienia getUprawnienia(){
-        return uprawnienia;
+    public String getUprawnienia(){
+        return uprawnienia.getTypKonta();
     }
 
     public void setUprawnienia(int Upr, JdbcTemplate baza){
@@ -180,11 +180,11 @@ public class User{
     }
 
     public int getProcentPodatku(){
-        return procentPodatku;
+        return (int) procentPodatku;
     }
 
-    public void setProcentPodatku(int ProcentPodatku){
-        procentPodatku = ProcentPodatku;
+    public void setProcentPodatku(float ProcentPodatku){
+        procentPodatku = ProcentPodatku*100;
     }
 
     /**

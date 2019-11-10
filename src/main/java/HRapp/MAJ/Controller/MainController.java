@@ -149,17 +149,23 @@ public class MainController {
 		if(!security.isUserAdmin())
 		return "errorpage";
 
-		int id = Integer.parseInt(request.getParameter("x1"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		String imie = request.getParameter("Imie");
 		String nazwisko = request.getParameter("nazwisko");
 		String nickname = request.getParameter("nickname");
 		String email = request.getParameter("email");
 		String nrkonta = request.getParameter("nrkonta");
-		int typumowy = Integer.parseInt(request.getParameter("umowy"));
+		int typumowy = Integer.parseInt(request.getParameter("typumowy"));
 		int stanowisko=Integer.parseInt(request.getParameter("stanowiska"));
-		float wyplatabrutto=Float.parseFloat(request.getParameter("wyplatabruttto"));
+		double wyplatabrutto = Double.parseDouble(request.getParameter("wyplatabrutto"));
+		String upr = request.getParameter("uprawnienia");
+		int uprawnienia;
+		if(upr == null) uprawnienia =0;
+		else uprawnienia = 1;
+
 		
 		userdao.editUser(id, imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto);
+		uprawnieniadao.editPermission(id, uprawnienia);
 
 		return "redirect:/user_profile_page?id=" + id;
 	

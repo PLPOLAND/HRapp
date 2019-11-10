@@ -46,7 +46,7 @@ public class UsersDAO{
 		return baza.query(GET_ALL_WHOLE_USERS_DATA + " WHERE u.ID = \"" + id + "\"", getMap()).get(0);
     }
 
-    public void editUser(int id, String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, float wyplatabrutto){
+    public void editUser(int id, String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, double wyplatabrutto){
         baza.update(EDIT_USER, nickname, email, id);
         baza.update(EDIT_USER_DATA, imie, nazwisko, nrkonta, wyplatabrutto, stanowisko, typumowy, id);
     }
@@ -92,7 +92,7 @@ public class UsersDAO{
             user.setUprawnienia(rs.getInt("Uprawnienia"), baza);
             user.setStanowisko(rs.getString("Stanowisko"));
             user.setTypUmowy(rs.getString("typUmowy"));
-            user.setProcentPodatku(rs.getInt("podatek"));
+            user.setProcentPodatku(rs.getFloat("podatek"));
             //TODO reszta danych
 
 			return user;

@@ -62,6 +62,7 @@
                                 <c:forEach var="typyUmowy" items="${typyUmowy}">
                                     <option value="${typyUmowy.getID()}">${typyUmowy.getNazwa()}</option>
                                 </c:forEach>
+                            </select>
                             </th>
                         </tr>
                         <tr>

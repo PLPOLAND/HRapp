@@ -33,53 +33,53 @@
         <div id="mainbody">
                 <div id="praco_logo">
                 
-                        Imię Nazwisko<!--Imie i nazwisko osoby ktorej konto wybraliśmy wcześniej przyciskiem SZCZEGÓŁY-->
+                    ${user1.getImie()} ${user1.getNazwisko()}<!--Imie i nazwisko osoby ktorej konto wybraliśmy wcześniej przyciskiem SZCZEGÓŁY-->
                         <br>
                     </div>
                     <div id="osoba_detail">                   
                         <!--To z bazy danych vvvv + zapisywanie do bazy danych TO EDYCJA JAKO ADMIN-->
-                            <form action="przeniesie danych">
+                            <form action="/edit_user">
                                 <table>
                                     <tr>
                                         <th><h3>Dane pracownika:</h3></th>
                                     </tr>
                                     <tr>
-                                        <th>Imię:</th><th><input type="text" name="Imie" size="40" value="John"></th> 
+                                        <th>Imię:</th><th><input type="hidden" name="id" value="${user1.getID() }"><input type="text" name="Imie" size="40" value="${user1.getImie()}"></th> 
                                     </tr>
                                     <tr>
-                                        <th>Nazwisko:</th><th><input type="text" name="nazwisko" size="40" value="John"></th> 
+                                        <th>Nazwisko:</th><th><input type="text" name="nazwisko" size="40" value="${user1.getNazwisko()}"></th> 
                                     </tr>
                                     <tr>
-                                        <th>Nickname:</th><th><input type="text" name="nickname" size="40" value="John"></th> 
+                                        <th>Nickname:</th><th><input type="text" name="nickname" size="40" value="${user1.getNick()}"></th> 
                                     </tr>
                                     <tr>
-                                        <th>Email:</th><th><input type="text" name="email" size="40" value="John@john.john"></th>
+                                        <th>Email:</th><th><input type="email" name="email" size="40" value="${user1.getEmail()}"></th>
                                     </tr>
                                     <tr>
-                                        <th>Numer konta:</th><th><input type="text" name="nrkonta" size="40" value="12341234123412341234"></th> 
+                                        <th>Numer konta:</th><th><input type="number" name="nrkonta" size="40" value="${user1.getKontoBankowe()}" style="width:100%;"></th> 
                                     </tr>
                                     <tr>
                                         <th>Typ umowy:</th><th><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
-                                        <select id="TypUmowy" name="typumowy" style="width: 100%;"> 
-                                            <option value="Typ1" >Typ1</option>
-                                            <option value="Typ2" >Typ2</option>
-                                            <option value="Typ3" >Typ3</option>
-                                            <option value="Typ4" selected>Typ4</option>   
-                                        </th>                                          
-                                    </select>
+                                        <select id="TypUmowy" name="typumowy"  style="width:100%;">
+                                                <c:forEach var="typyUmowy" items="${typyUmowy}">
+                                                    <option ${user1.getTypUmowy() == typyUmowy.getNazwa()  ? 'selected="selected"' : '' } value="${typyUmowy.getID()}">${typyUmowy.getNazwa()}</option>
+                                                </c:forEach>
+                                            </select>
                                     </tr>
                                     <tr>
                                         <th>Stanowisko:</th><th><!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
-                                        <select id="Stanowisko" name="stanowiska" style="width: 100%;"> 
-                                                <option value="Stan1" >Stan1</option>
-                                                <option value="Stan2" >Stan2</option>
-                                                <option value="Stan3" >Stan3</option>
-                                                <option value="Stan4" selected>Stan3</option>                                            
-                                        </select> 
+                                            <select id="Stanowisko" name="stanowiska" style="width:100%;"> 
+                                                    <c:forEach var="stanowiska" items="${stanowiska}">
+                                                        <option ${user1.getStanowisko() == stanowiska.getNazwa()  ? 'selected="selected"' : '' } value="${stanowiska.getID()}">${stanowiska.getNazwa()}</option>
+                                                    </c:forEach>                                         
+                                                </select> 
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th>Wypłata brutto:</th><th><input type="text" name="wyplatabrutto" size="40" value="John"></th> 
+                                        <th>Wypłata brutto:</th><th><input type="number" name="wyplatabrutto" size="40" value="${user1.getWyplataBrutto()}" style="width:100%;"></th> 
+                                    </tr>
+                                    <tr>
+                                        <th>Uprawnienia:</th><th></td><input type="checkbox" name="uprawnienia" value="1" ${user1.getUprawnienia() == "Administrator"  ? 'checked="checked"' : '' }>Administrator</th> 
                                     </tr>
                                 </table>
                                     <br><br>
