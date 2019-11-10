@@ -27,7 +27,8 @@ public class UsersDAO{
     final String EDIT_USER = "UPDATE Users SET nickname = ?, email = ? WHERE ID = ?";
     final String EDIT_USER_DATA = "UPDATE UsersData SET imie = ?, nazwisko = ?, kontoBankowe = ?, wyplataBrutto = ?, id_s = ?, id_t_u = ? WHERE ID = ?";
     final String ADD_USER = "INSERT INTO Users (nickname, email, pass, oldpass) VALUES (?,?,?, '')";
-    final String ADD_USER_DATA = "INSERT INTO UsersData (imie, nazwisko, kontoBankowe, wyplataBrutto, id_s, id_t_u) VALUES (?,?,?,?,?,?)";
+    final String ADD_USER_DATA = "INSERT INTO UsersData (id, imie, nazwisko, kontoBankowe, wyplataBrutto, id_s, id_t_u) VALUES (?,?,?,?,?,?,?)";
+    final String GET_USER_ID = "SELECT ID FROM Users WHERE nickname=? AND email=?";
 
     /**
      * Pobieranie wszystkich danych usera z bazy danych
@@ -50,10 +51,11 @@ public class UsersDAO{
         baza.update(EDIT_USER_DATA, imie, nazwisko, nrkonta, wyplatabrutto, stanowisko, typumowy, id);
     }
 
-    public void addUser(String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, float wyplatabrutto, String haslo){
+    public int addUser(String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, double wyplatabrutto, String haslo){
         baza.update(ADD_USER, nickname, email, haslo);
-        //znaleźć id użytkownika ?
-        baza.update(ADD_USER_DATA, imie, nazwisko, nrkonta, wyplatabrutto, stanowisko, typumowy);
+        int id = baza.queryForObject(GET_USER_ID, Integer.class, nickname, email);
+        baza.update(ADD_USER_DATA, id, imie, nazwisko, nrkonta, wyplatabrutto, stanowisko, typumowy);
+        return id;
     }
 
 

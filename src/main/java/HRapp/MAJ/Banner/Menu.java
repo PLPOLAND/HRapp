@@ -26,7 +26,7 @@ public class Menu {
         this.Add("test", "/test", true);
         this.Add("Użytkownicy", "#", true);
         this.AddToDropDawnPos("Użytkownicy", "Lista", "/adminhome");
-        this.AddToDropDawnPos("Użytkownicy", "Dodawanie", "/add_user");
+        this.AddToDropDawnPos("Użytkownicy", "Dodawanie", "/add_user_page");
         this.Add("templatka", "/tmp");
         this.AddToDropDawnPos("test", "menu", "/menu");
         this.AddToDropDawnPos("test", "Testy Julka", "/xxx");

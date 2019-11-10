@@ -33,7 +33,7 @@
                 Dane pracownika:    
             </div>
             <div id="osoba_detail"> 
-                <form action="przeniesie danych">
+                <form action="/add_user" autocomplete="off">
                     
                     <table>              
                         <tr>
@@ -43,7 +43,7 @@
                             <th>Nazwisko:</th><th><input type="text" name="nazwisko" size="40" value=""></th> 
                         </tr>
                         <tr>
-                            <th>Hasło:</th><th><input type="text" name="nazwisko" size="40" value=""></th>
+                            <th>Hasło:</th><th><input type="text" name="haslo" size="40" value=""></th>
                             <th><input type="submit" class="konto" value="Generuj nowe hasło" style="vertical-align:middle">
                             </th> 
                         </tr>
@@ -51,32 +51,33 @@
                             <th>Nickname:</th><th><input type="text" name="nickname" size="40" value=""></th> 
                         </tr>
                         <tr>
-                            <th>Email:</th><th><input type="text" name="email" size="40" value=""></th>
+                            <th>Email:</th><th><input type="email" name="email" size="40" value=""></th>
                         </tr>
                         <tr>
-                            <th>Numer konta:</th><th><input type="text" name="nrkonta" size="40" value=""></th> 
+                            <th>Numer konta:</th><th><input type="number" name="nrkonta" size="40" value="" style="width:100%;"></th> 
                         </tr>
                         <tr>
                             <th>Typ umowy:</th><th><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
                             <select id="TypUmowy" name="typumowy"  style="width:100%;"> 
-                                <option value="Typ1" >Typ1</option>
-                                <option value="Typ2" >Typ2</option>
-                                <option value="Typ3" >Typ3</option>
-                                <option value="Typ4" selected>Typ4</option>  
+                                <c:forEach var="typyUmowy" items="${typyUmowy}">
+                                    <option value="${typyUmowy.getID()}">${typyUmowy.getNazwa()}</option>
+                                </c:forEach>
                             </th>
                         </tr>
                         <tr>
                             <th>Stanowisko:</th><th><!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
                             <select id="Stanowisko" name="stanowiska" style="width:100%;"> 
-                                    <option value="Stan1" >Stan1</option>
-                                    <option value="Stan2" >Stan2</option>
-                                    <option value="Stan3" >Stan3</option>
-                                    <option value="Stan4" selected>Stan4</option>                                            
+                                <c:forEach var="stanowiska" items="${stanowiska}">
+                                    <option value="${stanowiska.getID()}">${stanowiska.getNazwa()}</option>
+                                </c:forEach>                                         
                             </select> 
                             </th>
                         </tr>
                         <tr>
-                            <th>Wypłata brutto:</th><th><input type="text" name="wyplatabrutto" size="40" value=""></th> 
+                            <th>Wypłata brutto:</th><th></td><input type="number" name="wyplatabrutto" size="40" value="" min = "1" step="0.01" style="width:100%;"></th> 
+                        </tr>
+                        <tr>
+                            <th>Uprawnienia:</th><th></td><input type="checkbox" name="uprawnienia" value="1">Administrator</th> 
                         </tr>
                     </table>
                         <br><br>

@@ -16,6 +16,7 @@ public class UprawnieniaDAO{
     private JdbcTemplate baza1;
 
     final String GET_ALL_USERS_PERMISSION_DATA = "SELECT ID, admin FROM Permissions";
+    final String ADD_PERMISSION = "INSERT INTO Permissions (ID, admin) VALUES (?, ?)";
 
 
     public List<Uprawnienia> getAllPermissionsData(){
@@ -25,7 +26,11 @@ public class UprawnieniaDAO{
     public List<Uprawnienia> find_permission_data_by_id(int id, JdbcTemplate baza) {
         List<Uprawnienia> U =  baza.query(GET_ALL_USERS_PERMISSION_DATA + " WHERE ID =  "+ id +";", getMap());
         return U;
-	}
+    }
+    
+    public void addPermission(int id, int uprawnienia){
+        baza1.update(ADD_PERMISSION, id, uprawnienia);
+    }
 
     private RowMapper<Uprawnienia> getMap() {
 		RowMapper<Uprawnienia> Map = (rs, rowNum) -> {

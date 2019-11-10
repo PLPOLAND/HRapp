@@ -201,16 +201,19 @@ public class MainController {
 		String nickname = request.getParameter("nickname");
 		String email = request.getParameter("email");
 		String nrkonta = request.getParameter("nrkonta");
-		int typumowy = Integer.parseInt(request.getParameter("umowy"));
+		int typumowy = Integer.parseInt(request.getParameter("typumowy"));
 		int stanowisko=Integer.parseInt(request.getParameter("stanowiska"));
-		float wyplatabrutto=Float.parseFloat(request.getParameter("wyplatabruttto"));
+		double wyplatabrutto = Double.parseDouble(request.getParameter("wyplatabrutto"));
 		String haslo = request.getParameter("haslo");
-		int uprawnienia = Integer.parseInt(request.getParameter("uprawnienia"));
+		String upr = request.getParameter("uprawnienia");
+		int uprawnienia;
+		if(upr == null) uprawnienia =0;
+		else uprawnienia = 1;
 
-		userdao.addUser(imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto, haslo);
-		//uprawnieniadao.addPermission(uprawnienia);
+		int id = userdao.addUser(imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto, haslo);
+		uprawnieniadao.addPermission(id, uprawnienia);
 
-		return "redirect:/Amainpage";
+		return "redirect:/adminhome";
 
 	}
 	/**
