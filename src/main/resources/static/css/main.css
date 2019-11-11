@@ -252,12 +252,26 @@ tr{
     text-align: left;
     width: 50px;
 }
+th{
+    width: 200px;
+}
 
-  #osoba_detail{
-    color: white;
+.kolumnaA td{
+    width: 400px;
+    color: var(--footer-color);
+}
+
+  .kolumnaA{
     float: left;
-    padding: 20px;
-  }
+    width: 50%;
+}
+  .osoba_detail{
+    content: "";
+    display: table;
+    clear: both;
+    color: white;
+    
+}
   
   input[type=text] {
     background-color: var(--mainbody-color);
@@ -273,7 +287,7 @@ div.form-example {
 
 
 select{
-    width: 100%;
+    width: 310px;
     padding: 5px 5px;
     border: none;
     border-radius: 4px;
@@ -281,8 +295,8 @@ select{
     color: white;
   }
 
-  input[type=hidden], input[type=text], input[type=email], input[type=number]{
-    width: 100%;
+  input[type=hidden], input[type=text], input[type=email]{
+    width: 300px;
     padding: 5px 5px;
     border: none;
     border-radius: 4px;
@@ -299,9 +313,15 @@ select{
   input[type=number] { 
     -moz-appearance: textfield;
     appearance: textfield;
-    margin: 0; 
+    width: 300px;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--menu-position-border-right-color);
+    color: white;
   }
 
+  
 
 /*koniec rewiru Julka*/
 

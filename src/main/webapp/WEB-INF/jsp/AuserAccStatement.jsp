@@ -34,10 +34,28 @@
             <div id="praco_logo">
                 ${user1.getImie()} ${user1.getNazwisko()} Imie nazwisko 
             </div>
-            <div id="osoba_detail">                    
+            <div class="osoba_detail">     
+                <div class="kolumnaA">      
                     <table>
                         <tr>
-                            <th><h3>Wypłaty dla pracownika:</h3></th>
+                            <th><h2>Wypłaty:</h2></th>
+                        </tr>
+                        <tr>
+                            <th>Wypłata brutto:</th><td>${user1.getWyplataBrutto()} zł</td> 
+                        </tr>
+                        <tr>
+                            <th>Wypłata netto:</th><td>${user1.getWyplataNetto()} zł</td> 
+                        </tr>
+                        <tr>
+                            <th>Całkowity koszt pracownika:</th><td>${user1.getCalkowityKosztPracownika()} zł</td> 
+                        </tr>
+                        <br>
+                    </table>
+                </div>
+                <div class="kolumnaA"> 
+                    <table>
+                        <tr>
+                            <th><h2>Wypłaty dla pracownika:</h2></th>
                         </tr>
                         <tr>
                             <th>Kwota:</th> 
@@ -55,8 +73,8 @@
                             <td>3kk yang</td> 
                             <td>11.12.2019</td>
                         </tr>
-
                     </table> 
+                </div>
             </div>
 
         </div>

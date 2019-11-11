@@ -32,57 +32,80 @@
             <div id="praco_logo">               
                 Dane pracownika:    
             </div>
-            <div id="osoba_detail"> 
+            <div class="osoba_detail"> 
                 <form action="/add_user" autocomplete="off">
-                    
-                    <table>              
-                        <tr>
-                            <th>Imię:</th><th><input type="text" name="Imie" size="40" value=""></th> 
-                        </tr>
-                        <tr>
-                            <th>Nazwisko:</th><th><input type="text" name="nazwisko" size="40" value=""></th> 
-                        </tr>
-                        <tr>
-                            <th>Hasło:</th><th><input type="text" name="haslo" size="40" value=""></th>
-                            <th><input type="submit" class="konto" value="Generuj nowe hasło" style="vertical-align:middle">
-                            </th> 
-                        </tr>
-                        <tr>
-                            <th>Nickname:</th><th><input type="text" name="nickname" size="40" value=""></th> 
-                        </tr>
-                        <tr>
-                            <th>Email:</th><th><input type="email" name="email" size="40" value=""></th>
-                        </tr>
-                        <tr>
-                            <th>Numer konta:</th><th><input type="number" name="nrkonta" size="40" value="" style="width:100%;"></th> 
-                        </tr>
-                        <tr>
-                            <th>Typ umowy:</th><th><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
-                            <select id="TypUmowy" name="typumowy"  style="width:100%;"> 
-                                <c:forEach var="typyUmowy" items="${typyUmowy}">
-                                    <option value="${typyUmowy.getID()}">${typyUmowy.getNazwa()}</option>
-                                </c:forEach>
-                            </select>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>Stanowisko:</th><th><!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
-                            <select id="Stanowisko" name="stanowiska" style="width:100%;"> 
-                                <c:forEach var="stanowiska" items="${stanowiska}">
-                                    <option value="${stanowiska.getID()}">${stanowiska.getNazwa()}</option>
-                                </c:forEach>                                         
-                            </select> 
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>Wypłata brutto:</th><th></td><input type="number" name="wyplatabrutto" size="40" value="" min = "1" step="0.01" style="width:100%;"></th> 
-                        </tr>
-                        <tr>
-                            <th>Uprawnienia:</th><th></td><input type="checkbox" name="uprawnienia" value="1">Administrator</th> 
-                        </tr>
-                    </table>
-                        <br><br>
-                        <input type="submit" class="konto" value="Dodaj pracownika" style="vertical-align:middle">                  
+                    <div class="kolumnaA"> 
+                        <table>              
+                            <tr>
+                                <th>Imię:</th><td><input type="text" name="Imie" size="40" value=""></td> 
+                            </tr>
+                            <tr>
+                                <th>Nazwisko:</th><td><input type="text" name="nazwisko" size="40" value=""></td> 
+                            </tr>
+                            <tr>
+                                <th>Hasło:</th><td><input type="text" name="haslo" size="40" value=""></td>
+                                <th><input type="submit" class="konto" value="Generuj hasło" style="vertical-align:middle">
+                                </th> 
+                            </tr>
+                            <tr>
+                                <th>Nickname:</th><td><input type="text" name="nickname" size="40" value=""></td> 
+                            </tr>
+                            <tr>
+                                <th>Email:</th><td><input type="email" name="email" size="40" value=""></td>
+                            </tr>
+                            <tr>
+                                <th>Numer konta:</th><td><input type="number" name="nrkonta" size="40" value="" ></td> 
+                            </tr>
+                            <tr>
+                                <th>Typ umowy:</th><td><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
+                                <select id="TypUmowy" name="typumowy"  > 
+                                    <c:forEach var="typyUmowy" items="${typyUmowy}">
+                                        <option value="${typyUmowy.getID()}">${typyUmowy.getNazwa()}</option>
+                                    </c:forEach>
+                                </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Stanowisko:</th><td><!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
+                                <select id="Stanowisko" name="stanowiska" > 
+                                    <c:forEach var="stanowiska" items="${stanowiska}">
+                                        <option value="${stanowiska.getID()}">${stanowiska.getNazwa()}</option>
+                                    </c:forEach>                                         
+                                </select> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="" min = "1" step="0.01" ></td> 
+                            </tr>
+                            <tr>
+                                <th>Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1">Administrator</td> 
+                            </tr>
+                        </table>
+                            <br><br>
+                            <input type="submit" class="konto" value="Dodaj pracownika" style="vertical-align:middle">            
+                    </div>    
+                    <div class="kolumnaA">                             
+                            <table>
+                                    <tr>
+                                            <th><h2>Dane adresowe pracownika:</h2></th>                          
+                                    </tr>
+                                    <tr>
+                                            <th rowspan="2">Adres:</th>
+                                            <td><input type="text" name="adres1" size="40" value="Kolorowa"></td> 
+                                    </tr>
+                                    <tr>                                      
+                                            <td><input type="text" name="adres2" size="40" value="19B/2"></td> 
+                                    </tr>
+                                    <tr>
+                                            <th>Miasto:</th>
+                                            <td><input type="text" name="miasto" size="40" value="Warszawa"></td> 
+                                    </tr>  
+                                    <tr>
+                                            <th>Województwo:</th>
+                                            <td><input type="text" name="woj" size="40" value="Mazowieckie"></td> 
+                                    </tr>                             
+                                </table>
+                    </div>            
                 </form>
             </div>
         </div>

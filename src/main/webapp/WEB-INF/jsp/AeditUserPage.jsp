@@ -36,56 +36,80 @@
                     ${user1.getImie()} ${user1.getNazwisko()}<!--Imie i nazwisko osoby ktorej konto wybraliśmy wcześniej przyciskiem SZCZEGÓŁY-->
                         <br>
                     </div>
-                    <div id="osoba_detail">                   
-                        <!--To z bazy danych vvvv + zapisywanie do bazy danych TO EDYCJA JAKO ADMIN-->
-                            <form action="/edit_user">
-                                <table>
-                                    <tr>
-                                        <th><h3>Dane pracownika:</h3></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Imię:</th><th><input type="hidden" name="id" value="${user1.getID() }"><input type="text" name="Imie" size="40" value="${user1.getImie()}"></th> 
-                                    </tr>
-                                    <tr>
-                                        <th>Nazwisko:</th><th><input type="text" name="nazwisko" size="40" value="${user1.getNazwisko()}"></th> 
-                                    </tr>
-                                    <tr>
-                                        <th>Nickname:</th><th><input type="text" name="nickname" size="40" value="${user1.getNick()}"></th> 
-                                    </tr>
-                                    <tr>
-                                        <th>Email:</th><th><input type="email" name="email" size="40" value="${user1.getEmail()}"></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Numer konta:</th><th><input type="number" name="nrkonta" size="40" value="${user1.getKontoBankowe()}" style="width:100%;"></th> 
-                                    </tr>
-                                    <tr>
-                                        <th>Typ umowy:</th><th><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
-                                        <select id="TypUmowy" name="typumowy"  style="width:100%;">
-                                                <c:forEach var="typyUmowy" items="${typyUmowy}">
-                                                    <option ${user1.getTypUmowy() == typyUmowy.getNazwa()  ? 'selected="selected"' : '' } value="${typyUmowy.getID()}">${typyUmowy.getNazwa()}</option>
-                                                </c:forEach>
-                                            </select>
-                                    </tr>
-                                    <tr>
-                                        <th>Stanowisko:</th><th><!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
-                                            <select id="Stanowisko" name="stanowiska" style="width:100%;"> 
-                                                    <c:forEach var="stanowiska" items="${stanowiska}">
-                                                        <option ${user1.getStanowisko() == stanowiska.getNazwa()  ? 'selected="selected"' : '' } value="${stanowiska.getID()}">${stanowiska.getNazwa()}</option>
-                                                    </c:forEach>                                         
-                                                </select> 
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <th>Wypłata brutto:</th><th><input type="number" name="wyplatabrutto" size="40" value="${user1.getWyplataBrutto()}" style="width:100%;"></th> 
-                                    </tr>
-                                    <tr>
-                                        <th>Uprawnienia:</th><th></td><input type="checkbox" name="uprawnienia" value="1" ${user1.getUprawnienia() == "Administrator"  ? 'checked="checked"' : '' }>Administrator</th> 
-                                    </tr>
-                                </table>
-                                    <br><br>
-                                    <input type="submit" class="konto" value="Zaktualizuj" style="vertical-align:middle">
-                            </form>
-                        
+                    <div class="osoba_detail">                  
+                            <!--To z bazy danych vvvv + zapisywanie do bazy danych TO EDYCJA JAKO ADMIN-->
+                                <form action="/edit_user">
+                                    <div class="kolumnaA"> 
+                                        <table>
+                                            <tr>
+                                                <th><h2>Dane pracownika:</h2></th>
+                                            </tr>
+                                            <tr>
+                                                <th>Imię:</th><th><input type="hidden" name="id" value="${user1.getID() }"><input type="text" name="Imie" size="40" value="${user1.getImie()}"></th> 
+                                            </tr>
+                                            <tr>
+                                                <th>Nazwisko:</th><th><input type="text" name="nazwisko" size="40" value="${user1.getNazwisko()}"></th> 
+                                            </tr>
+                                            <tr>
+                                                <th>Nickname:</th><th><input type="text" name="nickname" size="40" value="${user1.getNick()}"></th> 
+                                            </tr>
+                                            <tr>
+                                                <th>Email:</th><th><input type="email" name="email" size="40" value="${user1.getEmail()}"></th>
+                                            </tr>
+                                            <tr>
+                                                <th>Numer konta:</th><th><input type="number" name="nrkonta" size="40" value="${user1.getKontoBankowe()}" ></th> 
+                                            </tr>
+                                            <tr>
+                                                <th>Typ umowy:</th><th><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
+                                                <select id="TypUmowy" name="typumowy"  >
+                                                        <c:forEach var="typyUmowy" items="${typyUmowy}">
+                                                            <option ${user1.getTypUmowy() == typyUmowy.getNazwa()  ? 'selected="selected"' : '' } value="${typyUmowy.getID()}">${typyUmowy.getNazwa()}</option>
+                                                        </c:forEach>
+                                                    </select>
+                                            </tr>
+                                            <tr>
+                                                <th>Stanowisko:</th><th><!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
+                                                    <select id="Stanowisko" name="stanowiska" > 
+                                                            <c:forEach var="stanowiska" items="${stanowiska}">
+                                                                <option ${user1.getStanowisko() == stanowiska.getNazwa()  ? 'selected="selected"' : '' } value="${stanowiska.getID()}">${stanowiska.getNazwa()}</option>
+                                                            </c:forEach>                                         
+                                                        </select> 
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="${user1.getWyplataBrutto()}" ></td> 
+                                            </tr>
+                                            <tr>
+                                                <th>Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1" ${user1.getUprawnienia() == "Administrator"  ? 'checked="checked"' : '' }>Administrator</td> 
+                                            </tr>
+                                        </table>
+                                        <br><br>
+                                        <input type="submit" class="konto" value="Zaktualizuj" style="vertical-align:middle">
+                                    </div>
+                                    <div class="kolumnaA">                             
+                                            <table>
+                                                    <tr>
+                                                            <th><h2>Dane adresowe pracownika:</h2></th>                          
+                                                    </tr>
+                                                    <tr>
+                                                            <th rowspan="2">Adres:</th>
+                                                            <td><input type="text" name="adres1" size="40" value="Kolorowa"></td> 
+                                                    </tr>
+                                                    <tr>                                      
+                                                            <td><input type="text" name="adres2" size="40" value="19B/2"></td> 
+                                                    </tr>
+                                                    <tr>
+                                                            <th>Miasto:</th>
+                                                            <td><input type="text" name="miasto" size="40" value="Warszawa"></td> 
+                                                    </tr>  
+                                                    <tr>
+                                                            <th>Województwo:</th>
+                                                            <td><input type="text" name="woj" size="40" value="Mazowieckie"></td> 
+                                                    </tr>                             
+                                                </table>
+                                    </div>                          
+                                </form>
+                                
                     </div>
         </div>
         <div id="footer">

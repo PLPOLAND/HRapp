@@ -20,6 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
     <title>HR MAJ Profil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -29,59 +30,73 @@
                  ${banner.printBanner()}
             </div>
             <div id="mainbody">
-               
                     <div id="praco_logo">
                             ${user1.getImie()} ${user1.getNazwisko()}
                     </div>
-            
-                    <div id="osoba_detail">                    
-                        <table>
-                            <tr>
-                                <th><h3>Dane pracownika:</h3></th>
-                            </tr>
-                            <tr>
-                                <th>Imię:</th><th>${user1.getImie()}</th> 
-                            </tr>
-                            <tr>
-                                <th>Nazwisko:</th><th>${user1.getNazwisko()}</th> 
-                            </tr>
-                            <tr>
-                                <th>Nickname:</th><th>${user1.getNick()}</th> 
-                            </tr>
-                            <tr>
-                                <th>Email:</th><th>${user1.getEmail()}</th>
-                            </tr>
-                           
-                            <tr>
-                                <th>Typ umowy:</th><th>${user1.getTypUmowy()}</th>
-                            </tr>
-                            <tr>
-                                <th>Stanowisko:</th><th>${user1.getStanowisko()} </th>
-                            </tr>
-                            <tr>
-                                <th>Numer konta:</th><th>${user1.getKontoBankowe()}</th> 
-                            </tr>
-                            <tr>
-                                <th>Wypłata brutto:</th><th>${user1.getWyplataBrutto()} zł</th> 
-                            </tr>
-                            <tr>
-                                <th>Wypłata netto:</th><th>${user1.getWyplataNetto()} zł</th> 
-                            </tr>
-                            <tr>
-                                <th>Całkowity koszt pracownika:</th><th>${user1.getCalkowityKosztPracownika()} zł</th> 
-                            </tr>
-                            <tr>
-                                <th>Uprawnienia:</th><th>${user1.getUprawnienia()}</th> 
-                            </tr>
-                        </table> 
-                        <br><br>
-                        <button class="konto" style="vertical-align:middle" onclick="location.href='/edit_user_page?id=${user1.getID()}'"><i class='far fa-edit'></i><span>Edytuj dane</span></button>
-                        <!--przenosi do strony AeditUserPage-->  
-                        
-                     </div>   
-                 
+                    <div class="osoba_detail">
+                        <div class="kolumnaA">                  
+                            <table>
+                                <tr>
+                                    <th><h2><b>Dane pracownika:</h2></th>
+                                </tr>
+                                <tr>
+                                    <th>Imię:</th><td>${user1.getImie()}</td> 
+                                </tr>
+                                <tr>
+                                    <th>Nazwisko:</th><td>${user1.getNazwisko()}</td> 
+                                </tr>
+                                <tr>
+                                    <th>Nickname:</th><td>${user1.getNick()}</td> 
+                                </tr>
+                                <tr>
+                                    <th>Email:</th><td>${user1.getEmail()}</td>
+                                </tr>
+                            
+                                <tr>
+                                    <th>Typ umowy:</th><td>${user1.getTypUmowy()}</td>
+                                </tr>
+                                <tr>
+                                    <th>Stanowisko:</th><td>${user1.getStanowisko()} </td>
+                                </tr>
+                                <tr>
+                                    <th>Numer konta:</th><td>${user1.getKontoBankowe()}</td> 
+                                </tr>
+                                
+                                <tr>
+                                    <th>Uprawnienia:</th><td>${user1.getUprawnienia()}</td> 
+                                </tr>
+                            </table>
+                        </div> 
+                        <div class="kolumnaA">
+                            <table>
+                                <tr>
+                                        <th><h2>Dane adresowe pracownika:</h2></th>                          
+                                </tr>
+                                <tr>
+                                        <th rowspan="2">Adres:</th>
+                                        <td>kololowa</td> 
+                                </tr>
+                                <tr>                                      
+                                        <td>19B  m. 14</td> 
+                                </tr>
+                                <tr>
+                                        <th>Miasto:</th>
+                                        <td>Warszawa</td> 
+                                </tr>  
+                                <tr>
+                                        <th>Województwo:</th>
+                                        <td>Mazowieckie</td> 
+                                </tr>                             
+                            </table>
+                        </div>
+                        <br><br>                       
+                    </div>
+                    <br><br><br>
+                    <button class="konto" style="vertical-align:middle" onclick="location.href='/edit_user_page?id=${user1.getID()}'">
+                        <i class='far fa-edit'></i>
+                        <span>Edytuj dane</span>
+                    </button>
                 </div>
-         
         <div id="footer">
             MAJ<br>
             © Wszelkie prawa zastrzeżone
