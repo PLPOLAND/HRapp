@@ -60,7 +60,7 @@ CREATE TABLE `Stanowiska` (
 --
 
 INSERT INTO `Stanowiska` (`ID_s`, `Nazwa`, `NazwaSkr`) VALUES
-(1, 'Programista', 'Prog');
+(1, 'Programista', 'Prog'),(2,'Ksiegowy', 'Ks'),(3,'Manager', 'Mng'),(4,'Sprzatacz', 'Sprz');
 
 -- --------------------------------------------------------
 
@@ -73,16 +73,30 @@ CREATE TABLE `TypyUmowy` (
   `ID_T` int(11) NOT NULL,
   `nazwaSkr` text NOT NULL,
   `nazwa` text NOT NULL,
-  `podatek` float NOT NULL
+  `funduszPracy` float DEFAULT 0.0,
+  `ubWypadkowe` float DEFAULT 0.0,
+  `ubRentowePracodawca` float DEFAULT 0.0,
+  `ubRentowePracownik` float DEFAULT 0.0,
+  `ubEmerytalnePracodawca` float DEFAULT 0.0,
+  `ubEmerytalnePracownik` float DEFAULT 0.0,
+  `ubChorobowe` float DEFAULT 0.0,
+  `ubZdrowotne` float DEFAULT 0.0,
+  `zaliczkaPIT` float DEFAULT 0.0,
+  `FGSP` float DEFAULT 0.0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `TypyUmowy`
 --
 
-INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`, `nazwa`, `podatek`) VALUES
-(1, 'UoP', 'Umowa o prace', 0.15);
+INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`, `nazwa`, `funduszPracy`, `UbWypadkowe`,`ubRentowePracodawca`, `ubRentowePracownik`,`ubEmerytalnePracodawca`,`ubEmerytalnePracownik`,`ubChorobowe`,`ubZdrowotne`,`zaliczkaPIT`) VALUES
+(1, 'UoP', 'Umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 3.65);
 
+INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`,`nazwa`,`ubWypadkowe`) VALUES (2,'UnZ', 'Umowa na zlecenie', 1.64);
+INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`,`nazwa`,`zaliczkaPIT`) VALUES (3,'UoD', 'Umowa o Dzielo', 13.6);
+
+INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`, `nazwa`, `funduszPracy`, `ubWypadkowe`,`ubRentowePracodawca`, `ubRentowePracownik`,`ubEmerytalnePracodawca`,`ubEmerytalnePracownik`,`ubChorobowe`,`ubZdrowotne`,`zaliczkaPIT`,`FGSP`) VALUES
+(4, 'UoPiUnZ', 'Umowa na zlecenie z umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 5.05,0.08), (5, 'UoPiUoD', 'Umowa o dzielo z umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 5.05, 0.08);
 -- --------------------------------------------------------
 
 --
@@ -117,19 +131,27 @@ CREATE TABLE `UsersData` (
   `ID` int(11) NOT NULL,
   `imie` text NOT NULL,
   `nazwisko` text NOT NULL,
+  `pesel` int(11) NOT NULL,
+  `nrTelefonu` int(11) NOT NULL,
+  `dataUrodzenia` date NOT NULL,
   `kontoBankowe` text NOT NULL,
   `wyplataBrutto` double NOT NULL,
   `id_s` int(11) NOT NULL,
-  `id_t_u` int(11) NOT NULL
+  `id_t_u` int(11) NOT NULL,
+  `ulica` text NOT NULL,
+  `nrDomu` text NOT NULL,
+  `nrMieszkania` int(5) DEFAULT NULL,
+  `miasto` text NOT NULL,
+  `kodPocztowy` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `UsersData`
 --
 
-INSERT INTO `UsersData` (`ID`, `imie`, `nazwisko`, `kontoBankowe`, `wyplataBrutto`, `id_s`, `id_t_u`) VALUES
-(1, 'Marek', 'Pałdyna', '25213129921111580206782827', 8000, 1, 1),
-(2, 'Adam', 'Mickiewicz', '22345642126845567534542247', 4000, 1, 1);
+INSERT INTO `UsersData` (`ID`, `imie`, `nazwisko`,`pesel`,`nrTelefonu`,`dataUrodzenia`, `kontoBankowe`, `wyplataBrutto`, `id_s`, `id_t_u`,`ulica`,`nrDomu`,`nrMieszkania`,`miasto`,`kodPocztowy`) VALUES
+(1, 'Marek', 'Pałdyna', 98072694616, 678567467, '1998-07-26','25213129921111580206782827', 8000, 1, 1, 'Malinowa', 11, NULL, 'Warszawa', '03-234'),
+(2, 'Adam', 'Mickiewicz', 57072558199, 999333000, '1957-07-25', '22345642126845567534542247', 4000, 1, 1, 'Przekatna',34,109,'Warszawa', '05-345');
 
 --
 -- Indexes for dumped tables
@@ -174,13 +196,13 @@ ALTER TABLE `UsersData`
 -- AUTO_INCREMENT for table `Stanowiska`
 --
 ALTER TABLE `Stanowiska`
-  MODIFY `ID_s` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_s` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `TypyUmowy`
 --
 ALTER TABLE `TypyUmowy`
-  MODIFY `ID_T` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_T` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `Users`

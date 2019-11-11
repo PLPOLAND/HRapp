@@ -3,7 +3,7 @@ package HRapp.MAJ.Model;
 import HRapp.MAJ.DAO.UprawnieniaDAO;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /*
@@ -14,8 +14,8 @@ Odpowiada za przetwarzanie danych o uprawnieniach
 public class Uprawnienia{
     int ID;
     boolean admin;
-    @Autowired
-    UprawnieniaDAO uprdao;
+    //@Autowired
+   // UprawnieniaDAO uprdao;
     
     /**
      * Pobieranie ID uprawnienia

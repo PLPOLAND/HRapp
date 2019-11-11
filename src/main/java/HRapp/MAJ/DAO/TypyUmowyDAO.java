@@ -15,10 +15,15 @@ public class TypyUmowyDAO{
     @Autowired
     private JdbcTemplate baza;
 
-    final String GET_ALL_TYPY_UMOWY_DATA = "SELECT ID_T, nazwa, nazwaSkr, podatek FROM TypyUmowy";
+    final String GET_ALL_TYPY_UMOWY_DATA = "SELECT `ID_T`, `nazwaSkr`, `nazwa`, `funduszPracy`, `ubWypadkowe`,`ubRentowePracodawca`, `ubRentowePracownik`,`ubEmerytalnePracodawca`,`ubEmerytalnePracownik`,`ubChorobowe`,`ubZdrowotne`,`zaliczkaPIT`,`FGSP` FROM TypyUmowy";
 
     public List<TypyUmowy> getAllTypyUmowy(){
         return baza.query(GET_ALL_TYPY_UMOWY_DATA, getMap());
+    }
+
+    public List<TypyUmowy> find_typ_umowy_by_id(int id, JdbcTemplate baza) {
+        List<TypyUmowy> TU =  baza.query(GET_ALL_TYPY_UMOWY_DATA + " WHERE ID_T =  "+ id +";", getMap());
+        return TU;
     }
 
     private RowMapper<TypyUmowy> getMap() {
@@ -27,7 +32,16 @@ public class TypyUmowyDAO{
             um.setID(rs.getInt("ID_T"));
             um.setNazwa(rs.getString("nazwa"));
             um.setNazwaSkr(rs.getString("nazwaSkr"));
-            um.setPodatek(rs.getFloat("podatek"));
+            um.setFunduszPracy(rs.getFloat("funduszPracy"));
+            um.setUbWypadkowe(rs.getFloat("ubWypadkowe"));
+            um.setUbRentowePracodawca(rs.getFloat("ubRentowePracodawca"));
+            um.setUbRentowePracownik(rs.getFloat("ubRentowePracownik"));
+            um.setUbEmerytalnePracodawca(rs.getFloat("ubEmerytalnePracodawca"));
+            um.setUbEmerytalnePracownik(rs.getFloat("ubEmerytalnePracownik"));
+            um.setUbChorobowe(rs.getFloat("ubChorobowe"));
+            um.setUbZdrowotne(rs.getFloat("ubZdrowotne"));
+            um.setZaliczkaPIT(rs.getFloat("zaliczkaPIT"));
+            um.setFGSP(rs.getFloat("FGSP"));
 
 			return um;
 		};

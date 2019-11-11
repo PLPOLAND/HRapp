@@ -68,7 +68,7 @@
                                 <th>Wypłata netto:</th><th>${user1.getWyplataNetto()} zł</th> 
                             </tr>
                             <tr>
-                                <th>Podatek:</th><th>${user1.getProcentPodatku()}%</th> 
+                                <th>Całkowity koszt pracownika:</th><th>${user1.getCalkowityKosztPracownika()} zł</th> 
                             </tr>
                             <tr>
                                 <th>Uprawnienia:</th><th>${user1.getUprawnienia()}</th> 

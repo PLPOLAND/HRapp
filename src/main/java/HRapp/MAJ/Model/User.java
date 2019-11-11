@@ -19,8 +19,15 @@ public class User{
     String nazwisko;
     Uprawnienia uprawnienia;
     String stanowisko;
-    String typUmowy;
-    float procentPodatku;
+    TypyUmowy typUmowy;
+    int pesel;
+    String dataUrodzenia;
+    int nrTelefonu;
+    String ulica;
+    String nrDomu;
+    int nrMieszkania;
+    String miasto;
+    String kodPocztowy;
     
 
     /**
@@ -134,10 +141,14 @@ public class User{
         wyplataBrutto = kwota;
     }
 
-    public float getWyplataNetto(){
-        return (wyplataBrutto - ((wyplataBrutto * (float) procentPodatku)/100));
+    public float getWyplataNetto(){ 
+        float calkowityProcent = typUmowy.ubEmerytalnePracownik+typUmowy.ubRentowePracownik+typUmowy.ubChorobowe+typUmowy.ubZdrowotne+typUmowy.zaliczkaPIT;
+        return (wyplataBrutto - ((wyplataBrutto * (float) calkowityProcent)/100));
     }
-
+    public float getCalkowityKosztPracownika(){
+        float calkowityProcent = typUmowy.funduszPracy+typUmowy.ubWypadkowe+typUmowy.ubRentowePracodawca+typUmowy.ubEmerytalnePracodawca+typUmowy.FGSP;
+        return ((wyplataBrutto *100)/(100 - calkowityProcent));
+    }
     public String getImie(){
         return imie;
     }
@@ -172,21 +183,77 @@ public class User{
     }
 
     public String getTypUmowy(){
-        return typUmowy;
+        return typUmowy.getNazwa();
     }
 
-    public void setTypUmowy(String TypUmowy){
-        typUmowy = TypUmowy;
+    public void setTypUmowy(int TypUmowy, JdbcTemplate baza){
+        typUmowy = new TypyUmowy();
+        typUmowy.setAll(TypUmowy, baza);
     }
 
-    public int getProcentPodatku(){
-        return (int) procentPodatku;
+    public int getPesel(){
+        return pesel;
     }
 
-    public void setProcentPodatku(float ProcentPodatku){
-        procentPodatku = ProcentPodatku*100;
+    public void setPesel(int p){
+        pesel = p;
     }
 
+    public String getDataUrodzenia(){
+        return dataUrodzenia;
+    }
+
+    public void setDataUrodzenia(String d){
+        dataUrodzenia = d;
+    }
+
+    public int getNrTelefonu(){
+        return nrTelefonu;
+    }
+
+    public void setNrTelefonu(int nt){
+        nrTelefonu = nt;
+    }
+
+    public String getUlica(){
+        return ulica;
+    }
+
+    public void setUlica(String u){
+        ulica = u;
+    }
+
+    public String getNrDomu(){
+        return nrDomu;
+    }
+
+    public void setNrDomu(String nd){
+        nrDomu = nd;
+    }
+
+    public int getNrMieszkania(){
+        return nrMieszkania;
+    }
+
+    public void setNrMieszkania(int nm){
+        nrMieszkania = nm;
+    }
+
+    public String getMiasto(){
+        return miasto;
+    }
+
+    public void setMiasto(String m){
+        miasto = m;
+    }
+
+    public String getKodPocztowy(){
+        return kodPocztowy;
+    }
+
+    public void setKodPocztowy(String kp){
+        kodPocztowy = kp;
+    }
     /**
      * Zwraca stringa z danymi zawartymi w obiekcie
      * 
