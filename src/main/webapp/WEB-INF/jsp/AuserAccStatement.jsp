@@ -21,7 +21,7 @@
     <link href='http://fonts.googleapis.com/css?family=Barlow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
-    <title>HR MAJ ...</title>
+    <title>HR MAJ Wyciąg </title>
 </head>
 
 <body>
@@ -31,7 +31,34 @@
             ${banner.printBanner()}
         </div>
         <div id="mainbody">
-           
+            <div id="praco_logo">
+                ${user1.getImie()} ${user1.getNazwisko()} Imie nazwisko 
+            </div>
+            <div id="osoba_detail">                    
+                    <table>
+                        <tr>
+                            <th><h3>Wypłaty dla pracownika:</h3></th>
+                        </tr>
+                        <tr>
+                            <th>Kwota:</th> 
+                            <th>Data zaksięgowania:</th>
+                        </tr>
+                        <tr>
+                            <td>6kk yang</td> 
+                            <td>11.10.2019</td>
+                        </tr>
+                        <tr>
+                            <td>7kk yang</td> 
+                            <td>11.11.2019</td>
+                        </tr>
+                        <tr>
+                            <td>3kk yang</td> 
+                            <td>11.12.2019</td>
+                        </tr>
+
+                    </table> 
+            </div>
+
         </div>
         <div id="footer">
             MAJ<br>

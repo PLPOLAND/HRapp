@@ -19,7 +19,7 @@
     <link href='http://fonts.googleapis.com/css?family=Barlow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
-    <title>HR MAJ Profil <!--tu można dać imie jeśli się da--></title>
+    <title>HR MAJ Profil</title>
 </head>
 
 <body>
@@ -31,13 +31,10 @@
             <div id="mainbody">
                
                     <div id="praco_logo">
-                
-                            ${user1.getImie()} ${user1.getNazwisko()}<!--Imie i nazwisko osoby ktorej konto wybraliśmy wczejściej przyciskiem SZCZEGÓŁY-->
-                         <br><br>
+                            ${user1.getImie()} ${user1.getNazwisko()}
                     </div>
             
-                    <div id="osoba_detail">
-                    <!--To z bazy danych vvvv-->
+                    <div id="osoba_detail">                    
                         <table>
                             <tr>
                                 <th><h3>Dane pracownika:</h3></th>
