@@ -392,14 +392,33 @@ a:hover{
 
 }
 #pracownicy > table td.przycisk{
-    cursor: pointer;
-    
+    cursor: pointer; 
 }
 #pracownicy > table td.przycisk:hover{
     cursor: pointer;
     color: var(--hover-color);
-    transition: 0.5s;
+    transition: 0.5s;  
 }
+
+/*JS*/
+.przycisk .tooltiptext{
+    visibility: hidden;
+    width: 130px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+.przycisk:hover .tooltiptext{
+    visibility: visible;
+}
+/**/
+
 #pracownicy > table td.przycisk.delete:hover{
     cursor: pointer;
     color: #FF1111;
