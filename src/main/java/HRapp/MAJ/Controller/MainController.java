@@ -248,6 +248,28 @@ public class MainController {
 		return "redirect:/adminhome";
 
 	}
+
+	/**
+	 * 
+	 * wyplaty uzytkownika (admin)
+	 */
+	@RequestMapping("/user_payment_page")
+	public String userPaymentPage(@RequestParam("id") int id, Model model,HttpServletRequest request){	
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage"; 
+
+		Menu menu = new Menu();
+		User user1 = userdao.find_user_by_id(id);		
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("user1", user1);
+		model.addAttribute(banner);	
+
+		return "AuserAccStatement";
+	}
+
 	/**
 	 * 
 	 * wylogowywanie
