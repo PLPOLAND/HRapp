@@ -45,39 +45,40 @@
                                                 <th><h2>Dane pracownika:</h2></th>
                                             </tr>
                                             <tr>
-                                                <th>Imię:</th><th><input type="hidden" name="id" value="${user1.getID() }"><input type="text" name="Imie" size="40" value="${user1.getImie()}" required></th> 
+                                                <th>Imię:</th><td><input type="hidden" name="id" value="${user1.getID() }"><input type="text" name="Imie" size="40" value="${user1.getImie()}" required></td> 
                                             </tr>
                                             <tr>
-                                                <th>Nazwisko:</th><th><input type="text" name="nazwisko" size="40" value="${user1.getNazwisko()}" required></th> 
+                                                <th>Nazwisko:</th><td><input type="text" name="nazwisko" size="40" value="${user1.getNazwisko()}" required></td> 
                                             </tr>
                                             <tr>
-                                                <th>Nickname:</th><th><input type="text" name="nickname" size="40" value="${user1.getNick()}" required></th> 
+                                                <th>Nickname:</th><td><input type="text" name="nickname" size="40" value="${user1.getNick()}" required></td> 
                                             </tr>
                                             <tr>
-                                                <th>Pesel:</th><th><input type="number" name="pesel" size="40" value="${user1.getPesel()}" required></th> 
+                                                <th>Pesel:</th><td><input type="number" name="pesel" size="40" value="${user1.getPesel()}" required></td> 
                                             </tr>
                                             <tr>
-                                                <th>Data urodzenia:</th><th><input type="date" name="dataurodzenia" size="40" value="${user1.getDataUrodzenia()}" required></th> 
+                                                <th>Data urodzenia:</th><td><input type="date" name="dataurodzenia" size="40" value="${user1.getDataUrodzenia()}" required></td> 
                                             </tr>
                                             <tr>
-                                                <th>Numer konta:</th><th><input type="number" name="nrkonta" size="40" value="${user1.getKontoBankowe()}" required></th> 
+                                                <th>Numer konta:</th><td><input type="number" name="nrkonta" size="40" value="${user1.getKontoBankowe()}" required></td> 
                                             </tr>
                                             <tr>
-                                                <th>Typ umowy:</th><th><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
+                                                <th>Typ umowy:</th><td><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
                                                 <select id="TypUmowy" name="typumowy"  >
                                                         <c:forEach var="typyUmowy" items="${typyUmowy}">
                                                             <option ${user1.getTypUmowy() == typyUmowy.getNazwa()  ? 'selected="selected"' : '' } value="${typyUmowy.getID()}">${typyUmowy.getNazwa()}</option>
                                                         </c:forEach>
                                                     </select>
+                                                    </td>
                                             </tr>
                                             <tr>
-                                                <th>Stanowisko:</th><th><!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
+                                                <th>Stanowisko:</th><td><!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
                                                     <select id="Stanowisko" name="stanowiska" > 
                                                             <c:forEach var="stanowiska" items="${stanowiska}">
                                                                 <option ${user1.getStanowisko() == stanowiska.getNazwa()  ? 'selected="selected"' : '' } value="${stanowiska.getID()}">${stanowiska.getNazwa()}</option>
                                                             </c:forEach>                                         
                                                         </select> 
-                                                </th>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="${user1.getWyplataBrutto()}" required></td> 
@@ -95,10 +96,10 @@
                                                             <th><h2>Dane kontaktowe:</h2></th>                          
                                                     </tr>
                                                     <tr>
-                                                             <th>Email:</th><th><input type="email" name="email" size="40" value="${user1.getEmail()}" required></th>
+                                                             <th>Email:</th><td><input type="email" name="email" size="40" value="${user1.getEmail()}" required></td>
                                                     </tr>
                                                     <tr>
-                                                            <th>Numer telefonu:</th><th><input type="number" name="nrtelefonu" size="40" value="${user1.getNrTelefonu()}" required></th>
+                                                            <th>Numer telefonu:</th><td><input type="number" name="nrtelefonu" size="40" value="${user1.getNrTelefonu()}" required></th>
                                                     </tr>
                                                     <tr>
                                                             <th><h2>Adres:</h2></th>

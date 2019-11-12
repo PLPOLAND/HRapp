@@ -256,6 +256,21 @@ th{
     width: 200px;
 }
 
+.kolumnaB td:not(.pom){
+    width: 300px;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: var(--footer-color);  
+}
+
+  .kolumnaB{
+    float: left;
+    width: 50%;
+}
+
+
 .kolumnaA td{
     width: 400px;
     color: var(--footer-color);
@@ -320,7 +335,21 @@ select{
     background-color: var(--menu-position-border-right-color);
     color: white;
   }
-
+  [type="date"] {
+    background:var(--menu-position-border-right-color) url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+    width: 300px;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+  }
+  [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+  
 
 /*koniec rewiru Julka*/
 
@@ -452,21 +481,31 @@ a:hover{
 }
 
 /*JS*/
-.przycisk .tooltiptext{
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+.tooltip .tooltiptext{
     visibility: hidden;
-    width: 130px;
+    width: 60px;
     background-color: black;
     color: #fff;
     text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-  
+    border-radius: 4px;
+    padding: 2px 0;
+    
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
 }
-.przycisk:hover .tooltiptext{
+.tooltip:hover.tooltiptext{
     visibility: visible;
+}
+.tooltiptext:hover {
+    display: none;
 }
 /**/
 

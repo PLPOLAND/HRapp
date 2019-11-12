@@ -35,7 +35,7 @@
                 ${user1.getImie()} ${user1.getNazwisko()}
             </div>
             <div class="osoba_detail">     
-                <div class="kolumnaA">      
+                <div class="kolumnaB">      
                     <table>
                         <tr>
                             <th><h2>Wypłaty:</h2></th>
@@ -52,7 +52,7 @@
                         <br>
                     </table>
                 </div>
-                <div class="kolumnaA"> 
+                <div class="kolumnaB"> 
                     <table>
                         <tr>
                             <th><h2>Wypłaty dla pracownika:</h2></th>

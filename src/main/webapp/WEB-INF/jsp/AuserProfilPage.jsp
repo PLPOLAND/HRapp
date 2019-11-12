@@ -34,10 +34,12 @@
                             ${user1.getImie()} ${user1.getNazwisko()}
                     </div>
                     <div class="osoba_detail">
-                        <div class="kolumnaA">                  
+                        <div class="kolumnaB">                  
                             <table>
                                 <tr>
                                     <th><h2><b>Dane pracownika:</h2></th>
+                                    <td class="pom"></td>
+                                    <td class="pom"></td>
                                 </tr>
                                 <tr>
                                     <th>Imię:</th><td>${user1.getImie()}</td> 
@@ -69,7 +71,7 @@
                                 </tr>
                             </table>
                         </div> 
-                        <div class="kolumnaA">
+                        <div class="kolumnaB">
                             <table>
                                 <tr>
                                         <th><h2>Dane kontaktowe:</h2></th>                          

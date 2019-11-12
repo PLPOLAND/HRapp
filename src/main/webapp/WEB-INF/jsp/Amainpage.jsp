@@ -54,7 +54,7 @@
                         <td>Imie</td>
                         <td>Nazwisko</td>
                         <td>Email</td>
-                        <td>Stanowisko</td>
+                        <td>Stanowisko</td>         
                         <td class="nohover"></td>
                         <td class="nohover"></td>
                         <td class="nohover"></td>
@@ -68,16 +68,16 @@
                             <td>${userval.getStanowisko()}</td>
                             <td class="przycisk" onclick="location.href='/edit_user_page?id=${userval.getID()}'" >
                                 <i class="icon-edit"></i>
-                                <span class="tooltiptext">Edytuj</span>
+                                <div class="tooltip"><span class="tooltiptext">Edytuj</span></div>
                                 <!-- <input type="button" class="" value="Edytuj" onclick="location.href='/edit?id=${userval.getID()}'" /> -->
                             </td>
                             <td class="przycisk delete" >
-                                <i class='icon-trash'></i><span class="tooltiptext">Usuń Pracownika</span>
+                                <i class='icon-trash'></i><div class="tooltip"><span class="tooltiptext">Usuń</span></div>
                                 <!--<input type="button" class="" value="Usuń"
                                     onclick="confirmation(<c:out value='${userval.getID()}' />);" /> -->
                             </td>
-                           <td class="przycisk" onclick="location.href='/user_profile_page?id=${userval.getID()}'"><i class='icon-list'></i><span class="tooltiptext">Szczegóły</span> </td>
-                            <td class="przycisk" onclick="location.href='/user_payment_page?id=${userval.getID()}'"><i class='icon-credit-card'></i><span class="tooltiptext">Wyciąg</span> </td>
+                           <td class="przycisk" onclick="location.href='/user_profile_page?id=${userval.getID()}'"><i class='icon-list'></i><div class="tooltip"><span class="tooltiptext">Szczegóły</span></div> </td>
+                            <td class="przycisk" onclick="location.href='/user_payment_page?id=${userval.getID()}'"><i class='icon-credit-card'></i><div class="tooltip"><span class="tooltiptext">Wyciąg</span></div> </td>
                         </tr>
                     </c:forEach>
                 </table>
