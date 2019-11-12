@@ -85,11 +85,12 @@
                                 <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="" min = "1" step="0.01" required></td> 
                             </tr>
                             <tr>
-                                <th>Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1">Administrator</td> 
+                                <th>Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1"><label for="checkbox">Administrator</label></td> 
                             </tr>
                         </table>
                             <br><br>
-                            <input type="submit" class="konto" value="Dodaj pracownika" style="vertical-align:middle">            
+                            <input type="submit" class="konto" value="Dodaj pracownika" style="vertical-align:middle">     
+                            <br><br><br><br>       
                     </div>    
                     <div class="kolumnaA">                             
                             <table>

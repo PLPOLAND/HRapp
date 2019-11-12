@@ -77,7 +77,7 @@
                                     onclick="confirmation(<c:out value='${userval.getID()}' />);" /> -->
                             </td>
                            <td class="przycisk" onclick="location.href='/user_profile_page?id=${userval.getID()}'"><i class='icon-list'></i><div class="tooltip"><span class="tooltiptext">Szczegóły</span></div> </td>
-                            <td class="przycisk" onclick="location.href='/user_payment_page?id=${userval.getID()}'"><i class='icon-credit-card'></i><div class="tooltip"><span class="tooltiptext">Wyciąg</span></div> </td>
+                            <td class="przycisk" onclick="location.href='/user_payment_page?id=${userval.getID()}'"><div class="tooltip"><i class='icon-credit-card'></i><span class="tooltiptext">Wyciąg</span></div> </td>
                         </tr>
                     </c:forEach>
                 </table>

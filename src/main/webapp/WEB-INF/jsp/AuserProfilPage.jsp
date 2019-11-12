@@ -39,8 +39,7 @@
                             <table>
                                 <tr>
                                     <th><h2><b>Dane pracownika:</h2></th>
-                                    <td class="pom"></td>
-                                    <td class="pom"></td>
+                                    
                                 </tr>
                                 <tr>
                                     <th>Imię:</th><td>${user1.getImie()}</td> 
@@ -119,6 +118,7 @@
                         <i class='far fa-edit'></i>
                         <span>Edytuj dane</span>
                     </button>
+                    <br><br><br><br>
                 </div>
         <div id="footer">
             MAJ<br>

@@ -85,11 +85,12 @@
                                                 <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="${user1.getWyplataBrutto()}" required></td> 
                                             </tr>
                                             <tr>
-                                                <th>Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1" ${user1.getUprawnienia() == "Administrator"  ? 'checked="checked"' : '' }>Administrator</td> 
+                                                <th>Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1" ${user1.getUprawnienia() == "Administrator"  ? 'checked="checked"' : '' }><label for="checkbox">Administrator</label></td> 
                                             </tr>
                                         </table>
                                         <br><br>
                                         <input type="submit" class="konto" value="Zaktualizuj" style="vertical-align:middle">
+                                        <br><br><br><br><br><br>
                                     </div>
                                     <div class="kolumnaA">                             
                                             <table>

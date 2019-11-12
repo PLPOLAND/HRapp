@@ -171,7 +171,7 @@ img.userlogoimg {
     padding: 10px;
     font-weight: bold;
     text-decoration: underline;
-    color: white;
+    color: var(--mainbody-font-color);
     text-shadow: 2px 2px black;
 
 }
@@ -180,7 +180,7 @@ img.userlogoimg {
     background-color: var(--link-color);
     padding: 5px;
     font-size: 18px;
-    color: white;
+    color: var(--mainbody-font-color);
     text-align: right;
     
 }
@@ -217,7 +217,7 @@ img.userlogoimg {
     font-size: 16px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 4px;
-    color: white;
+    color: var(--mainbody-font-color);
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
 
@@ -256,20 +256,28 @@ th{
     width: 200px;
 }
 
-.kolumnaB td:not(.pom){
+.kolumnaB td{
     width: 300px;
     padding: 5px 5px;
     border: none;
     border-radius: 4px;
-    color: white;
-    background-color: var(--footer-color);  
+    color: var(--mainbody-font-color);
+    background-color: var(--hover-color);  
+}
+.kolumnaB th{
+    width: 200px;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 4px;
+    color: var(--mainbody-font-color);
+      
 }
 
   .kolumnaB{
     float: left;
     width: 50%;
+    
 }
-
 
 .kolumnaA td{
     width: 400px;
@@ -284,44 +292,44 @@ th{
     content: "";
     display: table;
     clear: both;
-    color: white;
+    color: var(--mainbody-font-color);
     
 }
   
   input[type=text] {
     background-color: var(--mainbody-color);
-    color: white;
+    color: var(--mainbody-font-color);
   }
 
-form.form-example {
-    display: table;
-}
-div.form-example {
-    display: table-row;
-}
+    form.form-example {
+        display: table;
+    }
+    div.form-example {
+        display: table-row;
+    }
 
-
-select{
+    select{
     width: 310px;
     padding: 5px 5px;
     border: none;
     border-radius: 4px;
     background-color: var(--menu-position-border-right-color);
-    color: white;
+    color: var(--mainbody-font-color);
   }
-
   input[type=hidden], input[type=text], input[type=email]{
     width: 300px;
     padding: 5px 5px;
     border: none;
     border-radius: 4px;
     background-color: var(--menu-position-border-right-color);
-    color: white;
+    color: var(--mainbody-font-color);
   }
   input[type=checkbox] {
-    cursor: pointer;    
+    cursor: pointer;  
   }
-
+  label{
+    color: var(--mainbody-font-color); 
+  }
   input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
@@ -333,7 +341,7 @@ select{
     border: none;
     border-radius: 4px;
     background-color: var(--menu-position-border-right-color);
-    color: white;
+    color: var(--mainbody-font-color);
   }
   [type="date"] {
     background:var(--menu-position-border-right-color) url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
@@ -341,7 +349,7 @@ select{
     padding: 5px 5px;
     border: none;
     border-radius: 4px;
-    color: white;
+    color: var(--mainbody-font-color);
   }
   [type="date"]::-webkit-inner-spin-button {
     display: none;
@@ -489,7 +497,7 @@ a:hover{
     visibility: hidden;
     width: 60px;
     background-color: black;
-    color: #fff;
+    color: var(--mainbody-font-color);
     text-align: center;
     border-radius: 4px;
     padding: 2px 0;
