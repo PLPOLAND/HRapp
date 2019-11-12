@@ -25,7 +25,7 @@ public class UsersDAO{
     final String FIND_USER_LOGIN = "SELECT Users.*, UsersData.imie, UsersData.nazwisko FROM Users NATURAL JOIN UsersData  WHERE nickname = ? AND pass = ?";
     final String GET_USER_DATA = "SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
     final String EDIT_USER = "UPDATE Users SET nickname = ?, email = ? WHERE ID = ?";
-    final String EDIT_USER_DATA = "UPDATE UsersData SET imie = ?, nazwisko = ?, kontoBankowe = ?, wyplataBrutto = ?, id_s = ?, id_t_u = ? WHERE ID = ?";
+    final String EDIT_USER_DATA = "UPDATE UsersData SET imie = ?, nazwisko = ?, pesel = ?, nrTelefonu = ?, dataUrodzenia = ?, kontoBankowe = ?, wyplataBrutto = ?, id_s = ?, id_t_u = ?, ulica = ?, nrDomu = ?, nrMieszkania = ?, miasto = ?, kodPocztowy = ? WHERE ID = ?";
     final String ADD_USER = "INSERT INTO Users (nickname, email, pass, oldpass) VALUES (?,?,?, '')";
     final String ADD_USER_DATA = "INSERT INTO UsersData (id, imie, nazwisko, kontoBankowe, wyplataBrutto, id_s, id_t_u) VALUES (?,?,?,?,?,?,?)";
     final String GET_USER_ID = "SELECT ID FROM Users WHERE nickname=? AND email=?";
@@ -46,9 +46,9 @@ public class UsersDAO{
 		return baza.query(GET_ALL_WHOLE_USERS_DATA + " WHERE u.ID = \"" + id + "\"", getMap()).get(0);
     }
 
-    public void editUser(int id, String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, double wyplatabrutto){
+    public void editUser(int id, String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, double wyplatabrutto, String pesel, String dataurodzenia, String nrtelefonu, String ulica, String nrdomu, int nrmieszkania, String miasto, String kodpocztowy){
         baza.update(EDIT_USER, nickname, email, id);
-        baza.update(EDIT_USER_DATA, imie, nazwisko, nrkonta, wyplatabrutto, stanowisko, typumowy, id);
+        baza.update(EDIT_USER_DATA, imie, nazwisko, pesel, nrtelefonu, dataurodzenia, nrkonta, wyplatabrutto, stanowisko, typumowy, ulica, nrdomu, nrmieszkania, miasto, kodpocztowy, id);
     }
 
     public int addUser(String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, double wyplatabrutto, String haslo){
@@ -92,9 +92,9 @@ public class UsersDAO{
             user.setUprawnienia(rs.getInt("Uprawnienia"), baza);
             user.setStanowisko(rs.getString("Stanowisko"));
             user.setTypUmowy(rs.getInt("typUmowy"),baza);
-            user.setPesel(rs.getInt("pesel"));
+            user.setPesel(rs.getString("pesel"));
             user.setDataUrodzenia(rs.getString("dataUrodzenia"));
-            user.setNrTelefonu(rs.getInt("nrTelefonu"));
+            user.setNrTelefonu(rs.getString("nrTelefonu"));
             user.setUlica(rs.getString("ulica"));
             user.setNrDomu(rs.getString("nrDomu"));
             user.setNrMieszkania(rs.getInt("nrMieszkania"));

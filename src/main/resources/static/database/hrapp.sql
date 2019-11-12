@@ -131,8 +131,8 @@ CREATE TABLE `UsersData` (
   `ID` int(11) NOT NULL,
   `imie` text NOT NULL,
   `nazwisko` text NOT NULL,
-  `pesel` int(11) NOT NULL,
-  `nrTelefonu` int(11) NOT NULL,
+  `pesel` decimal(11) NOT NULL,
+  `nrTelefonu` decimal(11) NOT NULL,
   `dataUrodzenia` date NOT NULL,
   `kontoBankowe` text NOT NULL,
   `wyplataBrutto` double NOT NULL,
@@ -140,7 +140,7 @@ CREATE TABLE `UsersData` (
   `id_t_u` int(11) NOT NULL,
   `ulica` text NOT NULL,
   `nrDomu` text NOT NULL,
-  `nrMieszkania` int(5) DEFAULT NULL,
+  `nrMieszkania` int(5) DEFAULT 0,
   `miasto` text NOT NULL,
   `kodPocztowy` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

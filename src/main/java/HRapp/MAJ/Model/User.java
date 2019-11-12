@@ -20,9 +20,9 @@ public class User{
     Uprawnienia uprawnienia;
     String stanowisko;
     TypyUmowy typUmowy;
-    int pesel;
+    String pesel;
     String dataUrodzenia;
-    int nrTelefonu;
+    String nrTelefonu;
     String ulica;
     String nrDomu;
     int nrMieszkania;
@@ -191,11 +191,11 @@ public class User{
         typUmowy.setAll(TypUmowy, baza);
     }
 
-    public int getPesel(){
+    public String getPesel(){
         return pesel;
     }
 
-    public void setPesel(int p){
+    public void setPesel(String p){
         pesel = p;
     }
 
@@ -207,11 +207,11 @@ public class User{
         dataUrodzenia = d;
     }
 
-    public int getNrTelefonu(){
+    public String getNrTelefonu(){
         return nrTelefonu;
     }
 
-    public void setNrTelefonu(int nt){
+    public void setNrTelefonu(String nt){
         nrTelefonu = nt;
     }
 

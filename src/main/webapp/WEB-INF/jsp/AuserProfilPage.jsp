@@ -49,9 +49,11 @@
                                     <th>Nickname:</th><td>${user1.getNick()}</td> 
                                 </tr>
                                 <tr>
-                                    <th>Email:</th><td>${user1.getEmail()}</td>
+                                    <th>Pesel:</th><td>${user1.getPesel()}</td> 
                                 </tr>
-                            
+                                <tr>
+                                    <th>Data urodzenia:</th><td>${user1.getDataUrodzenia()}</td> 
+                                </tr>
                                 <tr>
                                     <th>Typ umowy:</th><td>${user1.getTypUmowy()}</td>
                                 </tr>
@@ -70,23 +72,21 @@
                         <div class="kolumnaA">
                             <table>
                                 <tr>
-                                        <th><h2>Dane adresowe pracownika:</h2></th>                          
+                                        <th><h2>Dane kontaktowe:</h2></th>                          
+                                </tr>
+                                <tr>
+                                    <th>Email:</th><td>${user1.getEmail()}</td>
+                                </tr>
+                                <tr>
+                                         <th>Numer telefonu:</th><td>${user1.getNrTelefonu()}</td> 
                                 </tr>
                                 <tr>
                                         <th rowspan="2">Adres:</th>
-                                        <td>kololowa</td> 
-                                </tr>
-                                <tr>                                      
-                                        <td>19B  m. 14</td> 
+                                        <td>ul. ${user1.getUlica()} ${user1.getNrDomu()}   ${user1.getNrMieszkania() == 0  ? '' :  "m." }${user1.getNrMieszkania() == 0  ? '' :  user1.getNrMieszkania() }</td> 
                                 </tr>
                                 <tr>
-                                        <th>Miasto:</th>
-                                        <td>Warszawa</td> 
-                                </tr>  
-                                <tr>
-                                        <th>Województwo:</th>
-                                        <td>Mazowieckie</td> 
-                                </tr>                             
+                                        <td>${user1.getKodPocztowy()}  ${user1.getMiasto()}</td> 
+                                </tr>                               
                             </table>
                         </div>
                         <br><br>                       

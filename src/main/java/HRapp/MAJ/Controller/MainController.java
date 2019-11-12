@@ -159,12 +159,25 @@ public class MainController {
 		int stanowisko=Integer.parseInt(request.getParameter("stanowiska"));
 		double wyplatabrutto = Double.parseDouble(request.getParameter("wyplatabrutto"));
 		String upr = request.getParameter("uprawnienia");
+		String pesel = request.getParameter("pesel");
+		String dataurodzenia = request.getParameter("dataurodzenia");
+		String nrtelefonu = request.getParameter("nrtelefonu");
+		String ulica = request.getParameter("ulica");
+		String nrdomu = request.getParameter("nrdomu");
+		String nrm = request.getParameter("nrmieszkania");
+		String miasto = request.getParameter("miasto");
+		String kodpocztowy = request.getParameter("kodpocztowy");
+
 		int uprawnienia;
 		if(upr == null) uprawnienia =0;
 		else uprawnienia = 1;
 
+		int nrmieszkania;
+		if(nrm.isEmpty()) nrmieszkania = 0;
+		else nrmieszkania = Integer.parseInt(nrm);
+
 		
-		userdao.editUser(id, imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto);
+		userdao.editUser(id, imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto, pesel, dataurodzenia, nrtelefonu, ulica, nrdomu, nrmieszkania, miasto, kodpocztowy); //dodać nrmieszkania
 		uprawnieniadao.editPermission(id, uprawnienia);
 
 		return "redirect:/user_profile_page?id=" + id;

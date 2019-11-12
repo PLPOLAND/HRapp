@@ -54,7 +54,10 @@
                                                 <th>Nickname:</th><th><input type="text" name="nickname" size="40" value="${user1.getNick()}"></th> 
                                             </tr>
                                             <tr>
-                                                <th>Email:</th><th><input type="email" name="email" size="40" value="${user1.getEmail()}"></th>
+                                                <th>Pesel:</th><th><input type="number" name="pesel" size="40" value="${user1.getPesel()}"></th> 
+                                            </tr>
+                                            <tr>
+                                                <th>Data urodzenia:</th><th><input type="date" name="dataurodzenia" size="40" value="${user1.getDataUrodzenia()}"></th> 
                                             </tr>
                                             <tr>
                                                 <th>Numer konta:</th><th><input type="number" name="nrkonta" size="40" value="${user1.getKontoBankowe()}" ></th> 
@@ -89,23 +92,32 @@
                                     <div class="kolumnaA">                             
                                             <table>
                                                     <tr>
-                                                            <th><h2>Dane adresowe pracownika:</h2></th>                          
+                                                            <th><h2>Dane kontaktowe:</h2></th>                          
                                                     </tr>
                                                     <tr>
-                                                            <th rowspan="2">Adres:</th>
-                                                            <td><input type="text" name="adres1" size="40" value="Kolorowa"></td> 
+                                                             <th>Email:</th><th><input type="email" name="email" size="40" value="${user1.getEmail()}"></th>
+                                                    </tr>
+                                                    <tr>
+                                                            <th>Numer telefonu:</th><th><input type="number" name="nrtelefonu" size="40" value="${user1.getNrTelefonu()}"></th>
+                                                    </tr>
+                                                    <tr>
+                                                            <th>Adres:</th>
+                                                    </tr>
+                                                    <tr>      
+                                                            <th>Ulica:</th><td><input type="text" name="ulica" size="40" value="${user1.getUlica()}"></td> 
                                                     </tr>
                                                     <tr>                                      
-                                                            <td><input type="text" name="adres2" size="40" value="19B/2"></td> 
-                                                    </tr>
-                                                    <tr>
-                                                            <th>Miasto:</th>
-                                                            <td><input type="text" name="miasto" size="40" value="Warszawa"></td> 
+                                                            <th>Numer Domu:</th><td><input type="text" name="nrdomu" size="40" value="${user1.getNrDomu()}"></td> 
+                                                    </tr> 
+                                                    <tr>  
+                                                            <th>Numer Mieszkania:</th><td><input type="number" name="nrmieszkania" size="40" value="${user1.getNrMieszkania() == 0? '': user1.getNrMieszkania()}"></td> 
                                                     </tr>  
-                                                    <tr>
-                                                            <th>Województwo:</th>
-                                                            <td><input type="text" name="woj" size="40" value="Mazowieckie"></td> 
-                                                    </tr>                             
+                                                    <tr>                                      
+                                                             <th>Miasto:</th><td><input type="text" name="miasto" size="40" value="${user1.getMiasto()}"></td> 
+                                                     </tr>   
+                                                    <tr>                                      
+                                                             <th>Kod pocztowy:</th><td><input type="text" name="kodpocztowy" size="40" value="${user1.getKodPocztowy()}"></td> 
+                                                    </tr>               
                                                 </table>
                                     </div>                          
                                 </form>
