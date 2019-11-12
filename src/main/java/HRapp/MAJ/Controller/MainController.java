@@ -225,11 +225,24 @@ public class MainController {
 		double wyplatabrutto = Double.parseDouble(request.getParameter("wyplatabrutto"));
 		String haslo = request.getParameter("haslo");
 		String upr = request.getParameter("uprawnienia");
+		String pesel = request.getParameter("pesel");
+		String dataurodzenia = request.getParameter("dataurodzenia");
+		String nrtelefonu = request.getParameter("nrtelefonu");
+		String ulica = request.getParameter("ulica");
+		String nrdomu = request.getParameter("nrdomu");
+		String nrm = request.getParameter("nrmieszkania");
+		String miasto = request.getParameter("miasto");
+		String kodpocztowy = request.getParameter("kodpocztowy");
+
 		int uprawnienia;
 		if(upr == null) uprawnienia =0;
 		else uprawnienia = 1;
 
-		int id = userdao.addUser(imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto, haslo);
+		int nrmieszkania;
+		if(nrm.isEmpty()) nrmieszkania = 0;
+		else nrmieszkania = Integer.parseInt(nrm);
+
+		int id = userdao.addUser(imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto, haslo, pesel, dataurodzenia, nrtelefonu, ulica, nrdomu, nrmieszkania, miasto, kodpocztowy);
 		uprawnieniadao.addPermission(id, uprawnienia);
 
 		return "redirect:/adminhome";

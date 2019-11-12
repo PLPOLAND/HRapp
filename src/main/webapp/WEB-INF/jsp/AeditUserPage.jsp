@@ -45,22 +45,22 @@
                                                 <th><h2>Dane pracownika:</h2></th>
                                             </tr>
                                             <tr>
-                                                <th>Imię:</th><th><input type="hidden" name="id" value="${user1.getID() }"><input type="text" name="Imie" size="40" value="${user1.getImie()}"></th> 
+                                                <th>Imię:</th><th><input type="hidden" name="id" value="${user1.getID() }"><input type="text" name="Imie" size="40" value="${user1.getImie()}" required></th> 
                                             </tr>
                                             <tr>
-                                                <th>Nazwisko:</th><th><input type="text" name="nazwisko" size="40" value="${user1.getNazwisko()}"></th> 
+                                                <th>Nazwisko:</th><th><input type="text" name="nazwisko" size="40" value="${user1.getNazwisko()}" required></th> 
                                             </tr>
                                             <tr>
-                                                <th>Nickname:</th><th><input type="text" name="nickname" size="40" value="${user1.getNick()}"></th> 
+                                                <th>Nickname:</th><th><input type="text" name="nickname" size="40" value="${user1.getNick()}" required></th> 
                                             </tr>
                                             <tr>
-                                                <th>Pesel:</th><th><input type="number" name="pesel" size="40" value="${user1.getPesel()}"></th> 
+                                                <th>Pesel:</th><th><input type="number" name="pesel" size="40" value="${user1.getPesel()}" required></th> 
                                             </tr>
                                             <tr>
-                                                <th>Data urodzenia:</th><th><input type="date" name="dataurodzenia" size="40" value="${user1.getDataUrodzenia()}"></th> 
+                                                <th>Data urodzenia:</th><th><input type="date" name="dataurodzenia" size="40" value="${user1.getDataUrodzenia()}" required></th> 
                                             </tr>
                                             <tr>
-                                                <th>Numer konta:</th><th><input type="number" name="nrkonta" size="40" value="${user1.getKontoBankowe()}" ></th> 
+                                                <th>Numer konta:</th><th><input type="number" name="nrkonta" size="40" value="${user1.getKontoBankowe()}" required></th> 
                                             </tr>
                                             <tr>
                                                 <th>Typ umowy:</th><th><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
@@ -80,7 +80,7 @@
                                                 </th>
                                             </tr>
                                             <tr>
-                                                <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="${user1.getWyplataBrutto()}" ></td> 
+                                                <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="${user1.getWyplataBrutto()}" required></td> 
                                             </tr>
                                             <tr>
                                                 <th>Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1" ${user1.getUprawnienia() == "Administrator"  ? 'checked="checked"' : '' }>Administrator</td> 
@@ -95,28 +95,28 @@
                                                             <th><h2>Dane kontaktowe:</h2></th>                          
                                                     </tr>
                                                     <tr>
-                                                             <th>Email:</th><th><input type="email" name="email" size="40" value="${user1.getEmail()}"></th>
+                                                             <th>Email:</th><th><input type="email" name="email" size="40" value="${user1.getEmail()}" required></th>
                                                     </tr>
                                                     <tr>
-                                                            <th>Numer telefonu:</th><th><input type="number" name="nrtelefonu" size="40" value="${user1.getNrTelefonu()}"></th>
+                                                            <th>Numer telefonu:</th><th><input type="number" name="nrtelefonu" size="40" value="${user1.getNrTelefonu()}" required></th>
                                                     </tr>
                                                     <tr>
                                                             <th>Adres:</th>
                                                     </tr>
                                                     <tr>      
-                                                            <th>Ulica:</th><td><input type="text" name="ulica" size="40" value="${user1.getUlica()}"></td> 
+                                                            <th>Ulica:</th><td><input type="text" name="ulica" size="40" value="${user1.getUlica()}" required></td> 
                                                     </tr>
                                                     <tr>                                      
-                                                            <th>Numer Domu:</th><td><input type="text" name="nrdomu" size="40" value="${user1.getNrDomu()}"></td> 
+                                                            <th>Numer Domu:</th><td><input type="text" name="nrdomu" size="40" value="${user1.getNrDomu()}" required></td> 
                                                     </tr> 
                                                     <tr>  
                                                             <th>Numer Mieszkania:</th><td><input type="number" name="nrmieszkania" size="40" value="${user1.getNrMieszkania() == 0? '': user1.getNrMieszkania()}"></td> 
                                                     </tr>  
                                                     <tr>                                      
-                                                             <th>Miasto:</th><td><input type="text" name="miasto" size="40" value="${user1.getMiasto()}"></td> 
+                                                             <th>Miasto:</th><td><input type="text" name="miasto" size="40" value="${user1.getMiasto()}" required></td> 
                                                      </tr>   
                                                     <tr>                                      
-                                                             <th>Kod pocztowy:</th><td><input type="text" name="kodpocztowy" size="40" value="${user1.getKodPocztowy()}"></td> 
+                                                             <th>Kod pocztowy:</th><td><input type="text" name="kodpocztowy" size="40" value="${user1.getKodPocztowy()}" required></td> 
                                                     </tr>               
                                                 </table>
                                     </div>                          

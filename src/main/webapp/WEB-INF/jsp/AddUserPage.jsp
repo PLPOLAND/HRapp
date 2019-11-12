@@ -30,31 +30,34 @@
         </div>
         <div id="mainbody">
             <div id="praco_logo">               
-                Dane pracownika:    
+                Dodaj użytkownika:    
             </div>
             <div class="osoba_detail"> 
                 <form action="/add_user" autocomplete="off">
                     <div class="kolumnaA"> 
                         <table>              
                             <tr>
-                                <th>Imię:</th><td><input type="text" name="Imie" size="40" value=""></td> 
+                                <th>Imię:</th><td><input type="text" name="Imie" size="40" required></td> 
                             </tr>
                             <tr>
-                                <th>Nazwisko:</th><td><input type="text" name="nazwisko" size="40" value=""></td> 
+                                <th>Nazwisko:</th><td><input type="text" name="nazwisko" size="40" required></td> 
                             </tr>
                             <tr>
-                                <th>Hasło:</th><td><input type="text" name="haslo" size="40" value=""></td>
+                                <th>Hasło:</th><td><input type="text" name="haslo" size="40" required></td>
                                 <th><input type="submit" class="konto" value="Generuj hasło" style="vertical-align:middle">
                                 </th> 
                             </tr>
                             <tr>
-                                <th>Nickname:</th><td><input type="text" name="nickname" size="40" value=""></td> 
+                                <th>Nickname:</th><td><input type="text" name="nickname" size="40" required></td> 
                             </tr>
                             <tr>
-                                <th>Email:</th><td><input type="email" name="email" size="40" value=""></td>
+                                <th>Pesel:</th><td><input type="number" name="pesel" size="40" required></td> 
                             </tr>
                             <tr>
-                                <th>Numer konta:</th><td><input type="number" name="nrkonta" size="40" value="" ></td> 
+                                <th>Data urodzenie:</th><td><input type="date" name="dataurodzenia" size="40" required></td> 
+                            </tr>
+                            <tr>
+                                <th>Numer konta:</th><td><input type="number" name="nrkonta" size="40" required></td> 
                             </tr>
                             <tr>
                                 <th>Typ umowy:</th><td><!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
@@ -75,7 +78,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="" min = "1" step="0.01" ></td> 
+                                <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="" min = "1" step="0.01" required></td> 
                             </tr>
                             <tr>
                                 <th>Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1">Administrator</td> 
@@ -87,23 +90,32 @@
                     <div class="kolumnaA">                             
                             <table>
                                     <tr>
-                                            <th><h2>Dane adresowe pracownika:</h2></th>                          
+                                            <th><h2>Dane kontaktowe:</h2></th>                          
                                     </tr>
                                     <tr>
-                                            <th rowspan="2">Adres:</th>
-                                            <td><input type="text" name="adres1" size="40" value="Kolorowa"></td> 
-                                    </tr>
-                                    <tr>                                      
-                                            <td><input type="text" name="adres2" size="40" value="19B/2"></td> 
-                                    </tr>
-                                    <tr>
-                                            <th>Miasto:</th>
-                                            <td><input type="text" name="miasto" size="40" value="Warszawa"></td> 
-                                    </tr>  
-                                    <tr>
-                                            <th>Województwo:</th>
-                                            <td><input type="text" name="woj" size="40" value="Mazowieckie"></td> 
-                                    </tr>                             
+                                        <th>Email:</th><th><input type="email" name="email" size="40" required></th>
+                               </tr>
+                               <tr>
+                                       <th>Numer telefonu:</th><th><input type="number" name="nrtelefonu" size="40" required></th>
+                               </tr>
+                               <tr>
+                                       <th>Adres:</th>
+                               </tr>
+                               <tr>      
+                                       <th>Ulica:</th><td><input type="text" name="ulica" size="40" required></td> 
+                               </tr>
+                               <tr>                                      
+                                       <th>Numer Domu:</th><td><input type="text" name="nrdomu" size="40" required></td> 
+                               </tr> 
+                               <tr>  
+                                       <th>Numer Mieszkania:</th><td><input type="number" name="nrmieszkania" size="40" value=""></td> 
+                               </tr>  
+                               <tr>                                      
+                                        <th>Miasto:</th><td><input type="text" name="miasto" size="40" required></td> 
+                                </tr>   
+                               <tr>                                      
+                                        <th>Kod pocztowy:</th><td><input type="text" name="kodpocztowy" size="40" required></td> 
+                               </tr>                                       
                                 </table>
                     </div>            
                 </form>

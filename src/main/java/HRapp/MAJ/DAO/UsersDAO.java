@@ -27,7 +27,7 @@ public class UsersDAO{
     final String EDIT_USER = "UPDATE Users SET nickname = ?, email = ? WHERE ID = ?";
     final String EDIT_USER_DATA = "UPDATE UsersData SET imie = ?, nazwisko = ?, pesel = ?, nrTelefonu = ?, dataUrodzenia = ?, kontoBankowe = ?, wyplataBrutto = ?, id_s = ?, id_t_u = ?, ulica = ?, nrDomu = ?, nrMieszkania = ?, miasto = ?, kodPocztowy = ? WHERE ID = ?";
     final String ADD_USER = "INSERT INTO Users (nickname, email, pass, oldpass) VALUES (?,?,?, '')";
-    final String ADD_USER_DATA = "INSERT INTO UsersData (id, imie, nazwisko, kontoBankowe, wyplataBrutto, id_s, id_t_u) VALUES (?,?,?,?,?,?,?)";
+    final String ADD_USER_DATA = "INSERT INTO UsersData (ID, imie, nazwisko, pesel, nrTelefonu, dataUrodzenia, kontoBankowe, wyplataBrutto, id_s, id_t_u, ulica, nrDomu, nrMieszkania, miasto, kodPocztowy) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     final String GET_USER_ID = "SELECT ID FROM Users WHERE nickname=? AND email=?";
 
     /**
@@ -38,23 +38,38 @@ public class UsersDAO{
         return baza.query(GET_ALL_WHOLE_USERS_DATA, getMap());
     }
 
+    /**
+     * Pobieranie danych usera potrzebnych do logowania z bazy danych
+     * @return List<User>
+     */
     public List<User> getUserLoginData(String Nick, String Pass){
         return baza.query(FIND_USER_LOGIN, new Object [] {Nick,Pass},  getLoginMap());
     }
 
+    /**
+     * Znajdowanie konkretnego usera po jego ID w bazie danych
+     * @return User
+     */
     public User find_user_by_id(Integer id) {
 		return baza.query(GET_ALL_WHOLE_USERS_DATA + " WHERE u.ID = \"" + id + "\"", getMap()).get(0);
     }
 
+    /**
+     * Aktualizacja danych usera w bazie danych
+     */
     public void editUser(int id, String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, double wyplatabrutto, String pesel, String dataurodzenia, String nrtelefonu, String ulica, String nrdomu, int nrmieszkania, String miasto, String kodpocztowy){
         baza.update(EDIT_USER, nickname, email, id);
         baza.update(EDIT_USER_DATA, imie, nazwisko, pesel, nrtelefonu, dataurodzenia, nrkonta, wyplatabrutto, stanowisko, typumowy, ulica, nrdomu, nrmieszkania, miasto, kodpocztowy, id);
     }
 
-    public int addUser(String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, double wyplatabrutto, String haslo){
+    /**
+     * Dodawanie nowego usera do bazy danych
+     * @return id
+     */
+    public int addUser(String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, double wyplatabrutto, String haslo, String pesel, String dataurodzenia, String nrtelefonu, String ulica, String nrdomu, int nrmieszkania, String miasto, String kodpocztowy){
         baza.update(ADD_USER, nickname, email, haslo);
         int id = baza.queryForObject(GET_USER_ID, Integer.class, nickname, email);
-        baza.update(ADD_USER_DATA, id, imie, nazwisko, nrkonta, wyplatabrutto, stanowisko, typumowy);
+        baza.update(ADD_USER_DATA, id, imie, nazwisko, pesel, nrtelefonu, dataurodzenia, nrkonta, wyplatabrutto, stanowisko, typumowy, ulica, nrdomu, nrmieszkania,miasto,kodpocztowy);
         return id;
     }
 
