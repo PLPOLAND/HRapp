@@ -75,18 +75,38 @@
                                         <th><h2>Dane kontaktowe:</h2></th>                          
                                 </tr>
                                 <tr>
-                                    <th>Email:</th><td>${user1.getEmail()}</td>
+                                        <th>Email:</th><td>${user1.getEmail()}</td>
                                 </tr>
                                 <tr>
                                          <th>Numer telefonu:</th><td>${user1.getNrTelefonu()}</td> 
                                 </tr>
+                                <!-- 
                                 <tr>
-                                        <th rowspan="2">Adres:</th>
+                                        <th><h2>Adres:</h2></th>
                                         <td>ul. ${user1.getUlica()} ${user1.getNrDomu()}   ${user1.getNrMieszkania() == 0  ? '' :  "m." }${user1.getNrMieszkania() == 0  ? '' :  user1.getNrMieszkania() }</td> 
                                 </tr>
                                 <tr>
                                         <td>${user1.getKodPocztowy()}  ${user1.getMiasto()}</td> 
-                                </tr>                               
+                                </tr>  
+                                --> 
+                                <tr>
+                                        <th><h2>Adres:</h2></th>
+                                </tr>
+                                <tr>      
+                                        <th>Ulica:</th><td>${user1.getUlica()}</td> 
+                                </tr>
+                                <tr>                                      
+                                        <th>Numer Domu:</th><td>${user1.getNrDomu()}</td> 
+                                </tr> 
+                                <tr>  
+                                        <th>Numer Mieszkania:</th><td>${user1.getNrMieszkania() == 0  ? '' :  "m." } ${user1.getNrMieszkania() == 0  ? '' :  user1.getNrMieszkania() }</td> 
+                                </tr>  
+                                <tr>                                      
+                                        <th>Miasto:</th><td>${user1.getMiasto()}</td> 
+                                </tr>   
+                                <tr>                                      
+                                        <th>Kod pocztowy:</th><td>${user1.getKodPocztowy()}</td> 
+                                </tr>               
                             </table>
                         </div>
                         <br><br>                       

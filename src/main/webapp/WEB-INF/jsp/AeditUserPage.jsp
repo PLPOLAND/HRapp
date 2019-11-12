@@ -101,7 +101,7 @@
                                                             <th>Numer telefonu:</th><th><input type="number" name="nrtelefonu" size="40" value="${user1.getNrTelefonu()}" required></th>
                                                     </tr>
                                                     <tr>
-                                                            <th>Adres:</th>
+                                                            <th><h2>Adres:</h2></th>
                                                     </tr>
                                                     <tr>      
                                                             <th>Ulica:</th><td><input type="text" name="ulica" size="40" value="${user1.getUlica()}" required></td> 

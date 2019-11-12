@@ -35,7 +35,10 @@
             <div class="osoba_detail"> 
                 <form action="/add_user" autocomplete="off">
                     <div class="kolumnaA"> 
-                        <table>              
+                        <table>    
+                            <tr>
+                                <th><h2><b>Dane pracownika:</h2></th>
+                            </tr>          
                             <tr>
                                 <th>Imię:</th><td><input type="text" name="Imie" size="40" required></td> 
                             </tr>
@@ -99,7 +102,7 @@
                                        <th>Numer telefonu:</th><th><input type="number" name="nrtelefonu" size="40" required></th>
                                </tr>
                                <tr>
-                                       <th>Adres:</th>
+                                        <th><h2>Adres:</h2></th>
                                </tr>
                                <tr>      
                                        <th>Ulica:</th><td><input type="text" name="ulica" size="40" required></td> 
