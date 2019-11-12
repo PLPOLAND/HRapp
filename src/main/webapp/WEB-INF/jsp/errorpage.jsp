@@ -10,7 +10,8 @@
 
 <head>
     <c:url value="/css/main.css" var="jstlCss" />
-    <c:url value="/css/themes/maintheme.css" var="jstlCsstheme" />
+    <!-- <c:url value="/css/themes/maintheme.css" var="jstlCsstheme" /> -->
+    <c:url value="/css/themes/sunflowers.css" var="jstlCsstheme" />
     <c:url value="/js/main.js" var="javaScript" />
     <c:url value="/img/kot1.png" var="kot1" />
     <c:url value="/img/icon.png" var="icon" />
