@@ -49,7 +49,7 @@
                     </div>               
                 </c:forEach> -->
 
-                <table>
+                <table class="tabelauserow">
                     <tr>
                         <td>Imie</td>
                         <td>Nazwisko</td>
