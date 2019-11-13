@@ -51,17 +51,17 @@
 
                 <table class="tabelauserow">
                     <tr>
-                        <td>Imie</td>
-                        <td>Nazwisko</td>
-                        <td>Email</td>
-                        <td>Stanowisko</td>         
+                        <td onclick="sortUsers(sort_by_name,this)">Imie</td>
+                        <td onclick="sortUsers(sort_by_surname,this)">Nazwisko</td>
+                        <td onclick="sortUsers(sort_by_email,this)">Email</td>
+                        <td onclick="sortUsers(sort_by_stanowisko,this)">Stanowisko</td>         
                         <td class="nohover"></td>
                         <td class="nohover"></td>
                         <td class="nohover"></td>
                         <td class="nohover"></td>
                     </tr>
                     <c:forEach var="userval" items="${userList}">
-                        <tr>
+                        <tr class="pos">
                             <td>${userval.getImie()}</td>
                             <td>${userval.getNazwisko()}</td>
                             <td>${userval.getEmail()}</td>

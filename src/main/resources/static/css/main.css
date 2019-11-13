@@ -464,6 +464,14 @@ a:hover{
     background-color: #00000030;
     
 }
+#pracownicy > table tr:first-child .Clicked{
+    background-color: #00000090;
+    
+}
+#pracownicy > table tr:first-child .Clicked::after{
+    content: '\2193';
+    
+}
 
 #pracownicy > table td{
     height: 40px;
