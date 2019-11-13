@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 07, 2019 at 07:16 PM
--- Server version: 5.7.27-0ubuntu0.18.04.1
--- PHP Version: 7.2.24-0ubuntu0.18.04.1
+-- Czas generowania: 13 Lis 2019, 18:47
+-- Wersja serwera: 5.7.27-0ubuntu0.18.04.1
+-- Wersja PHP: 7.2.24-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hrapp`
+-- Baza danych: `hrapp`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Permissions`
+-- Struktura tabeli dla tabeli `Permissions`
 --
 
 DROP TABLE IF EXISTS `Permissions`;
@@ -35,7 +35,7 @@ CREATE TABLE `Permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Permissions`
+-- Zrzut danych tabeli `Permissions`
 --
 
 INSERT INTO `Permissions` (`ID`, `admin`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `Permissions` (`ID`, `admin`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Stanowiska`
+-- Struktura tabeli dla tabeli `Stanowiska`
 --
 
 DROP TABLE IF EXISTS `Stanowiska`;
@@ -56,16 +56,19 @@ CREATE TABLE `Stanowiska` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Stanowiska`
+-- Zrzut danych tabeli `Stanowiska`
 --
 
 INSERT INTO `Stanowiska` (`ID_s`, `Nazwa`, `NazwaSkr`) VALUES
-(1, 'Programista', 'Prog'),(2,'Ksiegowy', 'Ks'),(3,'Manager', 'Mng'),(4,'Sprzatacz', 'Sprz');
+(1, 'Programista', 'Prog'),
+(2, 'Ksiegowy', 'Ks'),
+(3, 'Manager', 'Mng'),
+(4, 'Sprzatacz', 'Sprz');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `TypyUmowy`
+-- Struktura tabeli dla tabeli `TypyUmowy`
 --
 
 DROP TABLE IF EXISTS `TypyUmowy`;
@@ -73,34 +76,33 @@ CREATE TABLE `TypyUmowy` (
   `ID_T` int(11) NOT NULL,
   `nazwaSkr` text NOT NULL,
   `nazwa` text NOT NULL,
-  `funduszPracy` float DEFAULT 0.0,
-  `ubWypadkowe` float DEFAULT 0.0,
-  `ubRentowePracodawca` float DEFAULT 0.0,
-  `ubRentowePracownik` float DEFAULT 0.0,
-  `ubEmerytalnePracodawca` float DEFAULT 0.0,
-  `ubEmerytalnePracownik` float DEFAULT 0.0,
-  `ubChorobowe` float DEFAULT 0.0,
-  `ubZdrowotne` float DEFAULT 0.0,
-  `zaliczkaPIT` float DEFAULT 0.0,
-  `FGSP` float DEFAULT 0.0
+  `funduszPracy` float DEFAULT '0',
+  `ubWypadkowe` float DEFAULT '0',
+  `ubRentowePracodawca` float DEFAULT '0',
+  `ubRentowePracownik` float DEFAULT '0',
+  `ubEmerytalnePracodawca` float DEFAULT '0',
+  `ubEmerytalnePracownik` float DEFAULT '0',
+  `ubChorobowe` float DEFAULT '0',
+  `ubZdrowotne` float DEFAULT '0',
+  `zaliczkaPIT` float DEFAULT '0',
+  `FGSP` float DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `TypyUmowy`
+-- Zrzut danych tabeli `TypyUmowy`
 --
 
-INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`, `nazwa`, `funduszPracy`, `UbWypadkowe`,`ubRentowePracodawca`, `ubRentowePracownik`,`ubEmerytalnePracodawca`,`ubEmerytalnePracownik`,`ubChorobowe`,`ubZdrowotne`,`zaliczkaPIT`) VALUES
-(1, 'UoP', 'Umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 3.65);
+INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`, `nazwa`, `funduszPracy`, `ubWypadkowe`, `ubRentowePracodawca`, `ubRentowePracownik`, `ubEmerytalnePracodawca`, `ubEmerytalnePracownik`, `ubChorobowe`, `ubZdrowotne`, `zaliczkaPIT`, `FGSP`) VALUES
+(1, 'UoP', 'Umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 3.65, 0),
+(2, 'UnZ', 'Umowa na zlecenie', 0, 1.64, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 'UoD', 'Umowa o Dzielo', 0, 0, 0, 0, 0, 0, 0, 0, 13.6, 0),
+(4, 'UoPiUnZ', 'Umowa na zlecenie z umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 5.05, 0.08),
+(5, 'UoPiUoD', 'Umowa o dzielo z umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 5.05, 0.08);
 
-INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`,`nazwa`,`ubWypadkowe`) VALUES (2,'UnZ', 'Umowa na zlecenie', 1.64);
-INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`,`nazwa`,`zaliczkaPIT`) VALUES (3,'UoD', 'Umowa o Dzielo', 13.6);
-
-INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`, `nazwa`, `funduszPracy`, `ubWypadkowe`,`ubRentowePracodawca`, `ubRentowePracownik`,`ubEmerytalnePracodawca`,`ubEmerytalnePracownik`,`ubChorobowe`,`ubZdrowotne`,`zaliczkaPIT`,`FGSP`) VALUES
-(4, 'UoPiUnZ', 'Umowa na zlecenie z umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 5.05,0.08), (5, 'UoPiUoD', 'Umowa o dzielo z umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 5.05, 0.08);
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Users`
+-- Struktura tabeli dla tabeli `Users`
 --
 
 DROP TABLE IF EXISTS `Users`;
@@ -113,7 +115,7 @@ CREATE TABLE `Users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Users`
+-- Zrzut danych tabeli `Users`
 --
 
 INSERT INTO `Users` (`ID`, `nickname`, `email`, `pass`, `oldpass`) VALUES
@@ -123,7 +125,7 @@ INSERT INTO `Users` (`ID`, `nickname`, `email`, `pass`, `oldpass`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `UsersData`
+-- Struktura tabeli dla tabeli `UsersData`
 --
 
 DROP TABLE IF EXISTS `UsersData`;
@@ -131,8 +133,8 @@ CREATE TABLE `UsersData` (
   `ID` int(11) NOT NULL,
   `imie` text NOT NULL,
   `nazwisko` text NOT NULL,
-  `pesel` decimal(11) NOT NULL,
-  `nrTelefonu` decimal(11) NOT NULL,
+  `pesel` decimal(11,0) NOT NULL,
+  `nrTelefonu` decimal(11,0) NOT NULL,
   `dataUrodzenia` date NOT NULL,
   `kontoBankowe` text NOT NULL,
   `wyplataBrutto` double NOT NULL,
@@ -140,49 +142,49 @@ CREATE TABLE `UsersData` (
   `id_t_u` int(11) NOT NULL,
   `ulica` text NOT NULL,
   `nrDomu` text NOT NULL,
-  `nrMieszkania` int(5) DEFAULT 0,
+  `nrMieszkania` int(5) DEFAULT '0',
   `miasto` text NOT NULL,
   `kodPocztowy` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `UsersData`
+-- Zrzut danych tabeli `UsersData`
 --
 
-INSERT INTO `UsersData` (`ID`, `imie`, `nazwisko`,`pesel`,`nrTelefonu`,`dataUrodzenia`, `kontoBankowe`, `wyplataBrutto`, `id_s`, `id_t_u`,`ulica`,`nrDomu`,`nrMieszkania`,`miasto`,`kodPocztowy`) VALUES
-(1, 'Marek', 'Pałdyna', 98072694616, 678567467, '1998-07-26','25213129921111580206782827', 8000, 1, 1, 'Malinowa', 11, NULL, 'Warszawa', '03-234'),
-(2, 'Adam', 'Mickiewicz', 57072558199, 999333000, '1957-07-25', '22345642126845567534542247', 4000, 1, 1, 'Przekatna',34,109,'Warszawa', '05-345');
+INSERT INTO `UsersData` (`ID`, `imie`, `nazwisko`, `pesel`, `nrTelefonu`, `dataUrodzenia`, `kontoBankowe`, `wyplataBrutto`, `id_s`, `id_t_u`, `ulica`, `nrDomu`, `nrMieszkania`, `miasto`, `kodPocztowy`) VALUES
+(1, 'Marek', 'Pałdyna', '98072694616', '678567467', '1998-03-21', '25213129921111580206782827', 8000, 1, 1, 'Malinowa', '11', 0, 'Warszawa', '03-234'),
+(2, 'Adam', 'Mickiewicz', '57072558199', '999333000', '1957-07-25', '22345642126845567534542247', 4000, 1, 1, 'Przekatna', '34', 109, 'Warszawa', '05-345');
 
 --
--- Indexes for dumped tables
+-- Indeksy dla zrzutów tabel
 --
 
 --
--- Indexes for table `Permissions`
+-- Indeksy dla tabeli `Permissions`
 --
 ALTER TABLE `Permissions`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `Stanowiska`
+-- Indeksy dla tabeli `Stanowiska`
 --
 ALTER TABLE `Stanowiska`
   ADD PRIMARY KEY (`ID_s`);
 
 --
--- Indexes for table `TypyUmowy`
+-- Indeksy dla tabeli `TypyUmowy`
 --
 ALTER TABLE `TypyUmowy`
   ADD PRIMARY KEY (`ID_T`);
 
 --
--- Indexes for table `Users`
+-- Indeksy dla tabeli `Users`
 --
 ALTER TABLE `Users`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `UsersData`
+-- Indeksy dla tabeli `UsersData`
 --
 ALTER TABLE `UsersData`
   ADD PRIMARY KEY (`ID`),
@@ -192,36 +194,37 @@ ALTER TABLE `UsersData`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
 --
--- AUTO_INCREMENT for table `Stanowiska`
+-- AUTO_INCREMENT dla tabeli `Stanowiska`
 --
 ALTER TABLE `Stanowiska`
   MODIFY `ID_s` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `TypyUmowy`
+-- AUTO_INCREMENT dla tabeli `TypyUmowy`
 --
 ALTER TABLE `TypyUmowy`
   MODIFY `ID_T` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `Users`
+-- AUTO_INCREMENT dla tabeli `Users`
 --
 ALTER TABLE `Users`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Ograniczenia dla zrzutów tabel
 --
 
 --
--- Constraints for table `Permissions`
+-- Ograniczenia dla tabeli `Permissions`
 --
 ALTER TABLE `Permissions`
   ADD CONSTRAINT `Permissions_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Users` (`ID`);
 
 --
--- Constraints for table `UsersData`
+-- Ograniczenia dla tabeli `UsersData`
 --
 ALTER TABLE `UsersData`
   ADD CONSTRAINT `Stanowisko` FOREIGN KEY (`id_s`) REFERENCES `Stanowiska` (`ID_s`),
