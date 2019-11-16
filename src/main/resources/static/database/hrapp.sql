@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Czas generowania: 13 Lis 2019, 18:47
+-- Czas generowania: 16 Lis 2019, 20:02
 -- Wersja serwera: 5.7.27-0ubuntu0.18.04.1
 -- Wersja PHP: 7.2.24-0ubuntu0.18.04.1
 
@@ -40,7 +40,8 @@ CREATE TABLE `Permissions` (
 
 INSERT INTO `Permissions` (`ID`, `admin`) VALUES
 (1, 1),
-(2, 1);
+(2, 1),
+(3, 0);
 
 -- --------------------------------------------------------
 
@@ -120,7 +121,8 @@ CREATE TABLE `Users` (
 
 INSERT INTO `Users` (`ID`, `nickname`, `email`, `pass`, `oldpass`) VALUES
 (1, 'PLPOLAND', 'marekpaldyna@wp.pl', 'Makowiec1', ''),
-(2, 'Kozak', 'kozak@gmail.com', 'Kozak1', 'Kozak1');
+(2, 'Kozak', 'kozak@gmail.com', 'Kozak1', 'Kozak1'),
+(3, 'Kupidyn', 'Lucja@maj.com', 'Kupidyn', '');
 
 -- --------------------------------------------------------
 
@@ -153,7 +155,8 @@ CREATE TABLE `UsersData` (
 
 INSERT INTO `UsersData` (`ID`, `imie`, `nazwisko`, `pesel`, `nrTelefonu`, `dataUrodzenia`, `kontoBankowe`, `wyplataBrutto`, `id_s`, `id_t_u`, `ulica`, `nrDomu`, `nrMieszkania`, `miasto`, `kodPocztowy`) VALUES
 (1, 'Marek', 'Pałdyna', '98072694616', '678567467', '1998-03-21', '25213129921111580206782827', 8000, 1, 1, 'Malinowa', '11', 0, 'Warszawa', '03-234'),
-(2, 'Adam', 'Mickiewicz', '57072558199', '999333000', '1957-07-25', '22345642126845567534542247', 4000, 1, 1, 'Przekatna', '34', 109, 'Warszawa', '05-345');
+(2, 'Adam', 'Mickiewicz', '57072558199', '999333000', '1957-07-25', '22345642126845567534542247', 4000, 1, 1, 'Przekatna', '34', 109, 'Warszawa', '05-345'),
+(3, 'Łucja', 'Kowalczyk', '87982998443', '506849985', '2000-02-08', '7865486548965458965', 9000, 2, 3, 'Końska', '59', 5, 'Konin', '02-945');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -211,7 +214,7 @@ ALTER TABLE `TypyUmowy`
 -- AUTO_INCREMENT dla tabeli `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ograniczenia dla zrzutów tabel

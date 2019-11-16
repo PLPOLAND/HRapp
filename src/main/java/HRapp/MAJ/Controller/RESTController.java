@@ -37,7 +37,7 @@ public class RESTController {
     public List<User> allusers(HttpServletRequest request) {
         Security security = new Security(request, database);
         if(security.isLoged()){
-            return database.getAllUsers();
+            return database.getUsersMainPageData();
         }
         else
             return null;

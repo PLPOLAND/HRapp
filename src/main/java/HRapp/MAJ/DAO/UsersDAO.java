@@ -23,13 +23,13 @@ public class UsersDAO{
     final String GET_ALL_WHOLE_USERS_DATA = "SELECT u.ID, u.nickname, u.email, u.pass, u.oldpass, ud.imie, ud.nazwisko, ud.kontoBankowe, ud.wyplataBrutto, ud.pesel, ud.dataUrodzenia, ud.nrTelefonu, ud.ulica, ud.nrDomu, ud.nrMieszkania, ud.miasto, ud.kodPocztowy, p.ID as Uprawnienia, s.Nazwa as Stanowisko, t.ID_T as typUmowy FROM Users u NATURAL JOIN UsersData ud LEFT JOIN Stanowiska s ON ud.id_s=s.ID_s LEFT JOIN TypyUmowy t ON ud.id_t_u=t.ID_T NATURAL JOIN Permissions p";
    // final String GET_ALL_WHOLE_USERS_DATA ="SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
     final String FIND_USER_LOGIN = "SELECT Users.*, UsersData.imie, UsersData.nazwisko FROM Users NATURAL JOIN UsersData  WHERE nickname = ? AND pass = ?";
-    final String GET_USER_DATA = "SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
     final String EDIT_USER = "UPDATE Users SET nickname = ?, email = ? WHERE ID = ?";
     final String EDIT_USER_DATA = "UPDATE UsersData SET imie = ?, nazwisko = ?, pesel = ?, nrTelefonu = ?, dataUrodzenia = ?, kontoBankowe = ?, wyplataBrutto = ?, id_s = ?, id_t_u = ?, ulica = ?, nrDomu = ?, nrMieszkania = ?, miasto = ?, kodPocztowy = ? WHERE ID = ?";
     final String ADD_USER = "INSERT INTO Users (nickname, email, pass, oldpass) VALUES (?,?,?, '')";
     final String ADD_USER_DATA = "INSERT INTO UsersData (ID, imie, nazwisko, pesel, nrTelefonu, dataUrodzenia, kontoBankowe, wyplataBrutto, id_s, id_t_u, ulica, nrDomu, nrMieszkania, miasto, kodPocztowy) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    final String GET_USER_DATA = "SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
     final String GET_USER_ID = "SELECT ID FROM Users WHERE nickname=? AND email=?";
-
+    final String GET_USER_DATA_MAIN_PAGE = "SELECT Users.ID, UsersData.imie, UsersData.nazwisko, Stanowiska.Nazwa as Stanowisko, Users.email FROM Users NATURAL JOIN UsersData NATURAL JOIN Stanowiska;";
     /**
      * Pobieranie wszystkich danych usera z bazy danych
      * @return List<User>
@@ -44,6 +44,13 @@ public class UsersDAO{
      */
     public List<User> getUserLoginData(String Nick, String Pass){
         return baza.query(FIND_USER_LOGIN, new Object [] {Nick,Pass},  getLoginMap());
+    }
+    /**
+     * Pobieranie danych usera potrzebnych do wyświetlania na stronie z lista userow
+     * @return List<User>
+     */
+    public List<User> getUsersMainPageData() {
+        return baza.query(GET_USER_DATA_MAIN_PAGE, getMainPageDataMap());
     }
 
     /**
@@ -89,6 +96,22 @@ public class UsersDAO{
         return Map;
     }
     
+    /**
+     * Służy do mapowania rekordów na obiekty Usera ze wszystkimi danymi
+     */
+    private RowMapper<User> getMainPageDataMap() {
+        RowMapper<User> Map = (rs, rowNum) -> {
+            User user = new User();
+            user.setID(rs.getInt("ID"));
+            user.setEmail(rs.getString("email"));
+            user.setImie(rs.getString("imie"));
+            user.setNazwisko(rs.getString("nazwisko"));
+            user.setStanowisko(rs.getString("Stanowisko"));
+            return user;
+        };
+        return Map;
+    }
+
     /**
      * Służy do mapowania rekordów na obiekty Usera ze wszystkimi danymi
      */

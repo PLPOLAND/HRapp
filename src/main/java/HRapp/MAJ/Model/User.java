@@ -29,6 +29,10 @@ public class User{
     String miasto;
     String kodPocztowy;
     
+    public User(){
+        uprawnienia = new Uprawnienia();
+        typUmowy = new TypyUmowy();
+    }
 
     /**
      * Pobieranie ID usera
@@ -170,7 +174,7 @@ public class User{
     }
 
     public void setUprawnienia(int Upr, JdbcTemplate baza){
-        uprawnienia = new Uprawnienia();
+        // uprawnienia = new Uprawnienia();
         uprawnienia.setAll(Upr,baza);      
     }
 
@@ -187,7 +191,7 @@ public class User{
     }
 
     public void setTypUmowy(int TypUmowy, JdbcTemplate baza){
-        typUmowy = new TypyUmowy();
+        // typUmowy = new TypyUmowy();
         typUmowy.setAll(TypUmowy, baza);
     }
 
