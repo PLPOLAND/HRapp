@@ -191,7 +191,6 @@ public class User{
     }
 
     public void setTypUmowy(int TypUmowy, JdbcTemplate baza){
-        // typUmowy = new TypyUmowy();
         typUmowy.setAll(TypUmowy, baza);
     }
 
@@ -257,13 +256,5 @@ public class User{
 
     public void setKodPocztowy(String kp){
         kodPocztowy = kp;
-    }
-    /**
-     * Zwraca stringa z danymi zawartymi w obiekcie
-     * 
-     * @TODO Dodac pozostałe dane
-     */
-    public String toString(){
-        return " " + ID + " " + nick + " " + password + " " + oldPassword + " " + email;
     }
 }
