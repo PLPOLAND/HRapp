@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <div id="backgroundContainer"></div>
     <div class="container">
             <div class="login-container">
             <div class="login-form">

@@ -1,3 +1,6 @@
+body{
+	background-color: #000000;
+}
 .container{
     position: absolute;
     display: block;
@@ -7,11 +10,27 @@
     padding: 0;
     top: 0px;
     left: 0px;
-    background-image: url(../img/IMG_4851.png);
+    
+}
+
+#backgroundContainer{
+    position: fixed;
+    display: block;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    left: 0px;
+    background-image:linear-gradient(#000000d0, #000000d0), url(../img/IMG_4770.png);
     background-size: cover; 
 	background-position: center;
-	/* font-family: 'Barlow','Franklin Gothic Medium', 'Arial Narrow', 'Arial', sans-serif; */
+	background-color: #000000;
+    background-attachment: fixed;
+    filter: blur(10px);
 }
+
 .login-container {
 	height: 300px;
 	width: 600px;
@@ -31,16 +50,16 @@
 }
 
 .login-form {
-	box-shadow : 0 5px 8px 0 rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19);
+	/* box-shadow : 0 5px 8px 0 rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19); */
     padding-top: 20px;    
-    background-color: #FFFFFF;
+    /* background-color: #00000000; */
 	border-radius: 1rem;
 }
 
 .login-form h3 {
 	font-size:1.75rem;
 	text-align: center;
-	color: #333;
+	color: #ffffff;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .login-form h6{
@@ -58,20 +77,21 @@
 }
 
 .btnSubmit {
-	width: 50%;
-	border-radius: 0.5rem;
+	width: 100%;
+	/* border-radius: .25rem; */
 	padding: 1.5%;
+	margin: 0;
 	border: none;
 	cursor: pointer;
 }
 
 .login-form .btnSubmit {
 	font-weight: 600;
-	color: #fff;
-	background-color: #402A0F;
+	color: #000;
+	background-color: #C2E5F2;
 }
 .login-form .btnSubmit:hover{
-	background-color: #664318;
+	background-color: #93d6ee;
 }
 
 .login-field{
@@ -89,13 +109,15 @@
 	font-size:1rem;
 	line-height: 1.5;
 	color:#495057;
-	background-color:#fff;
+	background-color:#C2E5F2;
 	background-clip: padding-box;
 	border: 1px solid #ced4da;
-	border-radius: .25rem;
+	/* border-radius: .25rem; */
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
+#subbutton{
+	width: 95%;
+}
 #err-msg{
 	display: none;
 	text-align: center;
