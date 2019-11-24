@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import HRapp.MAJ.DAO.UsersDAO;
+import HRapp.MAJ.Model.Uprawnienia;
 import HRapp.MAJ.Model.User;
 
 /**
@@ -62,16 +63,16 @@ public class Security {
         if (resultUsers.isEmpty()) {
             return false;
         } else {
-            String name = resultUsers.get(0).getNick(); // TODO
-            String nazwisko = resultUsers.get(0).getEmail(); // TODO
+            String name = resultUsers.get(0).getNick();
+            String nazwisko = resultUsers.get(0).getEmail();
             Integer idU = resultUsers.get(0).getID();
-            // String typUser = resultUsers.get(0).getAccount_type(); TODO
-            String typUser = "Administrator";
+            Uprawnienia uprawnienia = resultUsers.get(0).getUprawnienia();
+            // System.out.println(uprawnienia.toString()); // Debug
             HttpSession session = request.getSession();
             session.setAttribute("imie", name); // dodawanie pola do sesji
             session.setAttribute("nazwisko", nazwisko);
             session.setAttribute("id", idU);
-            session.setAttribute("typKonta", typUser);
+            session.setAttribute("uprawnienia", uprawnienia);
             session.setMaxInactiveInterval(60 * 60); // usuniecie pol sesji po 60 minutach
 
             return true;
@@ -89,10 +90,8 @@ public class Security {
      */
     public boolean isLoged() {
         HttpSession session = request.getSession();
-        // System.out.println(session.getAttribute("name"));
-        // System.out.println(session.getAttribute("surName"));
-        // System.out.println(session.getAttribute("id"));
-        if (session.getAttribute("imie") == null || session.getAttribute("nazwisko") == null || session.getAttribute("id") == null) {
+        if (session.getAttribute("imie") == null || session.getAttribute("nazwisko") == null
+                || session.getAttribute("id") == null) {
             return false;
         } else {
             return true;
@@ -149,10 +148,10 @@ public class Security {
      * @version 1.0
      * @return Typ Użytkownika
      */
-    public String getUserType() {
+    public Uprawnienia getUserPremissions() {
         if (isLoged()) {
             HttpSession session = request.getSession();
-            return session.getAttribute("typKonta").toString();
+            return (Uprawnienia) session.getAttribute("uprawnienia");
         } else {
             return null;
         }
@@ -165,8 +164,7 @@ public class Security {
      */
     public boolean isUserAdmin() {
         if (isLoged()) {
-            HttpSession session = request.getSession();
-            if ("Administrator".equals(session.getAttribute("typKonta").toString())) {
+            if (this.getUserPremissions().isAdmin()) {
                 return true;
             } else {
                 return false;
@@ -177,22 +175,22 @@ public class Security {
     }
 
     /**
-    * Funkcja pobierająca dane użytkonika z bazy danych na podstawie ID
-    (pobranego z danych sesji)
-    * @version 1.0
-    * @return Dane zalogowanego użytkownika
-    */
-    public User getFullUserData(){
-        if (isLoged()){
+     * Funkcja pobierająca dane użytkonika z bazy danych na podstawie ID (pobranego
+     * z danych sesji)
+     * 
+     * @version 1.0
+     * @return Dane zalogowanego użytkownika
+     */
+    public User getFullUserData() {
+        if (isLoged()) {
             HttpSession session = request.getSession();
-            User result = database.find_user_by_id((Integer)session.getAttribute("id"));
+            User result = database.find_user_by_id((Integer) session.getAttribute("id"));
             if (result == null) {
                 return null;
             } else {
                 return result;
             }
-        }
-        else{
+        } else {
             return null;
         }
     }
@@ -207,7 +205,7 @@ public class Security {
             session.removeAttribute("imie"); // usuwanie pola do sesji
             session.removeAttribute("nazwisko");
             session.removeAttribute("id");
-            session.removeAttribute("typKonta");
+            session.removeAttribute("uprawnienia");
         } else
             return;
     }

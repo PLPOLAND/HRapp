@@ -15,7 +15,8 @@ public class UprawnieniaDAO{
     @Autowired
     private JdbcTemplate baza1;
 
-    final String GET_ALL_USERS_PERMISSION_DATA = "SELECT ID, admin FROM Permissions";
+    final String GET_ALL_USERS_PERMISSION_DATA = "SELECT * FROM Permissions";
+    // final String GET_ALL_USERS_PERMISSION_DATA = "SELECT ID, admin FROM Permissions";
     final String ADD_PERMISSION = "INSERT INTO Permissions (ID, admin) VALUES (?, ?)";
     final String EDIT_PERMISSION =  "UPDATE Permissions SET admin = ? WHERE ID = ?";
 
@@ -42,7 +43,13 @@ public class UprawnieniaDAO{
 			Uprawnienia upr = new Uprawnienia();
             upr.setID(rs.getInt("ID"));
             upr.setAdmin(rs.getInt("admin"));
+            upr.setAdd_user(rs.getBoolean("add_user"));
+            upr.setDel_user(rs.getBoolean("del_user"));
+            upr.setEdit_user(rs.getBoolean("edit_user"));
+            upr.setShow_all_users(rs.getBoolean("show_all_users"));
+            upr.setShow_d_data(rs.getBoolean("show_d_data"));
 
+            // System.out.println(upr.toString());//Debug
 			return upr;
 		};
         return Map;

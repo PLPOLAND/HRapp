@@ -91,6 +91,7 @@ public class UsersDAO{
             user.setOldPassword(rs.getString("oldpass"));
             user.setImie(rs.getString("imie"));
             user.setNazwisko(rs.getString("nazwisko"));
+            user.setUprawnienia(user.getID(), baza);
             return user;
         };
         return Map;

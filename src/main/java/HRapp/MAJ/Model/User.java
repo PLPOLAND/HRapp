@@ -169,8 +169,8 @@ public class User{
         nazwisko = Nazwisko;
     }
 
-    public String getUprawnienia(){
-        return uprawnienia.getTypKonta();
+    public Uprawnienia getUprawnienia(){
+        return uprawnienia;
     }
 
     public void setUprawnienia(int Upr, JdbcTemplate baza){

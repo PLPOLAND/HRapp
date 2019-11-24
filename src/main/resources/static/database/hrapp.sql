@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Czas generowania: 16 Lis 2019, 20:02
--- Wersja serwera: 5.7.27-0ubuntu0.18.04.1
+-- Czas generowania: 24 Lis 2019, 16:05
+-- Wersja serwera: 5.7.28-0ubuntu0.18.04.4
 -- Wersja PHP: 7.2.24-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -31,17 +31,22 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `Permissions`;
 CREATE TABLE `Permissions` (
   `ID` int(11) NOT NULL,
-  `admin` tinyint(1) NOT NULL DEFAULT '0'
+  `admin` tinyint(1) NOT NULL DEFAULT '0',
+  `add_user` tinyint(1) NOT NULL DEFAULT '0',
+  `del_user` tinyint(1) NOT NULL DEFAULT '0',
+  `edit_user` tinyint(1) NOT NULL DEFAULT '0',
+  `show_all_users` tinyint(1) NOT NULL DEFAULT '0',
+  `show_d_data` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `Permissions`
 --
 
-INSERT INTO `Permissions` (`ID`, `admin`) VALUES
-(1, 1),
-(2, 1),
-(3, 0);
+INSERT INTO `Permissions` (`ID`, `admin`, `add_user`, `del_user`, `edit_user`, `show_all_users`, `show_d_data`) VALUES
+(1, 1, 0, 0, 0, 0, 0),
+(2, 1, 0, 0, 0, 0, 0),
+(3, 0, 0, 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
