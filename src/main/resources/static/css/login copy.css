@@ -1,0 +1,127 @@
+body{
+	background-color: #000000;
+}
+.container{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    left: 0px;
+    
+}
+
+#backgroundContainer{
+    position: fixed;
+    display: block;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    left: 0px;
+    background-image:linear-gradient(#000000d0, #000000d0), url(../img/IMG_4770.png);
+    background-size: cover; 
+	background-position: center;
+	background-color: #000000;
+    background-attachment: fixed;
+    filter: blur(10px);
+}
+
+.login-container {
+	height: 300px;
+	width: 600px;
+
+	margin: auto;
+   	position: absolute;
+   	top:0; bottom:0; /* wyrównanie w pionie */
+	left:0; right:0; /* wyrównanie w poziomie */
+       
+}
+
+#logo{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+}
+
+.login-form {
+	/* box-shadow : 0 5px 8px 0 rgba( 0, 0, 0, 0.3), 0 9px 26px 0 rgba( 0, 0, 0, 0.19); */
+    padding-top: 20px;    
+    /* background-color: #00000000; */
+	border-radius: 1rem;
+}
+
+.login-form h3 {
+	font-size:1.75rem;
+	text-align: center;
+	color: #ffffff;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.login-form h6{
+    font-size: 12px;
+	text-align: center;
+	color: #FF0000;
+	line-height: 12px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.login-container form {
+	padding: 10%;
+	padding-top: 0px;
+}
+
+.btnSubmit {
+	width: 100%;
+	/* border-radius: .25rem; */
+	padding: 1.5%;
+	margin: 0;
+	border: none;
+	cursor: pointer;
+}
+
+.login-form .btnSubmit {
+	font-weight: 600;
+	color: #000;
+	background-color: #C2E5F2;
+}
+.login-form .btnSubmit:hover{
+	background-color: #93d6ee;
+}
+
+.login-field{
+	margin-bottom: 5px;
+	width:90%;
+
+}
+.btn-field{
+	margin-top:10px;
+}
+.form-control{	
+	display:block;
+	width:100%;
+	padding:.375rem .75rem;
+	font-size:1rem;
+	line-height: 1.5;
+	color:#495057;
+	background-color:#C2E5F2;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	/* border-radius: .25rem; */
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#subbutton{
+	width: 95%;
+}
+#err-msg{
+	display: none;
+	text-align: center;
+	width: 100%;
+	padding: 5px;
+	color: #FF0000;
+}

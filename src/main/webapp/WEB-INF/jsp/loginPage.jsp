@@ -23,6 +23,18 @@
 <body>
     <div id="backgroundContainer"></div>
     <div class="container">
+        <div class="login-container">
+            <h3 class="title">Logowanie do systemu</h3>
+            <img src="/img/icon.png" class="logo">
+            <form action="none">
+                <div id="err-msg">Podano błędny login lub hasło</div>
+                <input type="text" class="form-field" placeholder="Twój Nick *" value="" name="nick" id="nick"/>
+                <input type="password" class="form-field" placeholder="Twoje Hasło *" value="" name="pass" id="pass"/>
+                <input type="button" id="subbutton" class="form-btn-submit" value="Zaloguj" />
+            </form>
+        </div>
+    </div>
+    <!-- <div class="container">
             <div class="login-container">
             <div class="login-form">
                 <h3>Logowanie do systemu</h3>
@@ -40,7 +52,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 
 </html>
