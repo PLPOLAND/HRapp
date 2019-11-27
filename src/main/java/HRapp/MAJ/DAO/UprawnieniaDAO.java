@@ -26,8 +26,8 @@ public class UprawnieniaDAO{
     }
 
     public List<Uprawnienia> find_permission_data_by_id(int id, JdbcTemplate baza) {
-        List<Uprawnienia> U =  baza.query(GET_ALL_USERS_PERMISSION_DATA + " WHERE ID =  "+ id +";", getMap());
-        return U;
+        // System.out.println("find_permission_data_by_id");//DEBUG
+        return baza.query(GET_ALL_USERS_PERMISSION_DATA + " WHERE ID =  " + id + ";", getMap());
     }
     
     public void addPermission(int id, int uprawnienia){
@@ -47,10 +47,10 @@ public class UprawnieniaDAO{
             upr.setDel_user(rs.getBoolean("del_user"));
             upr.setEdit_user(rs.getBoolean("edit_user"));
             upr.setShow_all_users(rs.getBoolean("show_all_users"));
-            System.out.println("GetMap: " + rs.getBoolean("show_all_users"));//DEBUG
+            // System.out.println("GetMap: " + rs.getBoolean("show_all_users"));//DEBUG
             upr.setShow_d_data(rs.getBoolean("show_d_data"));
 
-            System.out.println("GetMap: "+upr.toString());//Debug
+            // System.out.println("GetMap: "+upr.toString());//Debug
 			return upr;
 		};
         return Map;

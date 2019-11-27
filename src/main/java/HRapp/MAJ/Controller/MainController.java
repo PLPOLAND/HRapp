@@ -74,10 +74,9 @@ public class MainController {
 
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
-		return "redirect:/";
-
-		System.out.println("AdminHome: "+security.getUserPremissions().toString());
-
+			return "redirect:/";
+		if (!(security.getUserPremissions().isShow_all_users() || security.getUserPremissions().isAdmin()))
+			return "errorpage";//TODO strona error dla braku uprawnien
 		// if(!security.isUserAdmin())
 		// return "errorpage"; 
 
@@ -126,8 +125,8 @@ public class MainController {
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
 		return "redirect:/";
-		if(!security.isUserAdmin())
-		return "errorpage";
+		if (!(security.getUserPremissions().isEdit_user() || security.getUserPremissions().isAdmin()))
+			return "errorpage";// TODO strona error dla braku uprawnien
 
 		Menu menu = new Menu(security.getUserPremissions());
 		User user1 = userdao.find_user_by_id(id);
@@ -149,8 +148,8 @@ public class MainController {
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
 		return "redirect:/";
-		if(!security.isUserAdmin())
-		return "errorpage";
+		if (!(security.getUserPremissions().isEdit_user() || security.getUserPremissions().isAdmin()))
+			return "errorpage";// TODO strona error dla braku uprawnien
 
 		int id = Integer.parseInt(request.getParameter("id"));
 		String imie = request.getParameter("Imie");
@@ -192,8 +191,8 @@ public class MainController {
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
 		return "redirect:/";
-		if(!security.isUserAdmin())
-		return "errorpage";
+		if (!(security.getUserPremissions().isAdd_user() || security.getUserPremissions().isAdmin()))
+			return "errorpage";// TODO strona error dla braku uprawnien
 
 		Menu menu = new Menu(security.getUserPremissions());
 		List<Stanowiska> st= stanowiskadao.getAllStanowiska();
@@ -215,8 +214,8 @@ public class MainController {
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
 		return "redirect:/";
-		if(!security.isUserAdmin())
-		return "errorpage";
+		if (!(security.getUserPremissions().isAdd_user() || security.getUserPremissions().isAdmin()))
+			return "errorpage";// TODO strona error dla braku uprawnien
 
 		String imie = request.getParameter("Imie");
 		String nazwisko = request.getParameter("nazwisko");

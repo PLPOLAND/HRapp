@@ -3,9 +3,6 @@ package HRapp.MAJ.Banner;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import HRapp.MAJ.Banner.PozycjaMenu;
 import HRapp.MAJ.Model.Uprawnienia;
 
@@ -24,7 +21,7 @@ public class Menu {
     public Menu( Uprawnienia uprawnienia) {
         pozycjemenu = new ArrayList<>();
         //tymczasowe pozycje
-        System.out.println("MENU: " + uprawnienia.toString());//DEBUG
+        // System.out.println("MENU: " + uprawnienia.toString());//DEBUG
         if (uprawnienia.isAdmin()) {
             this.Add("logowanie", "/");
             this.Add("strona admina", "/adminhome");

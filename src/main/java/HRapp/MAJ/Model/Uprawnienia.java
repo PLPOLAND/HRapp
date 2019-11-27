@@ -174,14 +174,34 @@ public class Uprawnienia {
     }
 
     /**
-     *
-     * na podstawie ID permissions ustawia resztę wartości
+     * Na podstawie ID pobiera i ustawia uprawnienia z bazy danych.
+     * 
+     * 
+     * @param id   - id użytkownika
+     * @param baza - baza danych z której pobierane są uprawnienia
+     * 
+     * @author Alicja
+     * @author Marek
      */
     public void setAll(int id, JdbcTemplate baza) {
         ID = id;
         UprawnieniaDAO UPR = new UprawnieniaDAO();
         List<Uprawnienia> UPR2 = UPR.find_permission_data_by_id(id, baza);
-        admin = UPR2.get(0).admin;
+        // admin = UPR2.get(0).admin;
+        this.setAll(UPR2.get(0));
+    }
+    /**
+     * Ustawia uprawnienia na podstawie dostarczonych uprawnień
+     * @param uprawnienia - obiekt którego dane zostaną skopiowane
+     */
+    public void setAll(Uprawnienia uprawnienia) {
+        this.ID = uprawnienia.ID;
+        this.admin = uprawnienia.admin;
+        this.add_user = uprawnienia.add_user;
+        this.del_user = uprawnienia.del_user;
+        this.edit_user = uprawnienia.edit_user;
+        this.show_all_users = uprawnienia.show_all_users;
+        this.show_d_data = uprawnienia.show_d_data;
     }
 
     public String getTypKonta() {
@@ -197,4 +217,5 @@ public class Uprawnienia {
                 + ", del_user='" + isDel_user() + "'" + ", edit_user='" + isEdit_user() + "'" + ", show_all_users='"
                 + isShow_all_users() + "'" + ", show_d_data='" + isShow_d_data() + "'" + "}";
     }
+    
 }

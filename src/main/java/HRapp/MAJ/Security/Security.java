@@ -59,14 +59,13 @@ public class Security {
         // pass = Hash.hash(pass);
 
         List<User> resultUsers = database.getUserLoginData(nickname, pass);
-
         if (resultUsers.isEmpty()) {
             return false;
         } else {
             String name = resultUsers.get(0).getNick();
             String nazwisko = resultUsers.get(0).getEmail();
             Integer idU = resultUsers.get(0).getID();
-            System.out.println("SECURITY" + resultUsers.get(0).getUprawnienia());
+            // System.out.println("SECURITY" + resultUsers.get(0).getUprawnienia()); //DEBUG
             Uprawnienia uprawnienia = resultUsers.get(0).getUprawnienia();
             // System.out.println(uprawnienia.toString()); // Debug
             HttpSession session = request.getSession();
