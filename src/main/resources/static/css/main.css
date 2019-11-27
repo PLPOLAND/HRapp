@@ -483,6 +483,7 @@ a:hover{
 }
 #pracownicy > table td:hover{
     background-color: #00000060;
+    color: var(--hover-color);
     height: 40px;
     transition: 0.5s;
 
