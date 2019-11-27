@@ -47,9 +47,10 @@ public class UprawnieniaDAO{
             upr.setDel_user(rs.getBoolean("del_user"));
             upr.setEdit_user(rs.getBoolean("edit_user"));
             upr.setShow_all_users(rs.getBoolean("show_all_users"));
+            System.out.println("GetMap: " + rs.getBoolean("show_all_users"));//DEBUG
             upr.setShow_d_data(rs.getBoolean("show_d_data"));
 
-            // System.out.println(upr.toString());//Debug
+            System.out.println("GetMap: "+upr.toString());//Debug
 			return upr;
 		};
         return Map;

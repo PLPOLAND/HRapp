@@ -3,8 +3,11 @@ package HRapp.MAJ.Banner;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import HRapp.MAJ.Banner.PozycjaMenu;
+import HRapp.MAJ.Model.Uprawnienia;
 
 /**
  * Menu Klasa służąca do przechowywania i wypisywania menu poziomowego
@@ -12,26 +15,44 @@ import HRapp.MAJ.Banner.PozycjaMenu;
  * @author Marek Pałdyna
  * @version 1.0
  */
-@Repository
+// @Component
 public class Menu {
     /** Przechowuje pozycje menu */
     List<PozycjaMenu> pozycjemenu;
-
+    
     /** Konstruktor */
-    public Menu() {
+    public Menu( Uprawnienia uprawnienia) {
         pozycjemenu = new ArrayList<>();
         //tymczasowe pozycje
-        this.Add("logowanie", "/");
-        this.Add("strona admina", "/adminhome");
-        this.Add("test", "/test", true);
-        this.Add("Użytkownicy", "#", true);
-        this.AddToDropDawnPos("Użytkownicy", "Lista", "/adminhome");
-        this.AddToDropDawnPos("Użytkownicy", "Dodawanie", "/add_user_page");
-        this.Add("templatka", "/tmp");
-        this.AddToDropDawnPos("test", "menu", "/menu");
-        this.AddToDropDawnPos("test", "Testy Julka", "/xxx");
-        // this.AddToDropDawnPos("test", "pos3", "#");
-        // this.AddToDropDawnPos("test", "pos4", "#");
+        System.out.println("MENU: " + uprawnienia.toString());//DEBUG
+        if (uprawnienia.isAdmin()) {
+            this.Add("logowanie", "/");
+            this.Add("strona admina", "/adminhome");
+            this.Add("test", "/test", true);
+            this.Add("Użytkownicy", "#", true);
+            this.AddToDropDawnPos("Użytkownicy", "Lista", "/adminhome");
+            this.AddToDropDawnPos("Użytkownicy", "Dodawanie", "/add_user_page");
+            this.Add("templatka", "/tmp");
+            this.AddToDropDawnPos("test", "menu", "/menu");
+            this.AddToDropDawnPos("test", "Testy Julka", "/xxx");
+        }
+        else{
+            if(uprawnienia.isAdd_user()){
+                if (!this.havePosition(new PozycjaMenu("Użytkownicy", "#", true))) {
+                    this.Add("Użytkownicy", "#", true);
+                }
+                this.AddToDropDawnPos("Użytkownicy", "Dodawanie", "/add_user_page");
+            }
+            if(uprawnienia.isDel_user()){
+                //.....?
+            }
+            if(uprawnienia.isShow_all_users()){
+                // if(!this.havePosition(new PozycjaMenu("Użytkownicy", "#", true))){
+                    this.Add("Użytkownicy", "#", true);
+                // }
+                this.AddToDropDawnPos("Użytkownicy", "Lista", "/adminhome");
+            }
+        }
     }
 
     /**
@@ -76,6 +97,18 @@ public class Menu {
             pozycjemenu.get(i).addDropDownPos(opis, adres);
             return;
         }
+    }
+    /**
+     * Funkcja sprawdzająca czy menu posiada dokładnie taką samą pozycję (opis,adres,czyDropdown)
+     * @param pozycjaMenu - pozycja do znalezienia
+     * @return true jeśli menu zawiera taką pozycję
+     */
+    public boolean havePosition(PozycjaMenu pozycjaMenu) {
+        for (PozycjaMenu poz : pozycjemenu) {
+            if (poz.equals(pozycjaMenu))
+                return true;
+        }
+        return false;
     }
 
     /**

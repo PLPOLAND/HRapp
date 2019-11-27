@@ -75,10 +75,13 @@ public class MainController {
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
 		return "redirect:/";
-		if(!security.isUserAdmin())
-		return "errorpage"; 
 
-		Menu menu = new Menu();
+		System.out.println("AdminHome: "+security.getUserPremissions().toString());
+
+		// if(!security.isUserAdmin())
+		// return "errorpage"; 
+
+		Menu menu = new Menu(security.getUserPremissions());
 		List<User> userList = userdao.getAllUsers();
 		
 		Banner banner = new Banner(menu, security.getFullUserData());
@@ -103,7 +106,7 @@ public class MainController {
 		if(!security.isUserAdmin())
 		return "errorpage";
 
-		Menu menu = new Menu();
+		Menu menu = new Menu(security.getUserPremissions());
 		User user1 = userdao.find_user_by_id(id);
 		Banner banner = new Banner(menu, security.getFullUserData());
 		model.addAttribute("user1", user1);
@@ -126,7 +129,7 @@ public class MainController {
 		if(!security.isUserAdmin())
 		return "errorpage";
 
-		Menu menu = new Menu();
+		Menu menu = new Menu(security.getUserPremissions());
 		User user1 = userdao.find_user_by_id(id);
 		List<Stanowiska> st= stanowiskadao.getAllStanowiska();
 		List<TypyUmowy> um = typyumowydao.getAllTypyUmowy();
@@ -192,7 +195,7 @@ public class MainController {
 		if(!security.isUserAdmin())
 		return "errorpage";
 
-		Menu menu = new Menu();
+		Menu menu = new Menu(security.getUserPremissions());
 		List<Stanowiska> st= stanowiskadao.getAllStanowiska();
 		List<TypyUmowy> um = typyumowydao.getAllTypyUmowy();
 		
@@ -261,7 +264,7 @@ public class MainController {
 		if(!security.isUserAdmin())
 		return "errorpage"; 
 
-		Menu menu = new Menu();
+		Menu menu = new Menu(security.getUserPremissions());
 		User user1 = userdao.find_user_by_id(id);		
 		Banner banner = new Banner(menu, security.getFullUserData());
 		model.addAttribute("user1", user1);
@@ -292,7 +295,7 @@ public class MainController {
 	public String showTemplate(Model model,HttpServletRequest request){
 		Security security = new Security(request, userdao);
 		if(security.isLoged()){
-			Menu menu = new Menu();
+			Menu menu = new Menu(security.getUserPremissions());
 			Banner banner = new Banner(menu, security.getFullUserData());
 			model.addAttribute(banner);
 			return "template";
@@ -310,10 +313,10 @@ public class MainController {
 	 */
 	@RequestMapping("/test")
 	public String test(Model model, HttpServletRequest request){
-
-		Menu menu = new Menu();
-
 		Security security = new Security(request, userdao);
+		
+		Menu menu = new Menu(security.getUserPremissions());
+
 		Banner banner = new Banner(menu, security.getFullUserData());
 		model.addAttribute(banner);
 		
@@ -335,7 +338,7 @@ public class MainController {
 		if(!security.isLoged())
 			return "redirect:/";
 		
-		Menu menu = new Menu();
+		Menu menu = new Menu(security.getUserPremissions());
 		Banner banner = new Banner(menu, security.getFullUserData());
 		
 		

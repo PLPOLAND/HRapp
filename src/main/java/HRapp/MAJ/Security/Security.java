@@ -66,6 +66,7 @@ public class Security {
             String name = resultUsers.get(0).getNick();
             String nazwisko = resultUsers.get(0).getEmail();
             Integer idU = resultUsers.get(0).getID();
+            System.out.println("SECURITY" + resultUsers.get(0).getUprawnienia());
             Uprawnienia uprawnienia = resultUsers.get(0).getUprawnienia();
             // System.out.println(uprawnienia.toString()); // Debug
             HttpSession session = request.getSession();
@@ -143,7 +144,7 @@ public class Security {
     }
 
     /**
-     * Funkcja zwracająca typ użytkownika z danych sesji
+     * Funkcja zwracająca uprawnienia użytkownika z danych sesji
      * 
      * @version 1.0
      * @return Typ Użytkownika
