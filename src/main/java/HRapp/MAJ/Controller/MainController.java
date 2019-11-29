@@ -356,7 +356,7 @@ public class MainController {
 	 */
 	@RequestMapping("/xxx")
 	public String Stonoga(){
-		return "AuserAccStatement";
+		return "BUserHourPage";
 	}
 
 }
