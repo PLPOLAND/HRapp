@@ -36,6 +36,12 @@
                     Pracownicy
                     <br><br>
             </div>
+            <div class="wyszukaj">
+                <form>
+                    <input type="text" name="search" placeholder="Wyszukaj pracownika...">
+                </form>
+                <br>
+            </div>
             <div id="pracownicy">
                 <!-- <c:forEach var="vart" items="${userList}">
                     <div class="osoba"> 
