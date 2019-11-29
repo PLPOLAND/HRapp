@@ -204,18 +204,29 @@ public class Uprawnienia {
         this.show_d_data = uprawnienia.show_d_data;
     }
 
-    public String getTypKonta() {
-        if (admin == true)
-            return "Administrator";
-        else
-            return "Uzytkownik";
-    }
-
     @Override
     public String toString() {
-        return "{" + " ID='" + getID() + "'" + ", admin='" + getAdmin() + "'" + ", add_user='" + isAdd_user() + "'"
+       /* return "{" + " ID='" + getID() + "'" + ", admin='" + getAdmin() + "'" + ", add_user='" + isAdd_user() + "'"
                 + ", del_user='" + isDel_user() + "'" + ", edit_user='" + isEdit_user() + "'" + ", show_all_users='"
-                + isShow_all_users() + "'" + ", show_d_data='" + isShow_d_data() + "'" + "}";
+                + isShow_all_users() + "'" + ", show_d_data='" + isShow_d_data() + "'" + "}";*/
+                if (admin == true)
+                return "Administrator";
+            else if(add_user == false && del_user == false && edit_user == false && show_all_users == false && show_d_data == false)
+                return "Podstawowe";
+            else{
+                String upr = "Podstawowe oraz: ";
+                if(add_user == true)
+                upr += "Dodawanie użytkowników; ";
+                if(del_user == true)
+                upr += "Usuwanie użytkowników; ";
+                if(edit_user == true)
+                upr += "Edytowanie użytkowników; ";
+                if(show_all_users == true)
+                upr += "Wyświetlanie listy użytkowników; ";
+                if(show_d_data == true)
+                upr += "Wyświetlanie szczegółowych danych użytkowników; ";
+                return upr;
+            }
     }
     
 }

@@ -17,8 +17,8 @@ public class UprawnieniaDAO{
 
     final String GET_ALL_USERS_PERMISSION_DATA = "SELECT * FROM Permissions";
     // final String GET_ALL_USERS_PERMISSION_DATA = "SELECT ID, admin FROM Permissions";
-    final String ADD_PERMISSION = "INSERT INTO Permissions (ID, admin) VALUES (?, ?)";
-    final String EDIT_PERMISSION =  "UPDATE Permissions SET admin = ? WHERE ID = ?";
+    final String ADD_PERMISSION = "INSERT INTO Permissions (ID, admin, add_user, del_user, edit_user, show_all_users, show_d_data) VALUES (?,?,?,?,?,?,?)";
+    final String EDIT_PERMISSION =  "UPDATE Permissions SET admin = ?, add_user = ?, del_user = ?, edit_user = ?, show_all_users = ?, show_d_data = ? WHERE ID = ?";
 
 
     public List<Uprawnienia> getAllPermissionsData(){
@@ -30,12 +30,12 @@ public class UprawnieniaDAO{
         return baza.query(GET_ALL_USERS_PERMISSION_DATA + " WHERE ID =  " + id + ";", getMap());
     }
     
-    public void addPermission(int id, int uprawnienia){
-        baza1.update(ADD_PERMISSION, id, uprawnienia);
+    public void addPermission(int id, int admin, int add_user, int del_user, int edit_user, int show_all_users, int show_d_data){
+        baza1.update(ADD_PERMISSION, id, admin, add_user, del_user, edit_user, show_all_users, show_d_data);
     }
 
-    public void editPermission(int id, int uprawnienia){
-        baza1.update(EDIT_PERMISSION, uprawnienia, id);
+    public void editPermission(int id, int admin, int add_user, int del_user, int edit_user, int show_all_users, int show_d_data){
+        baza1.update(EDIT_PERMISSION, admin, add_user, del_user, edit_user, show_all_users, show_d_data, id);
     }
 
     private RowMapper<Uprawnienia> getMap() {

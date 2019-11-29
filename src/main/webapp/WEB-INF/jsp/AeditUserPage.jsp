@@ -85,8 +85,23 @@
                                                 <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="${user1.getWyplataBrutto()}" required></td> 
                                             </tr>
                                             <tr>
-                                                <th>Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1" ${user1.getUprawnienia() == "Administrator"  ? 'checked="checked"' : '' }><label for="checkbox">Administrator</label></td> 
+                                                <th rowspan = "6">Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1" ${user1.getUprawnienia().getAdmin() == true  ? 'checked="checked"' : '' }><label for="checkbox">Administrator</label></td> 
                                             </tr>
+                                            <tr>
+                                                <td><input type="checkbox" name="add_user" value="1" ${user1.getUprawnienia().getAdd_user() == true  ? 'checked="checked"' : '' }><label for="checkbox">Dodawanie użytkowników</label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" name="del_user" value="1" ${user1.getUprawnienia().getDel_user() == true  ? 'checked="checked"' : '' }><label for="checkbox">Usuwanie użytkowników</label></td>
+                                            </tr>
+                                            <tr>
+                                                    <td><input type="checkbox" name="edit_user" value="1" ${user1.getUprawnienia().getEdit_user() == true  ? 'checked="checked"' : '' }><label for="checkbox">Edytowanie użytkowników</label></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><input type="checkbox" name="show_all_users" value="1" ${user1.getUprawnienia().getShow_all_users() == true  ? 'checked="checked"' : '' }><label for="checkbox">Wyświetlanie listy użytkowników</label></td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td><input type="checkbox" name="show_d_data" value="1" ${user1.getUprawnienia().getShow_d_data() == true  ? 'checked="checked"' : '' }><label for="checkbox">Wyświetlanie szczegółowych informacji o użytkownikach</label></td>
+                                                        </tr>
                                         </table>
                                         <br><br>
                                         <input type="submit" class="konto" value="Zaktualizuj" style="vertical-align:middle">

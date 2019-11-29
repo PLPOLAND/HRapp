@@ -160,7 +160,6 @@ public class MainController {
 		int typumowy = Integer.parseInt(request.getParameter("typumowy"));
 		int stanowisko=Integer.parseInt(request.getParameter("stanowiska"));
 		double wyplatabrutto = Double.parseDouble(request.getParameter("wyplatabrutto"));
-		String upr = request.getParameter("uprawnienia");
 		String pesel = request.getParameter("pesel");
 		String dataurodzenia = request.getParameter("dataurodzenia");
 		String nrtelefonu = request.getParameter("nrtelefonu");
@@ -170,9 +169,28 @@ public class MainController {
 		String miasto = request.getParameter("miasto");
 		String kodpocztowy = request.getParameter("kodpocztowy");
 
-		int uprawnienia;
-		if(upr == null) uprawnienia =0;
-		else uprawnienia = 1;
+		String adm = request.getParameter("uprawnienia");
+		int admin, add_user, del_user, edit_user, show_all_users, show_d_data;
+		if(adm == null) {
+		admin =0;	
+		String add = request.getParameter("add_user");
+		String del = request.getParameter("del_user");
+		String edit = request.getParameter("edit_user");
+		String show_all = request.getParameter("show_all_users");
+		String show_d = request.getParameter("show_d_data");
+		add_user = add == null ? 0:1;
+		del_user = del == null ? 0:1;
+		edit_user = edit == null ? 0:1;
+		show_all_users = show_all == null ? 0:1;
+		show_d_data = show_d == null ? 0:1;
+		}
+		else {
+			admin = 1;
+			add_user = del_user = edit_user = show_all_users = show_d_data = 0;
+		}
+		
+		
+		
 
 		int nrmieszkania;
 		if(nrm.isEmpty()) nrmieszkania = 0;
@@ -180,7 +198,7 @@ public class MainController {
 
 		
 		userdao.editUser(id, imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto, pesel, dataurodzenia, nrtelefonu, ulica, nrdomu, nrmieszkania, miasto, kodpocztowy); //dodać nrmieszkania
-		uprawnieniadao.editPermission(id, uprawnienia);
+		uprawnieniadao.editPermission(id, admin, add_user, del_user, edit_user, show_all_users, show_d_data);
 
 		return "redirect:/user_profile_page?id=" + id;
 	
@@ -226,7 +244,6 @@ public class MainController {
 		int stanowisko=Integer.parseInt(request.getParameter("stanowiska"));
 		double wyplatabrutto = Double.parseDouble(request.getParameter("wyplatabrutto"));
 		String haslo = request.getParameter("haslo");
-		String upr = request.getParameter("uprawnienia");
 		String pesel = request.getParameter("pesel");
 		String dataurodzenia = request.getParameter("dataurodzenia");
 		String nrtelefonu = request.getParameter("nrtelefonu");
@@ -236,16 +253,32 @@ public class MainController {
 		String miasto = request.getParameter("miasto");
 		String kodpocztowy = request.getParameter("kodpocztowy");
 
-		int uprawnienia;
-		if(upr == null) uprawnienia =0;
-		else uprawnienia = 1;
+		String adm = request.getParameter("uprawnienia");
+		int admin, add_user, del_user, edit_user, show_all_users, show_d_data;
+		if(adm == null) {
+		admin =0;	
+		String add = request.getParameter("add_user");
+		String del = request.getParameter("del_user");
+		String edit = request.getParameter("edit_user");
+		String show_all = request.getParameter("show_all_users");
+		String show_d = request.getParameter("show_d_data");
+		add_user = add == null ? 0:1;
+		del_user = del == null ? 0:1;
+		edit_user = edit == null ? 0:1;
+		show_all_users = show_all == null ? 0:1;
+		show_d_data = show_d == null ? 0:1;
+		}
+		else {
+			admin = 1;
+			add_user = del_user = edit_user = show_all_users = show_d_data = 0;
+		}
 
 		int nrmieszkania;
 		if(nrm.isEmpty()) nrmieszkania = 0;
 		else nrmieszkania = Integer.parseInt(nrm);
 
 		int id = userdao.addUser(imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto, haslo, pesel, dataurodzenia, nrtelefonu, ulica, nrdomu, nrmieszkania, miasto, kodpocztowy);
-		uprawnieniadao.addPermission(id, uprawnienia);
+		uprawnieniadao.addPermission(id, admin, add_user, del_user, edit_user, show_all_users, show_d_data);
 
 		return "redirect:/adminhome";
 

@@ -85,7 +85,22 @@
                                 <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="" min = "1" step="0.01" required></td> 
                             </tr>
                             <tr>
-                                <th>Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1"><label for="checkbox">Administrator</label></td> 
+                                <th rowspan = "6">Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1" ><label for="checkbox">Administrator</label></td> 
+                            </tr>
+                            <tr>
+                                    <td><input type="checkbox" name="add_user" value="1"><label for="checkbox">Dodawanie użytkowników</label></td>
+                            </tr>
+                            <tr>
+                                    <td><input type="checkbox" name="del_user" value="1"><label for="checkbox">Usuwanie użytkowników</label></td>
+                            </tr>
+                            <tr>
+                                    <td><input type="checkbox" name="edit_user" value="1"><label for="checkbox">Edytowanie użytkowników</label></td>
+                            </tr>
+                            <tr>
+                                    <td><input type="checkbox" name="show_all_users" value="1"><label for="checkbox">Wyświetlanie listy użytkowników</label></td>
+                            </tr>
+                            <tr>
+                                    <td><input type="checkbox" name="show_d_data" value="1"><label for="checkbox">Wyświetlanie szczegółowych informacji o użytkownikach</label></td>
                             </tr>
                         </table>
                             <br><br>
