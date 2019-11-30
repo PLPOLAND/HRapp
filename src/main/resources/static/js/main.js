@@ -3,26 +3,58 @@ var ostatnio_kliknięty_naglowek_tabeli;
 jQuery(document).ready(function($) {
     
     $('.banner-icons-etc').hide();
-    // $('img.userlogo').click(function () {
-    //     $('.banner-icons').toggle('slow');
-    // });
-    $('.cover').click(function () {
+    
+    $('.cover').click(function () {//pokazywanie/chowanie rozwijanego banneru w banerze
         $('.banner-icons-etc').toggle('slow');
     });
-    
+
+    dis_input();//ustaw blokady pól w razie potrzeby
+    $('input[name = "admin"]').click(dis_input);//przypisz działanie do przycisku o nazwie admin
+
 })
-function sort_by_name(a,b) {
-        return ('' + a.imie).localeCompare(b.imie);
+//odpowiada za blokowanie i odblokowywanie pól w fomularzu edycji uprawnień
+//dodać kolejne pola w razie potrzeby
+function dis_input() {
+    if ($('input[name = "admin"]').prop("checked")){
+        // alert("Is checked");
+        $('input[name = "add_user"]').attr("disabled", true);
+        $('input[name = "del_user"]').attr("disabled", true);
+        $('input[name = "edit_user"]').attr("disabled", true);
+        $('input[name = "show_all_users"]').attr("disabled", true);
+        $('input[name = "show_d_data"]').attr("disabled", true);
+    }
+    else{
+        // alert("Is not checked");
+        $('input[name = "add_user"]').attr("disabled", false);
+        $('input[name = "del_user"]').attr("disabled", false);
+        $('input[name = "edit_user"]').attr("disabled", false);
+        $('input[name = "show_all_users"]').attr("disabled", false);
+        $('input[name = "show_d_data"]').attr("disabled", false);
+    }
 }
+
+
+//odpowiada za sortowanie względem imienia
+function sort_by_name(a,b) {
+    return ('' + a.imie).localeCompare(b.imie);
+}
+
+//odpowiada za sortowanie względem nazwiska
 function sort_by_surname(a,b) {
-        return ('' + a.nazwisko).localeCompare(b.nazwisko);
+    return ('' + a.nazwisko).localeCompare(b.nazwisko);
 } 
+
+//odpowiada za sortowanie względem emaila
 function sort_by_email(a, b) {
     return ('' + a.email).localeCompare(b.email);
 } 
+
+//odpowiada za sortowanie względem stanowiska
 function sort_by_stanowisko(a, b) {
     return ('' + a.stanowisko).localeCompare(b.stanowisko);
 }
+
+//odpowiada za sortowanie
 function sortUsers(sortfunction,t) {
 
     
