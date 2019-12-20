@@ -67,7 +67,7 @@
                                 <tr>
                                     <th>Okres rozliczeniowy:</th> 
                                     <th>Data zaksięgowania:</th>
-                                    <th>Wypłacona kwota:</th>
+                                    <th>Wypłacona kwota (brutto):</th>
                                 </tr>
                         <c:forEach var="wypval" items="${wyplaty}">
                                 <tr class="pos">
