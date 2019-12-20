@@ -22,6 +22,7 @@
     <link href='http://fonts.googleapis.com/css?family=Barlow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
+    <meta charset="utf-8">
     <title>HR MAJ Wyciąg </title>
 </head>
 
@@ -35,49 +36,54 @@
             <div id="praco_logo">
                 ${user1.getImie()} ${user1.getNazwisko()}
             </div>
+            <br><br><br>
+            <button class="konto" style="vertical-align:middle" onclick="location.href='/user_add_payment_page?id=${user1.getID()}'">
+                <i class='far fa-edit'></i>
+                <span>Dodaj wypłatę</span>
+            </button>
             <div class="osoba_detail">     
                 <div class="kolumnaB">      
                     <table>
                         <tr>
-                            <th><h2>Wypłaty:</h2></th>
+                            <th><h2>Wynagordzenie:</h2></th>
                         </tr>
                         <tr>
-                            <th>Wypłata brutto:</th><td>${user1.getWyplataBrutto()} zł</td> 
+                            <th>Wynagrodzenie brutto:</th><td>${user1.getWyplataBrutto()} zł/h</td> 
                         </tr>
                         <tr>
-                            <th>Wypłata netto:</th><td>${user1.getWyplataNetto()} zł</td> 
+                            <th>Wynagrodzenie netto:</th><td>${user1.getWyplataNetto()} zł/h</td> 
                         </tr>
                         <tr>
-                            <th>Całkowity koszt pracownika:</th><td>${user1.getCalkowityKosztPracownika()} zł</td> 
+                            <th>Całkowity koszt pracownika:</th><td>${user1.getCalkowityKosztPracownika()} zł/h</td> 
                         </tr>
                         <br>
                     </table>
                 </div>
-                <div class="kolumnaB"> 
-                    <table>
-                        <tr>
-                            <th><h2>Wypłaty dla pracownika:</h2></th>
-                        </tr>
-                        <tr>
-                            <th>Kwota:</th> 
-                            <th>Data zaksięgowania:</th>
-                        </tr>
-                        <tr>
-                            <td>6kk yang</td> 
-                            <td>11.10.2019</td>
-                        </tr>
-                        <tr>
-                            <td>7kk yang</td> 
-                            <td>11.11.2019</td>
-                        </tr>
-                        <tr>
-                            <td>3kk yang</td> 
-                            <td>11.12.2019</td>
-                        </tr>
-                    </table> 
-                </div>
-            </div>
 
+                    <table class="kolumnaB">
+                            <tr>
+                                    <th><h2>Historia wypłat:</h2></th>
+                                </tr>
+                                <tr>
+                                    <th>Okres rozliczeniowy:</th> 
+                                    <th>Data zaksięgowania:</th>
+                                    <th>Wypłacona kwota:</th>
+                                </tr>
+                        <c:forEach var="wypval" items="${wyplaty}">
+                                <tr class="pos">
+                                <td> Od ${wypval.getDataOd()} do ${wypval.getDataDo()}</td>
+                                <td>${wypval.getDataZaksiegowania()}</td>
+                                <td>${wypval.getKwotaBrutto()}</td>                               
+                            </tr>
+                        </c:forEach>
+                    </table>
+                <!--</div>    -->
+            </div>
+            <br><br><br>
+            <button class="konto" style="vertical-align:middle" onclick="location.href='/user_specific_payment_data_page?id=${user1.getID()}'">
+                <i class='far fa-edit'></i>
+                <span>Szczegóły</span>
+            </button>
         </div>
         <div id="footer">
             MAJ<br>

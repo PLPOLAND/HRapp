@@ -7,6 +7,7 @@
 -- Wersja serwera: 5.7.28-0ubuntu0.18.04.4
 -- Wersja PHP: 7.2.24-0ubuntu0.18.04.1
 
+ALTER DATABASE hrapp DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -99,7 +100,7 @@ CREATE TABLE `TypyUmowy` (
 --
 
 INSERT INTO `TypyUmowy` (`ID_T`, `nazwaSkr`, `nazwa`, `funduszPracy`, `ubWypadkowe`, `ubRentowePracodawca`, `ubRentowePracownik`, `ubEmerytalnePracodawca`, `ubEmerytalnePracownik`, `ubChorobowe`, `ubZdrowotne`, `zaliczkaPIT`, `FGSP`) VALUES
-(1, 'UoP', 'Umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 3.65, 0),
+(1, 'UoP', 'Umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 3.65, 0.08),
 (2, 'UnZ', 'Umowa na zlecenie', 0, 1.64, 0, 0, 0, 0, 0, 0, 0, 0),
 (3, 'UoD', 'Umowa o Dzielo', 0, 0, 0, 0, 0, 0, 0, 0, 13.6, 0),
 (4, 'UoPiUnZ', 'Umowa na zlecenie z umowa o prace', 2.03, 1.39, 5.4, 1.5, 8.1, 9.76, 2.45, 7.77, 5.05, 0.08),
@@ -159,10 +160,27 @@ CREATE TABLE `UsersData` (
 --
 
 INSERT INTO `UsersData` (`ID`, `imie`, `nazwisko`, `pesel`, `nrTelefonu`, `dataUrodzenia`, `kontoBankowe`, `wyplataBrutto`, `id_s`, `id_t_u`, `ulica`, `nrDomu`, `nrMieszkania`, `miasto`, `kodPocztowy`) VALUES
-(1, 'Marek', 'Pałdyna', '98072694616', '678567467', '1998-03-21', '25213129921111580206782827', 8000, 1, 1, 'Malinowa', '11', 0, 'Warszawa', '03-234'),
-(2, 'Adam', 'Mickiewicz', '57072558199', '999333000', '1957-07-25', '22345642126845567534542247', 4000, 1, 1, 'Przekatna', '34', 109, 'Warszawa', '05-345'),
-(3, 'Łucja', 'Kowalczyk', '87982998443', '506849985', '2000-02-08', '7865486548965458965', 9000, 2, 3, 'Końska', '59', 5, 'Konin', '02-945');
+(1, 'Marek', 'Pałdyna', '98072694616', '678567467', '1998-03-21', '25213129921111580206782827', 80, 1, 1, 'Malinowa', '11', 0, 'Warszawa', '03-234'),
+(2, 'Adam', 'Mickiewicz', '57072558199', '999333000', '1957-07-25', '22345642126845567534542247', 40, 1, 1, 'Przekatna', '34', 109, 'Warszawa', '05-345'),
+(3, 'Łucja', 'Kowalczyk', '87982998443', '506849985', '2000-02-08', '7865486548965458965', 90, 2, 3, 'Końska', '59', 5, 'Konin', '02-945');
 
+
+- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `Wyplaty`
+--
+
+DROP TABLE IF EXISTS `Wyplaty`;
+CREATE TABLE `Wyplaty` (
+  `ID_w` int(11) NOT NULL,
+  `ID` int(11) NOT NULL,
+  `dataOd` date NOT NULL,
+  `dataDo` date NOT NULL,
+  `dataZaksiegowania` date NOT NULL,
+  `kwotaBrutto` double NOT NULL,
+  `przepracowaneGodziny` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -200,6 +218,12 @@ ALTER TABLE `UsersData`
   ADD KEY `Stanowisko` (`id_s`);
 
 --
+-- Indeksy dla tabeli `Wyplaty`
+--
+ALTER TABLE `Wyplaty`
+  ADD PRIMARY KEY (`ID_w`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -222,6 +246,12 @@ ALTER TABLE `Users`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT dla tabeli `Wyplaty`
+--
+ALTER TABLE `Wyplaty`
+  MODIFY `ID_w` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Ograniczenia dla zrzutów tabel
 --
 
@@ -238,6 +268,13 @@ ALTER TABLE `UsersData`
   ADD CONSTRAINT `Stanowisko` FOREIGN KEY (`id_s`) REFERENCES `Stanowiska` (`ID_s`),
   ADD CONSTRAINT `TypUmowy` FOREIGN KEY (`id_t_u`) REFERENCES `TypyUmowy` (`ID_T`),
   ADD CONSTRAINT `UsersData_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Users` (`ID`);
+
+  --
+-- Ograniczenia dla tabeli `Wyplaty`
+--
+ALTER TABLE `Permissions`
+  ADD CONSTRAINT `Wyplaty_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Users` (`ID`);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

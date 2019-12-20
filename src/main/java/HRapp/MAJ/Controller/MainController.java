@@ -1,6 +1,13 @@
 package HRapp.MAJ.Controller;
 
 import java.util.List;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,12 +22,14 @@ import HRapp.Gravatar.Gravatar;
 import HRapp.MAJ.Banner.Banner;
 import HRapp.MAJ.Banner.Menu;
 import HRapp.MAJ.DAO.UsersDAO;
-import HRapp.MAJ.Model.User;
 import HRapp.MAJ.DAO.StanowiskaDAO;
-import HRapp.MAJ.Model.Stanowiska;
 import HRapp.MAJ.DAO.TypyUmowyDAO;
 import HRapp.MAJ.DAO.UprawnieniaDAO;
+import HRapp.MAJ.DAO.WyplatyDAO;
+import HRapp.MAJ.Model.User;
+import HRapp.MAJ.Model.Stanowiska;
 import HRapp.MAJ.Model.TypyUmowy;
+import HRapp.MAJ.Model.Wyplaty;
 import HRapp.MAJ.Security.Security;
 
 
@@ -38,6 +47,8 @@ public class MainController {
 	TypyUmowyDAO typyumowydao;
 	@Autowired 
 	UprawnieniaDAO uprawnieniadao;
+	@Autowired
+	WyplatyDAO wyplatydao;
 
 
 	/**
@@ -47,6 +58,7 @@ public class MainController {
 	public String loadLoginPage() {
 		return "loginPage";
 	}
+	
 	/**
 	 * obsługa logowania urzytkownika
 	 */
@@ -117,7 +129,7 @@ public class MainController {
 
 	/**
 	 * 
-	 * edycja pracownika
+	 * strona edycji pracownika
 	 */
 	@RequestMapping("/edit_user_page")
 	public String edit_user_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
@@ -143,6 +155,10 @@ public class MainController {
 		return "AeditUserPage";
 	}
 
+	/**
+	 * 
+	 * edycja pracownika
+	 */
 	@RequestMapping("/edit_user")
 	public String editUser(HttpServletRequest request, HttpServletResponse response) {
 		Security security = new Security(request, userdao);
@@ -169,7 +185,7 @@ public class MainController {
 		String miasto = request.getParameter("miasto");
 		String kodpocztowy = request.getParameter("kodpocztowy");
 
-		String adm = request.getParameter("uprawnienia");
+		String adm = request.getParameter("admin");
 		int admin, add_user, del_user, edit_user, show_all_users, show_d_data;
 		if(adm == null) {
 		admin =0;	
@@ -204,6 +220,10 @@ public class MainController {
 	
 	}
 
+	/**
+	 * 
+	 * strona dodawania pracownika
+	 */
 	@RequestMapping("/add_user_page")
 	public String loadAddUserPage(HttpServletRequest request, Model model) {
 		Security security = new Security(request, userdao);
@@ -227,6 +247,10 @@ public class MainController {
 		
 	}
 
+	/**
+	 * 
+	 * dodawanie pracownika
+	 */
 	@RequestMapping("/add_user")
 	public String addUser(HttpServletRequest request) {
 		Security security = new Security(request, userdao);
@@ -253,7 +277,7 @@ public class MainController {
 		String miasto = request.getParameter("miasto");
 		String kodpocztowy = request.getParameter("kodpocztowy");
 
-		String adm = request.getParameter("uprawnienia");
+		String adm = request.getParameter("admin");
 		int admin, add_user, del_user, edit_user, show_all_users, show_d_data;
 		if(adm == null) {
 		admin =0;	
@@ -286,7 +310,7 @@ public class MainController {
 
 	/**
 	 * 
-	 * wyplaty uzytkownika (admin)
+	 * strona wyplat uzytkownika (admin)
 	 */
 	@RequestMapping("/user_payment_page")
 	public String userPaymentPage(@RequestParam("id") int id, Model model,HttpServletRequest request){	
@@ -299,10 +323,124 @@ public class MainController {
 		Menu menu = new Menu(security.getUserPremissions());
 		User user1 = userdao.find_user_by_id(id);		
 		Banner banner = new Banner(menu, security.getFullUserData());
+		List<Wyplaty> wyp = wyplatydao.getAllUsersWyplaty(id);
 		model.addAttribute("user1", user1);
+		model.addAttribute("wyplaty", wyp);
 		model.addAttribute(banner);	
 
 		return "AuserAccStatement";
+	}
+
+	/**
+	 * 
+	 * szczegolowe dane o wynagrodzeniu uzytkownika (admin?)
+	 */
+	@RequestMapping("/user_specific_payment_data_page")
+	public String userSpecificPaymentDataPage(@RequestParam("id") int id, Model model, HttpServletRequest request){	
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage"; 
+
+		Menu menu = new Menu(security.getUserPremissions());
+		User user1 = userdao.find_user_by_id(id);
+		TypyUmowy typUmowy = typyumowydao.find_typ_umowy_by_user_id(id);	
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("user1", user1);
+		model.addAttribute("typUmowy", typUmowy);
+		model.addAttribute(banner);	
+
+		return "AuserSpecificPaymentData"; //TODO
+	}
+
+	/**
+	 * 
+	 * strona dodawania wynagrodzenia dla pracownika
+	 */
+	@RequestMapping("/user_add_payment_page")
+	public String userAddPaymentPage(@RequestParam("id") int id, Model model,HttpServletRequest request){	
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage"; 
+
+		Menu menu = new Menu(security.getUserPremissions());
+		User user1 = userdao.find_user_by_id(id);
+		LocalDate locDate = null;	
+		String dzis = locDate.now().toString();	
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("user1", user1);
+		model.addAttribute("dzis", dzis);
+		model.addAttribute(banner);	
+
+		return "AuserAddPayment"; //TODO
+	}
+
+	/**
+	 * 
+	 * dodawanie wynagrodzenia dla pracownika
+	 */
+	@RequestMapping("/user_add_payment")
+	public String userAddPayment(Model model,HttpServletRequest request){	
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!security.isUserAdmin())
+		return "errorpage"; 
+
+		int id = Integer.parseInt(request.getParameter("id"));
+		String dataOd = request.getParameter("dataOd");
+		String dataDo = request.getParameter("dataDo");
+		int dniUrlopu = Integer.parseInt(request.getParameter("dniUrlopu"));
+		int nadgodziny = Integer.parseInt(request.getParameter("iloscNadgodzin"));
+		int premia = Integer.parseInt(request.getParameter("premia"));
+
+		int iloscGodzin = 0;
+		DateFormat format = new SimpleDateFormat("yyy-MM-dd", Locale.ENGLISH);
+		Date date1 = null, date2=null;
+		try {
+			date1 = format.parse(dataOd);
+			date2 = format.parse(dataDo);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		Calendar startCal = Calendar.getInstance();
+	    startCal.setTime(date1);        
+	    Calendar endCal = Calendar.getInstance();
+	    endCal.setTime(date2);
+
+	    int workDays = 0;
+
+	    //Return 0 if start and end are the same
+	    if (startCal.getTimeInMillis() == endCal.getTimeInMillis()) {
+	        workDays = 1;
+	    }
+	    else if (startCal.getTimeInMillis() > endCal.getTimeInMillis()) {
+	        startCal.setTime(date1);
+	        endCal.setTime(date2);
+	    }else{
+			do {
+				 if (startCal.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY && startCal.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+					 ++workDays;
+				 }
+				 startCal.add(Calendar.DAY_OF_MONTH, 1);
+			 } while (startCal.getTimeInMillis() <= endCal.getTimeInMillis());    
+		}
+		iloscGodzin = workDays*8;
+		iloscGodzin -= dniUrlopu*8;
+		iloscGodzin += nadgodziny;
+
+		User user1 = userdao.find_user_by_id(id);
+		double wyplata = user1.getWyplataBrutto() * iloscGodzin;
+
+		LocalDate locDate = null;	
+		String dzis = locDate.now().toString();	
+
+		wyplatydao.addWyplata(id, dataOd, dataDo, dzis, wyplata, iloscGodzin);
+
+		return "redirect:/user_payment_page?id=" + id; 
 	}
 
 	/**

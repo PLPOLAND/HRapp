@@ -20,6 +20,7 @@
     <link href='http://fonts.googleapis.com/css?family=Barlow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
+    <meta charset="utf-8">
     <title>HR MAJ Dodaj nowego pracownika</title>
 </head>
 
@@ -85,7 +86,7 @@
                                 <th>Wypłata brutto:</th><td><input type="number" name="wyplatabrutto" size="40" value="" min = "1" step="0.01" required></td> 
                             </tr>
                             <tr>
-                                <th rowspan = "6">Uprawnienia:</th><td><input type="checkbox" name="uprawnienia" value="1" ><label for="checkbox">Administrator</label></td> 
+                                <th rowspan = "6">Uprawnienia:</th><td><input type="checkbox" name="admin" value="1" ><label for="checkbox">Administrator</label></td> 
                             </tr>
                             <tr>
                                     <td><input type="checkbox" name="add_user" value="1"><label for="checkbox">Dodawanie użytkowników</label></td>

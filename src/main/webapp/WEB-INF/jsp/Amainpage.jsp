@@ -21,6 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <meta charset="utf-8">
     
     <title>HR MAJ Admin Page</title>
 </head>

@@ -16,14 +16,21 @@ public class TypyUmowyDAO{
     private JdbcTemplate baza;
 
     final String GET_ALL_TYPY_UMOWY_DATA = "SELECT `ID_T`, `nazwaSkr`, `nazwa`, `funduszPracy`, `ubWypadkowe`,`ubRentowePracodawca`, `ubRentowePracownik`,`ubEmerytalnePracodawca`,`ubEmerytalnePracownik`,`ubChorobowe`,`ubZdrowotne`,`zaliczkaPIT`,`FGSP` FROM TypyUmowy";
+    final String GET_USERS_TYPY_UMOWY_DATA = "SELECT `ID`, `ID_T`, `nazwaSkr`, `nazwa`, `funduszPracy`, `ubWypadkowe`,`ubRentowePracodawca`, `ubRentowePracownik`,`ubEmerytalnePracodawca`,`ubEmerytalnePracownik`,`ubChorobowe`,`ubZdrowotne`,`zaliczkaPIT`,`FGSP` FROM TypyUmowy, UsersData u where ID_T = u.id_t_u ";
 
     public List<TypyUmowy> getAllTypyUmowy(){
         return baza.query(GET_ALL_TYPY_UMOWY_DATA, getMap());
     }
 
-    public List<TypyUmowy> find_typ_umowy_by_id(int id, JdbcTemplate baza) {
-        List<TypyUmowy> TU =  baza.query(GET_ALL_TYPY_UMOWY_DATA + " WHERE ID_T =  "+ id +";", getMap());
+    public List<TypyUmowy> find_typ_umowy_by_id(int id, JdbcTemplate baza1) {
+        List<TypyUmowy> TU =  baza1.query(GET_ALL_TYPY_UMOWY_DATA + " WHERE ID_T =  "+ id +";", getMap());
         return TU;
+    }
+    public TypyUmowy find_typ_umowy_by_id(int id) {
+        return baza.query(GET_ALL_TYPY_UMOWY_DATA + " WHERE ID_T =  "+ id +";", getMap()).get(0);
+    }
+    public TypyUmowy find_typ_umowy_by_user_id(int id) {
+        return baza.query(GET_USERS_TYPY_UMOWY_DATA + " AND ID =  "+ id +";", getMap()).get(0);
     }
 
     private RowMapper<TypyUmowy> getMap() {
