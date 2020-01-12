@@ -310,6 +310,24 @@ public class MainController {
 
 	/**
 	 * 
+	 * usuwanie pracownika
+	 */
+	@RequestMapping("/delete_user")
+	public String deleteUser(@RequestParam("id") int id, HttpServletRequest request) {
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if (!(security.getUserPremissions().isEdit_user() || security.getUserPremissions().isAdmin()))
+			return "errorpage";// TODO strona error dla braku uprawnien
+
+		userdao.deleteUser(id);
+
+		return "redirect:/adminhome";
+	
+	}
+
+	/**
+	 * 
 	 * strona wyplat uzytkownika (admin)
 	 */
 	@RequestMapping("/user_payment_page")

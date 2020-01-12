@@ -259,7 +259,7 @@ ALTER TABLE `Wyplaty`
 -- Ograniczenia dla tabeli `Permissions`
 --
 ALTER TABLE `Permissions`
-  ADD CONSTRAINT `Permissions_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Users` (`ID`);
+  ADD CONSTRAINT `Permissions_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Users` (`ID`) ON DELETE CASCADE;
 
 --
 -- Ograniczenia dla tabeli `UsersData`
@@ -267,13 +267,13 @@ ALTER TABLE `Permissions`
 ALTER TABLE `UsersData`
   ADD CONSTRAINT `Stanowisko` FOREIGN KEY (`id_s`) REFERENCES `Stanowiska` (`ID_s`),
   ADD CONSTRAINT `TypUmowy` FOREIGN KEY (`id_t_u`) REFERENCES `TypyUmowy` (`ID_T`),
-  ADD CONSTRAINT `UsersData_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Users` (`ID`);
+  ADD CONSTRAINT `UsersData_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Users` (`ID`) ON DELETE CASCADE;
 
   --
 -- Ograniczenia dla tabeli `Wyplaty`
 --
-ALTER TABLE `Permissions`
-  ADD CONSTRAINT `Wyplaty_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Users` (`ID`);
+ALTER TABLE `Wyplaty`
+  ADD CONSTRAINT `Wyplaty_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Users` (`ID`) ON DELETE CASCADE;
 
 COMMIT;
 

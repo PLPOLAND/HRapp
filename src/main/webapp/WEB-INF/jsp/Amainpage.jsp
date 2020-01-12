@@ -80,7 +80,15 @@
                                 </div>
                                 <!-- <input type="button" class="" value="Edytuj" onclick="location.href='/edit?id=${userval.getID()}'" /> -->
                             </td>
-                            <td class="przycisk delete" >
+                            <td class="przycisk delete" onclick="potwierdź_usuwanie(value='${userval.getID()}', '${userval.getImie()}', '${userval.getNazwisko()}');" >
+                            <script type="text/javascript">
+                                function potwierdź_usuwanie(id, imie, nazwisko) {
+                                    if (confirm("Usunąć użytkownika " + imie + " " + nazwisko + "?")) {
+                                        window.location.href = '/delete_user?id=' + id;
+                                    } else {
+                                    }
+                                }
+                            </script>
                                 <div class="tooltip">
                                         <i class='icon-trash'></i>
                                     <span class="tooltiptext">Usuń</span>

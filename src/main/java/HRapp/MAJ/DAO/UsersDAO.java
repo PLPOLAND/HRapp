@@ -30,6 +30,7 @@ public class UsersDAO{
     final String GET_USER_DATA = "SELECT * FROM Users NATURAL JOIN UsersData LEFT JOIN Stanowiska ON UsersData.id_s=Stanowiska.ID_s LEFT JOIN TypyUmowy ON UsersData.id_t_u=TypyUmowy.ID_T NATURAL JOIN Permissions";
     final String GET_USER_ID = "SELECT ID FROM Users WHERE nickname=? AND email=?";
     final String GET_USER_DATA_MAIN_PAGE = "SELECT Users.ID, UsersData.imie, UsersData.nazwisko, Stanowiska.Nazwa as Stanowisko, Users.email FROM Users NATURAL JOIN UsersData NATURAL JOIN Stanowiska;";
+    final String DELETE_USER = "DELETE from Users WHERE ID = ?";
     /**
      * Pobieranie wszystkich danych usera z bazy danych
      * @return List<User>
@@ -78,6 +79,10 @@ public class UsersDAO{
         int id = baza.queryForObject(GET_USER_ID, Integer.class, nickname, email);
         baza.update(ADD_USER_DATA, id, imie, nazwisko, pesel, nrtelefonu, dataurodzenia, nrkonta, wyplatabrutto, stanowisko, typumowy, ulica, nrdomu, nrmieszkania,miasto,kodpocztowy);
         return id;
+    }
+
+    public void  deleteUser(int id){
+        baza.update(DELETE_USER, id);
     }
 
 
