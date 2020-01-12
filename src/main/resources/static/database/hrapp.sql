@@ -160,9 +160,9 @@ CREATE TABLE `UsersData` (
 --
 
 INSERT INTO `UsersData` (`ID`, `imie`, `nazwisko`, `pesel`, `nrTelefonu`, `dataUrodzenia`, `kontoBankowe`, `wyplataBrutto`, `id_s`, `id_t_u`, `ulica`, `nrDomu`, `nrMieszkania`, `miasto`, `kodPocztowy`) VALUES
-(1, 'Marek', 'Pałdyna', '98072694616', '678567467', '1998-03-21', '25213129921111580206782827', 80, 1, 1, 'Malinowa', '11', 0, 'Warszawa', '03-234'),
+(1, 'Marek', 'Patus', '98072694616', '678567467', '1998-03-21', '25213129921111580206782827', 80, 1, 1, 'Malinowa', '11', 0, 'Warszawa', '03-234'),
 (2, 'Adam', 'Mickiewicz', '57072558199', '999333000', '1957-07-25', '22345642126845567534542247', 40, 1, 1, 'Przekatna', '34', 109, 'Warszawa', '05-345'),
-(3, 'Łucja', 'Kowalczyk', '87982998443', '506849985', '2000-02-08', '7865486548965458965', 90, 2, 3, 'Końska', '59', 5, 'Konin', '02-945');
+(3, 'Danuta', 'Kowalczyk', '87982998443', '506849985', '2000-02-08', '7865486548965458965', 90, 2, 3, 'Konikowa', '59', 5, 'Konin', '02-945');
 
 
 - --------------------------------------------------------
