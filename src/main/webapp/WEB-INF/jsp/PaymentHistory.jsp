@@ -36,7 +36,7 @@
             <div id="praco_logo">
                 Historia wypłat
             </div>
-                    <table class="kolumnaB">
+                    <table class="kolumnaWyplaty">
                                 <tr>
                                     <th>Okres rozliczeniowy:</th> 
                                     <th>Data zaksięgowania:</th>
@@ -48,7 +48,7 @@
                                 <td> Od ${wypval.getDataOd()} do ${wypval.getDataDo()}</td>
                                 <td>${wypval.getDataZaksiegowania()}</td>
                                 <td>${wypval.getKwotaBrutto()}</td> 
-                                <td>${wypval.getImie()} ${wypval.getNazwisko()}, nr. konta :${wypval.getNrKonta()}</td>                              
+                                <td>${wypval.getImie()} ${wypval.getNazwisko()}, nr. konta: ${wypval.getNrKonta()}</td>                              
                             </tr>
                         </c:forEach>
                     </table>

@@ -267,7 +267,7 @@ th{
     background-color: var(--hover-color);  
 }
 .kolumnaB th{
-    width: 200px;
+    width: 400px;
     padding: 5px 5px;
     border: none;
     border-radius: 4px;
@@ -280,6 +280,31 @@ th{
     width: 50%;
     
 }
+
+
+
+.kolumnaWyplaty{
+    float: left;
+    width: 100%;
+}
+.kolumnaWyplaty th{
+    
+    padding: 5px 5px;
+    border: none;
+    border-radius: 4px;
+    color: var(--mainbody-font-color);
+      
+}
+.kolumnaWyplaty td{
+    width: 300px;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 4px;
+    color: var(--mainbody-font-color);
+    background-color: var(--hover-color);  
+}
+
+
 
 .kolumnaA td{
     width: 400px;
