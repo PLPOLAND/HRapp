@@ -20,8 +20,8 @@ public class Uprawnienia {
     boolean add_user;
     boolean del_user;
     boolean edit_user;
-    boolean show_all_users;
     boolean show_d_data; // czy użytkownik może zobaczyć prywatne dane
+    boolean finance_management;
 
     /**
      * Pobieranie ID uprawnienia
@@ -149,17 +149,6 @@ public class Uprawnienia {
         this.edit_user = edit_user;
     }
 
-    public boolean isShow_all_users() {
-        return this.show_all_users;
-    }
-
-    public boolean getShow_all_users() {
-        return this.show_all_users;
-    }
-
-    public void setShow_all_users(boolean show_all_users) {
-        this.show_all_users = show_all_users;
-    }
 
     public boolean isShow_d_data() {
         return this.show_d_data;
@@ -171,6 +160,19 @@ public class Uprawnienia {
 
     public void setShow_d_data(boolean show_d_data) {
         this.show_d_data = show_d_data;
+    }
+
+
+    public boolean isFinance_management() {
+        return this.finance_management;
+    }
+
+    public boolean getFinance_management() {
+        return this.finance_management;
+    }
+
+    public void setFinance_management(boolean finance_management) {
+        this.finance_management = finance_management;
     }
 
     /**
@@ -200,8 +202,8 @@ public class Uprawnienia {
         this.add_user = uprawnienia.add_user;
         this.del_user = uprawnienia.del_user;
         this.edit_user = uprawnienia.edit_user;
-        this.show_all_users = uprawnienia.show_all_users;
         this.show_d_data = uprawnienia.show_d_data;
+        this.finance_management = uprawnienia.finance_management;
     }
 
     @Override
@@ -211,7 +213,7 @@ public class Uprawnienia {
                 + isShow_all_users() + "'" + ", show_d_data='" + isShow_d_data() + "'" + "}";*/
                 if (admin == true)
                 return "Administrator";
-            else if(add_user == false && del_user == false && edit_user == false && show_all_users == false && show_d_data == false)
+            else if(add_user == false && del_user == false && edit_user == false &&  show_d_data == false && finance_management == false)
                 return "Podstawowe";
             else{
                 String upr = "Podstawowe oraz: ";
@@ -221,10 +223,10 @@ public class Uprawnienia {
                 upr += "Usuwanie użytkowników; ";
                 if(edit_user == true)
                 upr += "Edytowanie użytkowników; ";
-                if(show_all_users == true)
-                upr += "Wyświetlanie listy użytkowników; ";
                 if(show_d_data == true)
                 upr += "Wyświetlanie szczegółowych danych użytkowników; ";
+                if(finance_management == true)
+                upr += "Zarządzanie finansami; ";
                 return upr;
             }
     }

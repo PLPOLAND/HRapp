@@ -22,7 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="${javaScript}"></script>
     <meta charset="utf-8">
-    <title>HR MAJ Nie można odnaleźć strony</title>
+    <title>HR MAJ Brak uprawnień</title>
 </head>
 
 <body>
@@ -34,14 +34,14 @@
         </div>
         <div id="mainbody">
             <br/><br/><br/>
-            <h3>Błąd! Nie można odnaleźć strony</h1> 
-            <br/><br/><br/>
+            <h3>Niestety nie masz odpowiednich uprawnień do wykonania tej operacji.</h1> 
+            <!--<br/><br/><br/>
             Kliknij obrazek aby powrócić do ekranu logowania
             <br/><br/><br/>
             <a href="/">
                 <img width="500", height="350", src="/img/house.png"/>
             </a>
-            <title>Powrót do strony logowania</title>
+            <title>Powrót do strony logowania</title>-->
          
         </div>
         <div id="footer">

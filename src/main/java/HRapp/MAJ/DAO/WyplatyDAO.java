@@ -15,8 +15,7 @@ public class WyplatyDAO{
     @Autowired
     private JdbcTemplate baza;
 
-   // final String GET_ALL_STANOWISKA_DATA = "SELECT ID_s, Nazwa, NazwaSkr FROM Stanowiska";
-   final String GET_ALL_WYPLATY_DATA = "SELECT ID_w, ID, dataOD, dataDo, dataZaksiegowania, kwotaBrutto, przepracowaneGodziny FROM Wyplaty";
+   final String GET_ALL_WYPLATY_DATA = "SELECT ID_w, ID, dataOD, dataDo, dataZaksiegowania, kwotaBrutto, przepracowaneGodziny, imie, nazwisko, kontoBankowe FROM Wyplaty NATURAL JOIN UsersData";
    final String ADD_WYPLATA = "INSERT INTO Wyplaty (ID, dataOd, dataDo, dataZaksiegowania, kwotaBrutto, przepracowaneGodziny) VALUES (?,?,?,?,?,?)";
 
     public List<Wyplaty> getAllWyplaty(){
@@ -41,6 +40,9 @@ public class WyplatyDAO{
             wyplata.setDataZaksiegowania(rs.getString("dataZaksiegowania"));
             wyplata.setKwotaBrutto(rs.getDouble("kwotaBrutto"));
             wyplata.setPrzepracowaneGodziny(rs.getInt("przepracowaneGodziny"));
+            wyplata.setNrKonta(rs.getString("kontoBankowe"));
+            wyplata.setImie(rs.getString("imie"));
+            wyplata.setNazwisko(rs.getString("nazwisko"));
 
 			return wyplata;
 		};

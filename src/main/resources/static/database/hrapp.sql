@@ -36,18 +36,18 @@ CREATE TABLE `Permissions` (
   `add_user` tinyint(1) NOT NULL DEFAULT '0',
   `del_user` tinyint(1) NOT NULL DEFAULT '0',
   `edit_user` tinyint(1) NOT NULL DEFAULT '0',
-  `show_all_users` tinyint(1) NOT NULL DEFAULT '0',
-  `show_d_data` tinyint(1) NOT NULL DEFAULT '0'
+  `show_d_data` tinyint(1) NOT NULL DEFAULT '0',
+  `finance_management` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `Permissions`
 --
 
-INSERT INTO `Permissions` (`ID`, `admin`, `add_user`, `del_user`, `edit_user`, `show_all_users`, `show_d_data`) VALUES
+INSERT INTO `Permissions` (`ID`, `admin`, `add_user`, `del_user`, `edit_user`, `show_d_data`, `finance_management`) VALUES
 (1, 1, 0, 0, 0, 0, 0),
 (2, 1, 0, 0, 0, 0, 0),
-(3, 0, 0, 0, 0, 1, 0);
+(3, 0, 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,7 @@ INSERT INTO `UsersData` (`ID`, `imie`, `nazwisko`, `pesel`, `nrTelefonu`, `dataU
 (3, 'Danuta', 'Kowalczyk', '87982998443', '506849985', '2000-02-08', '7865486548965458965', 90, 2, 3, 'Konikowa', '59', 5, 'Konin', '02-945');
 
 
-- --------------------------------------------------------
+-- --------------------------------------------------------
 
 --
 -- Struktura tabeli dla tabeli `Wyplaty`

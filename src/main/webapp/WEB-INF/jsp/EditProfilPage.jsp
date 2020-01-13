@@ -35,18 +35,17 @@
         <div id="mainbody">
             <div id="praco_logo">
 
-                Edytuj użytkownika ${user1.getImie()} ${user1.getNazwisko()}
-                <!--Imie i nazwisko osoby ktorej konto wybraliśmy wcześniej przyciskiem SZCZEGÓŁY-->
+                Edytuj profil:
                 <br>
             </div>
             <div class="osoba_detail">
-                <!--To z bazy danych vvvv + zapisywanie do bazy danych TO EDYCJA JAKO ADMIN-->
+                <!--To z bazy danych vvvv + zapisywanie do bazy danych TO EDYCJA JAKO UŻYTKOWNIK-->
                 <form action="/edit_user">
                     <div class="kolumnaA">
                         <table>
                             <tr>
                                 <th>
-                                    <h2>Dane pracownika:</h2>
+                                    <h2>Dane:</h2>
                                 </th>
                             </tr>
                             <tr>
@@ -79,69 +78,6 @@
                                 <td><input type="number" name="nrkonta" size="40" value="${user1.getKontoBankowe()}"
                                         required></td>
                             </tr>
-                            <tr>
-                                <th>Typ umowy:</th>
-                                <td>
-                                    <!--</th><input type="text" name="umowy" size="40" value="Umowa"></th>-->
-                                    <select id="TypUmowy" name="typumowy">
-                                        <c:forEach var="typyUmowy" items="${typyUmowy}">
-                                            <option ${user1.getTypUmowy()==typyUmowy.getNazwa() ? 'selected="selected"'
-                                                : '' } value="${typyUmowy.getID()}">${typyUmowy.getNazwa()}</option>
-                                        </c:forEach>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Stanowisko:</th>
-                                <td>
-                                    <!--<input list="Stanowisko" type="text" name="x5" size="40" value="Stanow">-->
-                                    <select id="Stanowisko" name="stanowiska">
-                                        <c:forEach var="stanowiska" items="${stanowiska}">
-                                            <option ${user1.getStanowisko()==stanowiska.getNazwa()
-                                                ? 'selected="selected"' : '' } value="${stanowiska.getID()}">
-                                                ${stanowiska.getNazwa()}</option>
-                                        </c:forEach>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Wypłata brutto:</th>
-                                <td><input type="number" name="wyplatabrutto" size="40"
-                                        value="${user1.getWyplataBrutto()}" required></td>
-                            </tr>
-                            <tr>
-                                <th rowspan="6">Uprawnienia:</th>
-                                <td><input type="checkbox" name="admin" value="1"
-                                        ${user1.getUprawnienia().getAdmin()==true ? 'checked="checked"' : '' }><label
-                                        for="checkbox">Administrator</label></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="add_user" value="1"
-                                        ${user1.getUprawnienia().getAdd_user()==true ? 'checked="checked"' : '' }><label
-                                        for="checkbox">Dodawanie użytkowników</label></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="del_user" value="1"
-                                        ${user1.getUprawnienia().getDel_user()==true ? 'checked="checked"' : '' }><label
-                                        for="checkbox">Usuwanie użytkowników</label></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="edit_user" value="1"
-                                        ${user1.getUprawnienia().getEdit_user()==true ? 'checked="checked"' : ''
-                                        }><label for="checkbox">Edytowanie użytkowników</label></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="show_all_users" value="1"
-                                        ${user1.getUprawnienia().getShow_all_users()==true ? 'checked="checked"' : ''
-                                        }><label for="checkbox">Wyświetlanie listy użytkowników</label></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="show_d_data" value="1"
-                                        ${user1.getUprawnienia().getShow_d_data()==true ? 'checked="checked"' : ''
-                                        }><label for="checkbox">Wyświetlanie szczegółowych informacji o
-                                        użytkownikach</label></td>
-                            </tr>
-                        </table>
                         <br><br>
                         <input type="submit" class="konto" value="Zaktualizuj" style="vertical-align:middle">
                         <br><br><br><br><br><br>

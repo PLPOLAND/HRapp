@@ -34,56 +34,26 @@
         </div>
         <div id="mainbody">
             <div id="praco_logo">
-                Finanse użytkownika ${user1.getImie()} ${user1.getNazwisko()}
+                Historia wypłat
             </div>
-            <br><br><br>
-            <button class="konto" style="vertical-align:middle" onclick="location.href='/user_add_payment_page?id=${user1.getID()}'">
-                <i class='far fa-edit'></i>
-                <span>Dodaj wypłatę</span>
-            </button>
-            <div class="osoba_detail">     
-                <div class="kolumnaB">      
-                    <table>
-                        <tr>
-                            <th><h2>Wynagordzenie:</h2></th>
-                        </tr>
-                        <tr>
-                            <th>Wynagrodzenie brutto:</th><td>${user1.getWyplataBrutto()} zł/h</td> 
-                        </tr>
-                        <tr>
-                            <th>Wynagrodzenie netto:</th><td>${user1.getWyplataNetto()} zł/h</td> 
-                        </tr>
-                        <tr>
-                            <th>Całkowity koszt pracownika:</th><td>${user1.getCalkowityKosztPracownika()} zł/h</td> 
-                        </tr>
-                        <br>
-                    </table>
-                </div>
-
                     <table class="kolumnaB">
-                            <tr>
-                                    <th><h2>Historia wypłat:</h2></th>
-                                </tr>
                                 <tr>
                                     <th>Okres rozliczeniowy:</th> 
                                     <th>Data zaksięgowania:</th>
                                     <th>Wypłacona kwota (brutto):</th>
+                                    <th>Adresat:</th>
                                 </tr>
                         <c:forEach var="wypval" items="${wyplaty}">
                                 <tr class="pos">
                                 <td> Od ${wypval.getDataOd()} do ${wypval.getDataDo()}</td>
                                 <td>${wypval.getDataZaksiegowania()}</td>
-                                <td>${wypval.getKwotaBrutto()}</td>                               
+                                <td>${wypval.getKwotaBrutto()}</td> 
+                                <td>${wypval.getImie()} ${wypval.getNazwisko()}, nr. konta :${wypval.getNrKonta()}</td>                              
                             </tr>
                         </c:forEach>
                     </table>
                 <!--</div>    -->
             </div>
-            <br><br><br>
-            <button class="konto" style="vertical-align:middle" onclick="location.href='/user_specific_payment_data_page?id=${user1.getID()}'">
-                <i class='far fa-edit'></i>
-                <span>Szczegóły</span>
-            </button>
         </div>
         <div id="footer">
             MAJ<br>

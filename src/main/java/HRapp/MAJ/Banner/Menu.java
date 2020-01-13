@@ -25,13 +25,17 @@ public class Menu {
         if (uprawnienia.isAdmin()) {
             this.Add("logowanie", "/");
             this.Add("strona admina", "/adminhome");
-            this.Add("test", "/test", true);
-            this.Add("Użytkownicy", "#", true);
-            this.AddToDropDawnPos("Użytkownicy", "Lista", "/adminhome");
-            this.AddToDropDawnPos("Użytkownicy", "Dodawanie", "/add_user_page");
-            this.Add("templatka", "/tmp");
-            this.AddToDropDawnPos("test", "menu", "/menu");
-            this.AddToDropDawnPos("test", "Testy Julka", "/xxx");
+            this.Add("test", "/test");
+            this.Add("Użytkownicy", "/adminhome", true);
+            this.AddToDropDawnPos("Użytkownicy", "Lista użytkowników", "/details_users_list");
+            this.AddToDropDawnPos("Użytkownicy", "Dodaj użytkownika", "/add_user_page");
+            this.AddToDropDawnPos("Użytkownicy", "Usuń użytkownika", "/delete_users_list");
+            this.AddToDropDawnPos("Użytkownicy", "Edytuj użytkownika", "/edit_users_list");
+            this.Add("Finanse", "#", true);
+           // this.AddToDropDawnPos("Finanse", "Moje finanse", "/menu");
+            this.AddToDropDawnPos("Finanse", "Finanse użytkowników", "/payment_data_users_list");
+            this.AddToDropDawnPos("Finanse", "Dodaj wypłatę", "/add_payment_users_list");
+            this.AddToDropDawnPos("Finanse", "Historia wypłat", "/payment_history");
         }
         else{
             if(uprawnienia.isAdd_user()){
@@ -43,12 +47,12 @@ public class Menu {
             if(uprawnienia.isDel_user()){
                 //.....?
             }
-            if(uprawnienia.isShow_all_users()){
+            /*if(uprawnienia.isShow_all_users()){
                 // if(!this.havePosition(new PozycjaMenu("Użytkownicy", "#", true))){
                     this.Add("Użytkownicy", "#", true);
                 // }
                 this.AddToDropDawnPos("Użytkownicy", "Lista", "/adminhome");
-            }
+            }*/
         }
     }
 

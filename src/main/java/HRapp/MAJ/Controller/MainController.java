@@ -11,6 +11,7 @@ import java.time.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -79,7 +80,7 @@ public class MainController {
 
 	/**
 	 * 
-	 *strona admina (lista pracownikow)
+	 *strona admina (lista pracownikow z dostępem do wszystkiego)
 	 */
 	@RequestMapping("/adminhome")
 	public String adminhome(Model model,HttpServletRequest request){	
@@ -87,10 +88,8 @@ public class MainController {
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
 			return "redirect:/";
-		if (!(security.getUserPremissions().isShow_all_users() || security.getUserPremissions().isAdmin()))
+		if (!(security.getUserPremissions().isAdmin()))
 			return "errorpage";//TODO strona error dla braku uprawnien
-		// if(!security.isUserAdmin())
-		// return "errorpage"; 
 
 		Menu menu = new Menu(security.getUserPremissions());
 		List<User> userList = userdao.getAllUsers();
@@ -99,23 +98,158 @@ public class MainController {
 		model.addAttribute("userList", userList);
 		model.addAttribute(banner);	
 
-
 		return "Amainpage";
 	}
-	
 
 	/**
 	 * 
-	 * szczegolowy widok pracownika
+	 * lista użytkowników (dostępna dla wszystkich)
+	 */
+	@RequestMapping("/users_list")
+	public String users_list(Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+			return "redirect:/";
+
+		Menu menu = new Menu(security.getUserPremissions());
+		List<User> userList = userdao.getAllUsers();
+		
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("userList", userList);
+		model.addAttribute(banner);	
+
+		return "UsersList";
+	}
+	
+	/**
+	 * 
+	 * lista użytkowników z dostępem do szczegółowych danych (tylko dla uprawnionych)
+	 */
+	@RequestMapping("/details_users_list")
+	public String details_users_list(Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+			return "redirect:/";
+		if (!(security.getUserPremissions().isShow_d_data() || security.getUserPremissions().isAdmin()))
+			return "errorpage";//TODO strona error dla braku uprawnien
+
+		Menu menu = new Menu(security.getUserPremissions());
+		List<User> userList = userdao.getAllUsers();
+		
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("userList", userList);
+		model.addAttribute(banner);	
+
+		return "DetailsUsersList";
+	}
+
+	/**
+	 * 
+	 * lista użytkowników z dostępem do ich edytowania (tylko dla uprawnionych)
+	 */
+	@RequestMapping("/edit_users_list")
+	public String edit_users_list(Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+			return "redirect:/";
+		if (!(security.getUserPremissions().isEdit_user() || security.getUserPremissions().isAdmin()))
+			return "errorpage";//TODO strona error dla braku uprawnien
+
+		Menu menu = new Menu(security.getUserPremissions());
+		List<User> userList = userdao.getAllUsers();
+		
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("userList", userList);
+		model.addAttribute(banner);	
+
+		return "EditUsersList";
+	}
+
+	/**
+	 * 
+	 * lista użytkowników z dostępem do ich usuwania (tylko dla uprawnionych)
+	 */
+	@RequestMapping("/delete_users_list")
+	public String delete_users_list(Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+			return "redirect:/";
+		if (!(security.getUserPremissions().isDel_user() || security.getUserPremissions().isAdmin()))
+			return "errorpage";//TODO strona error dla braku uprawnien
+
+		Menu menu = new Menu(security.getUserPremissions());
+		List<User> userList = userdao.getAllUsers();
+		
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("userList", userList);
+		model.addAttribute(banner);	
+
+		return "DeleteUsersList";
+	}
+	
+	/**
+	 * 
+	 * lista użytkowników z dostępem do informacji o ich finansach (tylko dla uprawnionych)
+	 */
+	@RequestMapping("/payment_data_users_list")
+	public String payment_data_users_list(Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+			return "redirect:/";
+		if (!(security.getUserPremissions().isFinance_management() || security.getUserPremissions().isAdmin())) 
+			return "errorpage";//TODO strona error dla braku uprawnien
+
+		Menu menu = new Menu(security.getUserPremissions());
+		List<User> userList = userdao.getAllUsers();
+		
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("userList", userList);
+		model.addAttribute(banner);	
+
+		return "PaymentDataUsersList";
+	}
+
+	/**
+	 * 
+	 * lista użytkowników z dostępem do dodania im wypłaty (tylko dla uprawnionych)
+	 */
+	@RequestMapping("/add_payment_users_list")
+	public String add_payment_users_list(Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+			return "redirect:/";
+		if (!(security.getUserPremissions().isFinance_management() || security.getUserPremissions().isAdmin()))
+			return "errorpage";//TODO strona error dla braku uprawnien
+
+		Menu menu = new Menu(security.getUserPremissions());
+		List<User> userList = userdao.getAllUsers();
+		
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("userList", userList);
+		model.addAttribute(banner);	
+
+		return "AddPaymentUsersList";
+	}
+
+	/**
+	 * 
+	 * szczegolowy widok pracownika (dostęny dla uprawnionych oraz dla każdego, jeśli chodzi o jego własny profil)
 	 */
 	@RequestMapping("/user_profile_page")
 	public String user_profile_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
 
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
-		return "redirect:/";
-		if(!security.isUserAdmin())
-		return "errorpage";
+			return "redirect:/";
+		HttpSession session = request.getSession();
+        if ((Integer) session.getAttribute("id") != id  && !(security.getUserPremissions().isShow_d_data() || security.getUserPremissions().isAdmin()))
+        	return "errorpage";
 
 		Menu menu = new Menu(security.getUserPremissions());
 		User user1 = userdao.find_user_by_id(id);
@@ -129,7 +263,8 @@ public class MainController {
 
 	/**
 	 * 
-	 * strona edycji pracownika
+	 * strona edycji pracownika (tylko dla uprawnionych)
+	 * przekierowuje do ogranicznej edycji, jeśli chodzi o innych użytkowników, którzy chcą wyedytować własne dane
 	 */
 	@RequestMapping("/edit_user_page")
 	public String edit_user_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
@@ -137,8 +272,11 @@ public class MainController {
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
 		return "redirect:/";
+		HttpSession session = request.getSession();
 		if (!(security.getUserPremissions().isEdit_user() || security.getUserPremissions().isAdmin()))
-			return "errorpage";// TODO strona error dla braku uprawnien
+			if((Integer) session.getAttribute("id") != id)
+			return "redirect:/edit_profile_page?id=" + id;
+			else return "errorpage";
 
 		Menu menu = new Menu(security.getUserPremissions());
 		User user1 = userdao.find_user_by_id(id);
@@ -157,7 +295,29 @@ public class MainController {
 
 	/**
 	 * 
-	 * edycja pracownika
+	 * strona edycji swojego profilu (dostępna dla wszystkich bez uprawnień edycji użytkowników)
+	 */
+	@RequestMapping("/edit_profile_page")
+	public String edit_profile_page(@RequestParam("id") int id,Model model,HttpServletRequest request){	
+
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+
+		Menu menu = new Menu(security.getUserPremissions());
+		User user1 = userdao.find_user_by_id(id);
+
+		Banner banner = new Banner(menu, security.getFullUserData());
+		model.addAttribute("user1", user1);
+		model.addAttribute(banner);	
+
+
+		return "EditProfilPage";
+	}
+
+	/**
+	 * 
+	 * edycja pracownika (zapis do bazy danych)
 	 */
 	@RequestMapping("/edit_user")
 	public String editUser(HttpServletRequest request, HttpServletResponse response) {
@@ -222,7 +382,7 @@ public class MainController {
 
 	/**
 	 * 
-	 * strona dodawania pracownika
+	 * strona dodawania pracownika (tylko dla uprawnionych)
 	 */
 	@RequestMapping("/add_user_page")
 	public String loadAddUserPage(HttpServletRequest request, Model model) {
@@ -249,7 +409,7 @@ public class MainController {
 
 	/**
 	 * 
-	 * dodawanie pracownika
+	 * dodawanie pracownika (zapis do bazy danych)
 	 */
 	@RequestMapping("/add_user")
 	public String addUser(HttpServletRequest request) {
@@ -310,14 +470,14 @@ public class MainController {
 
 	/**
 	 * 
-	 * usuwanie pracownika
+	 * usuwanie pracownika (usuwanie z bazy danych)
 	 */
 	@RequestMapping("/delete_user")
 	public String deleteUser(@RequestParam("id") int id, HttpServletRequest request) {
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
 		return "redirect:/";
-		if (!(security.getUserPremissions().isEdit_user() || security.getUserPremissions().isAdmin()))
+		if (!(security.getUserPremissions().isDel_user() || security.getUserPremissions().isAdmin()))
 			return "errorpage";// TODO strona error dla braku uprawnien
 
 		userdao.deleteUser(id);
@@ -328,15 +488,38 @@ public class MainController {
 
 	/**
 	 * 
-	 * strona wyplat uzytkownika (admin)
+	 * strona z historią wypłat (tylko dla uprawnionych)
+	 */
+	@RequestMapping("/payment_history")
+	public String payment_history(Model model,HttpServletRequest request){	
+		Security security = new Security(request, userdao);
+		if(!security.isLoged())
+		return "redirect:/";
+		if(!(security.getUserPremissions().isFinance_management() || security.isUserAdmin()))
+		return "errorpage"; 
+
+		Menu menu = new Menu(security.getUserPremissions());	
+		Banner banner = new Banner(menu, security.getFullUserData());
+		List<Wyplaty> wyp = wyplatydao.getAllWyplaty();
+		model.addAttribute("wyplaty", wyp);
+		model.addAttribute(banner);	
+
+		return "PaymentHistory";
+	}
+
+	/**
+	 * 
+	 * strona z info o finansach uzytkownika (tylko dla uprawnionych oraz dla każdego,
+	 * kto chce zobaczyć własne info o finansach)
 	 */
 	@RequestMapping("/user_payment_page")
 	public String userPaymentPage(@RequestParam("id") int id, Model model,HttpServletRequest request){	
 		Security security = new Security(request, userdao);
 		if(!security.isLoged())
-		return "redirect:/";
-		if(!security.isUserAdmin())
-		return "errorpage"; 
+			return "redirect:/";
+		HttpSession session = request.getSession();
+		if((Integer) session.getAttribute("id") != id  && !(security.getUserPremissions().isShow_d_data() || security.getUserPremissions().isAdmin()))
+			return "errorpage"; 
 
 		Menu menu = new Menu(security.getUserPremissions());
 		User user1 = userdao.find_user_by_id(id);		
@@ -351,7 +534,7 @@ public class MainController {
 
 	/**
 	 * 
-	 * szczegolowe dane o wynagrodzeniu uzytkownika (admin?)
+	 * szczegolowe dane o wynagrodzeniu uzytkownika (dostępne dla każdego - uprawnieni mogą zobaczyć wszystkich, nieuprawnieni tylko swoje)
 	 */
 	@RequestMapping("/user_specific_payment_data_page")
 	public String userSpecificPaymentDataPage(@RequestParam("id") int id, Model model, HttpServletRequest request){	

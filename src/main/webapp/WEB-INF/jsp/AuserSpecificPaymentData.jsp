@@ -34,7 +34,7 @@
         </div>
         <div id="mainbody">
                 <div id="praco_logo">
-                        ${user1.getImie()} ${user1.getNazwisko()}
+                        Finanse użytkwonika ${user1.getImie()} ${user1.getNazwisko()}
                 </div>
                 <div class="osoba_detail">
                     <div class="kolumnaB">                  

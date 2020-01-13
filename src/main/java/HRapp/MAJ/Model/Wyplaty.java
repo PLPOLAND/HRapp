@@ -8,7 +8,10 @@ Odpowiada za przetwarzanie danych o wyplatach
 */
 public class Wyplaty{
     int ID_w;
-    int ID;
+    int ID; //ID użytkownika
+    String kontoBankowe; // nr konta, na które została przelana wypłata
+    String imie; // imię osoby, której przelano wypłatę
+    String nazwisko; // nazwisko osoby, której przelano wypłatę
     String dataOd;
     String dataDo;
     String dataZaksiegowania;
@@ -31,6 +34,27 @@ public class Wyplaty{
         ID = id;
     }
 
+    public String getNrKonta(){
+        return kontoBankowe;
+    }
+    
+    public void setNrKonta(String NrKonta){
+        kontoBankowe = NrKonta;
+    }
+    public String getImie(){
+        return imie;
+    }
+    
+    public void setImie(String Imie){
+        imie = Imie;
+    }
+    public String getNazwisko(){
+        return nazwisko;
+    }
+    
+    public void setNazwisko(String Nazwisko){
+        nazwisko = Nazwisko;
+    }
     public String getDataOd(){
         return dataOd;
     }
