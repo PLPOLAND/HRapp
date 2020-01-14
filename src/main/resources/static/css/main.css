@@ -48,6 +48,7 @@ body{
     background-color: var(--banner-color);
     padding-left: calc(10% - 15px);
     padding-right: calc(10% - 15px);
+    z-index:2;
 }
 #BannerDataSpace{
     display: block;
@@ -569,6 +570,10 @@ a:hover{
     bottom: 100%;
     left: 50%;
     margin-left: -60px;
+   
+
+    white-space:nowrap;
+    max-width:none;
 }
 .tooltip:hover .tooltiptext{
     visibility: visible;

@@ -55,11 +55,13 @@
                             <td>${userval.getNazwisko()}</td>
                             <td>${userval.getEmail()}</td>
                             <td>${userval.getStanowisko()}</td>
-                            <td class="przycisk" onclick="location.href='/user_add_payment_page?id=${userval.getID()}'">
+                            <td class="przycisk" onclick="location.href='/user_add_payment_page?id=${userval.getID()}'">                               
                                 <div class="tooltip">
                                     <i class='icon-credit-card'></i>
+                                    
                                     <span class="tooltiptext">Dodaj Wypłatę</span>
-                                </div> 
+                                    
+                                </div>                                
                             </td>
                         </tr>
                     </c:forEach>
