@@ -40,7 +40,7 @@
             </div>
             <div class="osoba_detail">
                 <!--To z bazy danych vvvv + zapisywanie do bazy danych TO EDYCJA JAKO UŻYTKOWNIK-->
-                <form action="/edit_user">
+                <form action="/edit_profile">
                     <div class="kolumnaA">
                         <table>
                             <tr>
@@ -78,6 +78,7 @@
                                 <td><input type="number" name="nrkonta" size="40" value="${user1.getKontoBankowe()}"
                                         required></td>
                             </tr>
+                            </table>
                         <br><br>
                         <input type="submit" class="konto" value="Zaktualizuj" style="vertical-align:middle">
                         <br><br><br><br><br><br>

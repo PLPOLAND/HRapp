@@ -31,6 +31,8 @@ public class UsersDAO{
     final String GET_USER_ID = "SELECT ID FROM Users WHERE nickname=? AND email=?";
     final String GET_USER_DATA_MAIN_PAGE = "SELECT Users.ID, UsersData.imie, UsersData.nazwisko, Stanowiska.Nazwa as Stanowisko, Users.email FROM Users NATURAL JOIN UsersData NATURAL JOIN Stanowiska;";
     final String DELETE_USER = "DELETE from Users WHERE ID = ?";
+    final String LIMITED_EDIT_USER_DATA = "UPDATE UsersData SET imie = ?, nazwisko = ?, pesel = ?, nrTelefonu = ?, dataUrodzenia = ?, kontoBankowe = ?, ulica = ?, nrDomu = ?, nrMieszkania = ?, miasto = ?, kodPocztowy = ? WHERE ID = ?";
+    
     /**
      * Pobieranie wszystkich danych usera z bazy danych
      * @return List<User>
@@ -68,6 +70,14 @@ public class UsersDAO{
     public void editUser(int id, String imie, String nazwisko, String nickname, String email, String nrkonta, int typumowy, int stanowisko, double wyplatabrutto, String pesel, String dataurodzenia, String nrtelefonu, String ulica, String nrdomu, int nrmieszkania, String miasto, String kodpocztowy){
         baza.update(EDIT_USER, nickname, email, id);
         baza.update(EDIT_USER_DATA, imie, nazwisko, pesel, nrtelefonu, dataurodzenia, nrkonta, wyplatabrutto, stanowisko, typumowy, ulica, nrdomu, nrmieszkania, miasto, kodpocztowy, id);
+    }
+
+    /**
+     * Ograniczona aktualizacja danych usera w bazie danych
+     */
+    public void limitedEditUser(int id, String imie, String nazwisko, String nickname, String email, String nrkonta, String pesel, String dataurodzenia, String nrtelefonu, String ulica, String nrdomu, int nrmieszkania, String miasto, String kodpocztowy){
+        baza.update(EDIT_USER, nickname, email, id);
+        baza.update(LIMITED_EDIT_USER_DATA, imie, nazwisko, pesel, nrtelefonu, dataurodzenia, nrkonta, ulica, nrdomu, nrmieszkania, miasto, kodpocztowy, id);
     }
 
     /**

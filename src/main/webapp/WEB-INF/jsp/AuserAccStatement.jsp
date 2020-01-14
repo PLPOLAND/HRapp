@@ -36,11 +36,6 @@
             <div id="praco_logo">
                 Finanse użytkownika ${user1.getImie()} ${user1.getNazwisko()}
             </div>
-            <br><br><br>
-            <button class="konto" style="vertical-align:middle" onclick="location.href='/user_add_payment_page?id=${user1.getID()}'">
-                <i class='far fa-edit'></i>
-                <span>Dodaj wypłatę</span>
-            </button>
             <div class="osoba_detail">     
                 <div class="kolumnaB">      
                     <table>
@@ -73,7 +68,7 @@
                                 <tr class="pos">
                                 <td> Od ${wypval.getDataOd()} do ${wypval.getDataDo()}</td>
                                 <td>${wypval.getDataZaksiegowania()}</td>
-                                <td>${wypval.getKwotaBrutto()}</td>                               
+                                <td>${wypval.getKwotaBrutto()} zł</td>                               
                             </tr>
                         </c:forEach>
                     </table>

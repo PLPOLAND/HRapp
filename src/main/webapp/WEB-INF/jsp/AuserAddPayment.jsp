@@ -42,7 +42,7 @@
                         <div class="kolumnaA"> 
                             <table>    
                                 <tr>
-                                    <th><h2><b>Okres rozliczeniowy</h2></th>
+                                    <th>Okres rozliczeniowy</th>
                                         <input type="hidden" name="id" value="${user1.getID() }">
                                 </tr>          
                                 <tr>
@@ -51,6 +51,7 @@
                                 <tr>
                                     <th>Do:</th><td><input type="date" name="dataDo" size="40" value ="${dzis}" required></td> 
                                 </tr>
+                                <br><br><br>
                                 <tr>
                                     <th>Dni urlopu:</th><td><input type="number" name="dniUrlopu" size="40" value = 0 required></td> 
                                 </tr>

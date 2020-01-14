@@ -6,6 +6,8 @@ import java.util.List;
 import HRapp.MAJ.Banner.PozycjaMenu;
 import HRapp.MAJ.Model.Uprawnienia;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Menu Klasa służąca do przechowywania i wypisywania menu poziomowego
  * 
@@ -18,41 +20,63 @@ public class Menu {
     List<PozycjaMenu> pozycjemenu;
     
     /** Konstruktor */
-    public Menu( Uprawnienia uprawnienia) {
+    public Menu( Uprawnienia uprawnienia, HttpSession session) {
         pozycjemenu = new ArrayList<>();
+        int id = (Integer) session.getAttribute("id");
         //tymczasowe pozycje
         // System.out.println("MENU: " + uprawnienia.toString());//DEBUG
+        this.Add("Moje konto", "/user_profile_page?id=" + id);
         if (uprawnienia.isAdmin()) {
             this.Add("logowanie", "/");
             this.Add("strona admina", "/adminhome");
-            this.Add("test", "/test");
+            //this.Add("Moje konto", "/user_profile_page?id=" + id);
             this.Add("Użytkownicy", "/adminhome", true);
-            this.AddToDropDawnPos("Użytkownicy", "Lista użytkowników", "/details_users_list");
             this.AddToDropDawnPos("Użytkownicy", "Dodaj użytkownika", "/add_user_page");
-            this.AddToDropDawnPos("Użytkownicy", "Usuń użytkownika", "/delete_users_list");
-            this.AddToDropDawnPos("Użytkownicy", "Edytuj użytkownika", "/edit_users_list");
             this.Add("Finanse", "#", true);
-           // this.AddToDropDawnPos("Finanse", "Moje finanse", "/menu");
+            this.AddToDropDawnPos("Finanse", "Moje finanse", "/user_payment_page?id=" + id);
             this.AddToDropDawnPos("Finanse", "Finanse użytkowników", "/payment_data_users_list");
             this.AddToDropDawnPos("Finanse", "Dodaj wypłatę", "/add_payment_users_list");
             this.AddToDropDawnPos("Finanse", "Historia wypłat", "/payment_history");
         }
         else{
-            if(uprawnienia.isAdd_user()){
+            if(uprawnienia.isShow_d_data()){
                 if (!this.havePosition(new PozycjaMenu("Użytkownicy", "#", true))) {
-                    this.Add("Użytkownicy", "#", true);
+                    if(uprawnienia.isAdd_user() || uprawnienia.isDel_user() || uprawnienia.isEdit_user()){
+                        this.Add("Użytkownicy", "/details_users_list", true);
+                        if(uprawnienia.isAdd_user())
+                            this.AddToDropDawnPos("Użytkownicy", "Dodaj użytkownika", "/add_user_page");
+                        if(uprawnienia.isDel_user())
+                            this.AddToDropDawnPos("Użytkownicy", "Usuń użytkownika", "/delete_users_list");
+                        if(uprawnienia.isEdit_user())
+                            this.AddToDropDawnPos("Użytkownicy", "Edytuj użytkownika", "/edit_users_list");
+                    }
+                    else
+                    this.Add("Użytkownicy", "/details_users_list");
                 }
                 this.AddToDropDawnPos("Użytkownicy", "Dodawanie", "/add_user_page");
+            }else{
+                if(uprawnienia.isAdd_user() || uprawnienia.isDel_user() || uprawnienia.isEdit_user()){
+                    this.Add("Użytkownicy", "/users_list", true);
+                    if(uprawnienia.isAdd_user())
+                        this.AddToDropDawnPos("Użytkownicy", "Dodaj użytkownika", "/add_user_page");
+                    if(uprawnienia.isDel_user())
+                        this.AddToDropDawnPos("Użytkownicy", "Usuń użytkownika", "/delete_users_list");
+                    if(uprawnienia.isEdit_user())
+                        this.AddToDropDawnPos("Użytkownicy", "Edytuj użytkownika", "/edit_users_list");
+                }else
+                    this.Add("Użytkownicy", "/users_list"); 
             }
-            if(uprawnienia.isDel_user()){
-                //.....?
+            if(uprawnienia.isFinance_management()){
+                this.Add("Finanse", "#", true);
+                this.AddToDropDawnPos("Finanse", "Moje finanse", "/user_payment_page?id=" + id);
+                this.AddToDropDawnPos("Finanse", "Finanse użytkowników", "/payment_data_users_list");
+                this.AddToDropDawnPos("Finanse", "Dodaj wypłatę", "/add_payment_users_list");
+                this.AddToDropDawnPos("Finanse", "Historia wypłat", "/payment_history");
+            }else{
+                this.Add("Moje Finanse", "/user_payment_page?id=" + id);
             }
-            /*if(uprawnienia.isShow_all_users()){
-                // if(!this.havePosition(new PozycjaMenu("Użytkownicy", "#", true))){
-                    this.Add("Użytkownicy", "#", true);
-                // }
-                this.AddToDropDawnPos("Użytkownicy", "Lista", "/adminhome");
-            }*/
+           
+            
         }
     }
 

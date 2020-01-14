@@ -49,8 +49,6 @@
                             </tr>
                             <tr>
                                 <th>Hasło:</th><td><input type="text" name="haslo" size="40" required></td>
-                                <th><input type="submit" class="konto" value="Generuj hasło" style="vertical-align:middle">
-                                </th> 
                             </tr>
                             <tr>
                                 <th>Nickname:</th><td><input type="text" name="nickname" size="40" required></td> 
@@ -98,7 +96,7 @@
                                     <td><input type="checkbox" name="edit_user" value="1"><label for="checkbox">Edytowanie użytkowników</label></td>
                             </tr>
                             <tr>
-                                    <td><input type="checkbox" name="show_all_users" value="1"><label for="checkbox">Wyświetlanie listy użytkowników</label></td>
+                                    <td><input type="checkbox" name="finance_management" value="1"><label for="checkbox">Zarządzanie finansami</label></td>
                             </tr>
                             <tr>
                                     <td><input type="checkbox" name="show_d_data" value="1"><label for="checkbox">Wyświetlanie szczegółowych informacji o użytkownikach</label></td>

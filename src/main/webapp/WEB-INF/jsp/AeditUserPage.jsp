@@ -131,9 +131,9 @@
                                         }><label for="checkbox">Edytowanie użytkowników</label></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="show_all_users" value="1"
-                                        ${user1.getUprawnienia().getShow_all_users()==true ? 'checked="checked"' : ''
-                                        }><label for="checkbox">Wyświetlanie listy użytkowników</label></td>
+                                <td><input type="checkbox" name="finance_management" value="1"
+                                        ${user1.getUprawnienia().getFinance_management()==true ? 'checked="checked"' : ''
+                                        }><label for="checkbox">Zarządzanie finansami</label></td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="show_d_data" value="1"
