@@ -1,0 +1,68 @@
+ALICJA ZABYLSKA, MAREK PAŁDYNA, JULIUSZ STANCZYK
+HR APP - Dokumentacja
+
+
+
+
+
+Spis treści:
+    1. Zadanie aplikacji
+    2. Użyte technologie
+    3. Uruchamianie
+    4. Obsługa aplikacji
+
+
+
+
+
+1.	Zadania aplikacji - Aplikacja HR APP służy do pomocy przy zarządzaniu zasobami ludzkimi w firmie. Program pozwala na 
+    dodawanie/usuwanie nowych pracowników oraz zarządzanie ich danymi. System ma wbudowane również opcje księgowości - 
+    księgowanie wpłat z uwzględnieniem przepracowanego okresu. Aplikacja posiada 5 rodzajów uprawnień które pozwalają na 
+    wyznaczenie pracownikom odpowiednich funkcji.
+
+2.  Użyte języki oraz technologi - Program uruchamiany jest poprzez Visual Studio Code w wersji 1.41.1. Po załadowaniu 
+    programu trzeba również podłączyć go do bazy danych w SQL poprzez aplikację XAMPP w wersji 3.2.4. Elementy programu łączące 
+    bazę danych oraz stronę internetową napisane są w języku Java. Strona napisana jest w języku HTML oraz CSS. 
+
+3.  Uruchamianie - Aplikacje należy załadować do Visual Studio Code. Należy również uruchomić XAMPP'a który musi pozostać
+    włączony przez cały czas działania aplikacji. Bazę danych tworzymy poprzez "create database hrapp" i przeklejenie kodu
+    z pliku 'hrapp.sql'. Program uruchamia się poprzez kliknięcie prawym przyciskiem myszy na plik MajApplication.java
+    i wybraniu opcji „Run”. Aby przejść do aplikacji należy otworzyć przeglądarkę i wpisać „localhost:8080”. Aplikacja 
+    mogłaby być uruchomiona na serwerze i dostępna internetowo lecz ze względów ograniczeń budżetowych wersja demonstracyjna 
+    uruchamiana jest poprzez localhost.
+
+4.  Obsługa aplikacji - panele i widoczne przyciski są zależne od uprawnień
+	Logowanie – ekranem startowym jest logowanie do systemu. Po wpisaniu loginu i hasła przycisk „Zaloguj” przeniesie nas do panelu 
+            głównego aplikacji, zależnie od uprawnień konta.
+    Panel Główny – wyświetla pracowników (imię, nazwisko, email, stanowisko) oraz przyciski w kolejności: 
+            przycisk przenoszący na stronę edycji pracownika (Panel Edycji), przycisk usunięcia pracownika po potwierdzeniu komunikatu, 
+            przycisk przenoszący na stronę z danymi szczegółowymi pracownika (Panel Szczegóły), przycisk przenoszący na stronę z wypłatami 
+            dla danego pracownika (Panel Wyciąg). Pracowników można sortować po wciśnięciu paska nagłówkowego z napisem „Imię”/”Nazwisko”/
+            ”Email”/”Stanowisko”. 
+    Panel Edycji – wyświetla dane wybranego pracownika w polach, które umożliwiają ich zmianę. W polach takich jak np. „Imię” wystarczy 
+            zmienić wpis klikając w obszar edycji. W polach takich jak np. „Data urodzenia” lub „Typ umowy” należy wybrać jedną z opcji
+            dostępnych po kliknięciu w obszar edycji. Po zmienieniu interesujących nas pól należy kliknąć przycisk „Zaktualizuj” 
+            znajdujący się na dole ekranu. Zachowa on zmiany oraz przeniesie do (Panel Szczegóły). Wprowadzona jest kontrola danych 
+            która np. zmusza do wprowadzenia 11 cyfrowego peselu. Bez tego zmiany nie zostaną zachowane.
+    Panel Szczegóły – wyświetla dane wybranego użytkownika. Na dole znajduję się przycisk Edytuj dane, 
+            który przenosi do Panel (Edycji).
+    Panel Dodaj Użytkownika - podobnie jak Panel Edycji, ale z pustymi polami. Po poprawnym wprowadzeniu danych i kliknięciu przycisku
+            Dodaj pracownika pracownik zostanie dodany to bazy danych i będzie widoczny w (Panel Główny).
+    Panel Finanse - Pokazują informacje finansowe zalogowanej osoby oraz historię ostatnich zaksięgowanych wypłat. Przycisk Szczegóły
+            przenosi do (Panel Szczegóły Finanse)
+    Panel Szczegóły Finanse - dla zalogowanego pracownika pokazuje szczegóły rozliczenia takie jak koszty pracodawcy i koszty pracownika 
+            np składki lub ubezpieczenia.
+    Panel Finanse Użytkowników - Podbnie jak (Panel Główny), ale zamiast przycisków jest jeden przycisk przenoszący do (Panel Finanse) 
+            dla wybranego użytkownika.
+    ?Panel Historia Wypłat - Pokazuje wszystkie wypłaty dla zalogowanego użytkownika.
+    Panel Dodaj Wypłate Lista - Podobnie jak (Panel Finanse Użytkowników), ale przycisk przenosi do (Panel Dodaj Wypłate).
+    Panel Dodaj Wypłate - Pozwala dodać wypłate dla wybranego wcześniej pracownika z uwględnieniem okrasu pracy, dni wolnych, nadgodzin
+            i premii. Wartości wprowadzane są liczbami a w przypadku pola z datami należy je wybrać z kalendarza wyświetlonego po 
+            kliknięciu. Po poprawnym uzupełnieniu pól i kliknięciu przycisku Dodaj, wpłata zostanie zaksięgowana w bazie danych oraz 
+            wrócimy do (Panel Dodaj Wypłate Lista).
+    Pasek główny menu - pasek widoczny pod logiem MAJ i miniaturką zdjęcia. Główny pasek nawigacyjny, wygląda inaczej zależnie od 
+            uprawnień, przyciski przenoszą do podstron aplikacji.
+    Miniaturka zdjęcia (prawy górny róg) - po kliknięciu wyświetla przycisk wylogowania oraz przycisk edycji przenoszący użytkownika
+            do (Panel Edycji) własnego profilu.
+
+
