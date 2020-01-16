@@ -22,6 +22,7 @@ function dis_input() {
         $('input[name = "edit_user"]').attr("disabled", true);
         $('input[name = "show_all_users"]').attr("disabled", true);
         $('input[name = "show_d_data"]').attr("disabled", true);
+        $('input[name = "finance_management"]').attr("disabled", true);
     }
     else{
         // alert("Is not checked");
@@ -30,6 +31,7 @@ function dis_input() {
         $('input[name = "edit_user"]').attr("disabled", false);
         $('input[name = "show_all_users"]').attr("disabled", false);
         $('input[name = "show_d_data"]').attr("disabled", false);
+        $('input[name = "finance_management"]').attr("disabled", false);
     }
 }
 

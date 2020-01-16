@@ -195,6 +195,11 @@ public class Security {
         }
     }
 
+    public boolean updateUprawnienia(Uprawnienia uprawnienia){
+        HttpSession session = request.getSession();
+        session.setAttribute("uprawnienia", uprawnienia);
+        return true;
+    }
     /**
      * Funkcja usuwa dane sesji = wylogowanie użytkownika
      */

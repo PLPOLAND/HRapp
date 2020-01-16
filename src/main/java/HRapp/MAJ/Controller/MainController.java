@@ -30,6 +30,7 @@ import HRapp.MAJ.DAO.WyplatyDAO;
 import HRapp.MAJ.Model.User;
 import HRapp.MAJ.Model.Stanowiska;
 import HRapp.MAJ.Model.TypyUmowy;
+import HRapp.MAJ.Model.Uprawnienia;
 import HRapp.MAJ.Model.Wyplaty;
 import HRapp.MAJ.Security.Security;
 
@@ -381,7 +382,17 @@ public class MainController {
 		
 		userdao.editUser(id, imie, nazwisko, nickname, email, nrkonta, typumowy, stanowisko, wyplatabrutto, pesel, dataurodzenia, nrtelefonu, ulica, nrdomu, nrmieszkania, miasto, kodpocztowy); //dodać nrmieszkania
 		uprawnieniadao.editPermission(id, admin, add_user, del_user, edit_user, finance_management, show_d_data);
-
+		if(id == security.getUserID()){
+			Uprawnienia u = new Uprawnienia();
+			u.setID(id);
+			u.setAdmin(admin);
+			u.setAdd_user(add_user >= 1);
+			u.setDel_user(del_user >= 1);
+			u.setEdit_user(edit_user >= 1);
+			u.setFinance_management(finance_management>=1);
+			u.setShow_d_data(show_d_data >= 1);
+			security.updateUprawnienia(u);
+		}
 		if(security.getUserPremissions().isAdmin())
 		return "redirect:/user_profile_page?id=" + id;
 		if(security.getUserPremissions().isShow_d_data())

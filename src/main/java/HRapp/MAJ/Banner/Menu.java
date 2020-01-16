@@ -27,7 +27,6 @@ public class Menu {
         // System.out.println("MENU: " + uprawnienia.toString());//DEBUG
         this.Add("Moje konto", "/user_profile_page?id=" + id);
         if (uprawnienia.isAdmin()) {
-            this.Add("logowanie", "/");
             this.Add("strona admina", "/adminhome");
             //this.Add("Moje konto", "/user_profile_page?id=" + id);
             this.Add("Użytkownicy", "/adminhome", true);
