@@ -68,17 +68,16 @@ public class MainController {
 	public String login(HttpServletRequest request) {
 		Security security = new Security(request, userdao);
 
-		if (security.login()) {
-			if(security.isUserAdmin()) {
-				return "redirect:/adminhome";
-			}
-			HttpSession session = request.getSession();
-			int id = (Integer) session.getAttribute("id");
-
-			return "redirect:/user_profile_page?id=" + id; // zmienić ewentualnie na coś innego
-		} else {
-			return "redirect:/bad_login";
+		if(!security.isLoged())
+			return "redirect:/";	
+		if(security.isUserAdmin()) {
+			return "redirect:/adminhome";
 		}
+		HttpSession session = request.getSession();
+		int id = (Integer) session.getAttribute("id");
+
+		return "redirect:/user_profile_page?id=" + id; // zmienić ewentualnie na coś innego
+
 	}
 	
 
@@ -93,9 +92,9 @@ public class MainController {
 		if(!security.isLoged())
 			return "redirect:/";
 		if (!(security.getUserPremissions().isAdmin())){
-			//return "errorpage";//TODO strona error dla braku uprawnien
-			int id = (Integer)request.getSession().getAttribute("id"); //usunąć jak będzie działać logowanie dla nie-userów
-			return "redirect:/user_profile_page?id=" + id; //usunąć jak będzie działać logowanie dla nie-userów
+			return "errorpage";//TODO strona error dla braku uprawnien
+			// int id = (Integer)request.getSession().getAttribute("id"); //usunąć jak będzie działać logowanie dla nie-userów
+			// return "redirect:/user_profile_page?id=" + id; //usunąć jak będzie działać logowanie dla nie-userów
 		}
 		Menu menu = new Menu(security.getUserPremissions(), request.getSession());
 		List<User> userList = userdao.getAllUsers();
@@ -697,7 +696,7 @@ public class MainController {
 		iloscGodzin += nadgodziny;
 
 		User user1 = userdao.find_user_by_id(id);
-		double wyplata = user1.getWyplataBrutto() * iloscGodzin;
+		double wyplata = user1.getWyplataBrutto() * iloscGodzin + premia;
 
 		LocalDate locDate = null;	
 		String dzis = locDate.now().toString();	

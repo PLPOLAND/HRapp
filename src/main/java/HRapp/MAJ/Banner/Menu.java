@@ -27,7 +27,7 @@ public class Menu {
         // System.out.println("MENU: " + uprawnienia.toString());//DEBUG
         this.Add("Moje konto", "/user_profile_page?id=" + id);
         if (uprawnienia.isAdmin()) {
-            this.Add("strona admina", "/adminhome");
+            // this.Add("strona admina", "/adminhome");
             //this.Add("Moje konto", "/user_profile_page?id=" + id);
             this.Add("Użytkownicy", "/adminhome", true);
             this.AddToDropDawnPos("Użytkownicy", "Dodaj użytkownika", "/add_user_page");
@@ -52,7 +52,6 @@ public class Menu {
                     else
                     this.Add("Użytkownicy", "/details_users_list");
                 }
-                this.AddToDropDawnPos("Użytkownicy", "Dodawanie", "/add_user_page");
             }else{
                 if(uprawnienia.isAdd_user() || uprawnienia.isDel_user() || uprawnienia.isEdit_user()){
                     this.Add("Użytkownicy", "/users_list", true);

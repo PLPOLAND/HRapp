@@ -12,7 +12,7 @@ $(document).ready(function () {
                     
                     var msg = "";
                     if (response == 1) {
-                        window.location = "/adminhome";
+                        window.location = "/login";
                     } else {
                         msg = "Podano błędny login lub hasło"; 
                         $("#err-msg").html(msg);
